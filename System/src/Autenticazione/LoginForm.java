@@ -2,12 +2,17 @@ package Autenticazione;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class LoginForm extends JFrame{
+public class LoginForm extends JFrame implements ActionListener{
     String titolo = "Login";
     int width = 1280;
     int heigth = 720;
-
+    private JTextField username;
+    private JTextField password;
+    private JLabel errore = new JLabel();
+    private JButton accedi;
     public LoginForm(){
         this.setTitle(titolo);
         this.setSize(width, heigth);
@@ -15,6 +20,7 @@ public class LoginForm extends JFrame{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         initItems();
         this.setVisible(true);
+        accedi.addActionListener(this);
     }
 
     private void initItems(){
@@ -31,21 +37,27 @@ public class LoginForm extends JFrame{
 
         //Input Username e password
         JLabel usernamelbl = new JLabel("Username:");
-        JTextField username = new JTextField(20);
+        username = new JTextField(20);
         usernamelbl.setBounds(500, 300, 100, 20);
         username.setBounds(570, 300, 150, 20);
 
         JLabel passwordlbl = new JLabel("Password: ");
-        JTextField password = new JTextField(20);
+        password = new JTextField(20);
         passwordlbl.setBounds(500, 330, 100, 20);
         password.setBounds(570, 330, 150, 20);
 
         //Bottone Accedi
-        JButton accedi = new JButton("Accedi");
+        accedi = new JButton("Accedi");
         accedi.setBackground(Color.LIGHT_GRAY);
         accedi.setOpaque(true);
         accedi.setBounds(570, 360,100,30);
 
+        errore.setText("Username o Password ERRATI");
+        errore.setForeground(Color.red);
+        errore.setBounds(520, 280, 200, 20);
+        errore.setVisible(false);
+
+        panel.add(errore);
         panel.add(usernamelbl);
         panel.add(username);
         panel.add(password);
@@ -54,8 +66,13 @@ public class LoginForm extends JFrame{
         container.add(panel);
     }
 
+    public JButton getAccedi(){return accedi;}
+    public JLabel getErrore(){return errore;}
+    public JTextField getUsername(){return username;}
+    public JTextField getPassword(){return password;}
 
-
-
-
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        LoginControl.sendCredentials(username.getText(), password.getText());
+    }
 }

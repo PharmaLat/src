@@ -1,39 +1,27 @@
 package Autenticazione;
-
 public class Utente {
-    private String nome;
-    private String cognome;
-    private String ruolo;
+    private static String nome;
+    private static String cognome;
+    private static String ruolo;
+    private static int ID_Farmacia;
 
-    public Utente(String nome, String cognome, String ruolo) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.ruolo = ruolo;
+    public static void UtenteImpiegato(String nome1, String cognome1, String ruolo1) {
+        nome = nome1;
+        cognome = cognome1;
+        ruolo = ruolo1;
+    }
+
+    public static void Utentefarmacista(String nome1, String cognome1, String ruolo1, int id_farm) {
+        nome = nome1;
+        cognome = cognome1;
+        ruolo = ruolo1;
+        ID_Farmacia=id_farm;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-
-    public String getRuolo() {
-        return ruolo;
-    }
-
-    public void setRuolo(String ruolo) {
-        this.ruolo = ruolo;
-    }
 
 
 

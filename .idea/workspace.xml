@@ -38,7 +38,8 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -78,7 +79,10 @@
       <option name="presentableId" value="Default" />
       <updated>1654531683562</updated>
       <workItem from="1654531700908" duration="6202000" />
-      <workItem from="1654599843531" duration="16640000" />
+      <workItem from="1654599843531" duration="19113000" />
+      <workItem from="1654719192861" duration="3299000" />
+      <workItem from="1654761641210" duration="8289000" />
+      <workItem from="1654778834787" duration="13055000" />
     </task>
     <servers />
   </component>
