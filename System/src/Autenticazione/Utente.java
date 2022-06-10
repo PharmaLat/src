@@ -22,7 +22,7 @@ public class Utente {
         return nome;
     }
 
-
+    public static String getRuolo(){return ruolo;}
 
 
 }

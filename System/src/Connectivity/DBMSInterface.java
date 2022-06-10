@@ -30,7 +30,7 @@ public class DBMSInterface {
                 } while (results.next());
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
@@ -54,7 +54,7 @@ public class DBMSInterface {
                 } while (results.next());
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;

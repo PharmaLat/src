@@ -18,6 +18,7 @@ public class LoginControl {
                 Utente.Utentefarmacista(datiUtente[0], datiUtente[1], datiUtente[2], Integer.parseInt(datiUtente[3]));
                 SchermataPrincipale s = new SchermataPrincipale();
                 login.setVisible(false);
+                logged = true;
             }
         } else if (username.endsWith(".imp")) {
             if (!DBMSInterface.checkCredentialsAzienda(username, password)){
@@ -26,6 +27,8 @@ public class LoginControl {
                 Utente.UtenteImpiegato(datiUtente[0], datiUtente[1], datiUtente[2]);
                 SchermataPrincipale s = new SchermataPrincipale();
                 login.setVisible(false);
+                logged = true;
+                System.out.println("Sono loggato");
             }
         }else{
             login.getErrore().setVisible(true);

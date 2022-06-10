@@ -10,7 +10,7 @@ public class LoginForm extends JFrame implements ActionListener{
     int width = 1280;
     int heigth = 720;
     private JTextField username;
-    private JTextField password;
+    private JPasswordField password;
     private JLabel errore = new JLabel();
     private JButton accedi;
     public LoginForm(){
@@ -42,7 +42,7 @@ public class LoginForm extends JFrame implements ActionListener{
         username.setBounds(570, 300, 150, 20);
 
         JLabel passwordlbl = new JLabel("Password: ");
-        password = new JTextField(20);
+        password = new JPasswordField(20);
         passwordlbl.setBounds(500, 330, 100, 20);
         password.setBounds(570, 330, 150, 20);
 
