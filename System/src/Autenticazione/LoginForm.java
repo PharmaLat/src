@@ -5,7 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginForm extends JFrame implements ActionListener{
+public class LoginForm extends JFrame{
+
     String titolo = "Login";
     int width = 1280;
     int heigth = 720;
@@ -20,7 +21,6 @@ public class LoginForm extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         initItems();
         this.setVisible(true);
-        accedi.addActionListener(this);
     }
 
     private void initItems(){
@@ -71,8 +71,5 @@ public class LoginForm extends JFrame implements ActionListener{
     public JTextField getUsername(){return username;}
     public JTextField getPassword(){return password;}
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        LoginControl.sendCredentials(username.getText(), password.getText());
-    }
+
 }

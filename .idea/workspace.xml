@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f74075f-be27-44cf-80d0-832804b61f6f" name="Changes" comment="" />
+    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,32 +23,32 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2AD6Aiefl4VUhrE8F9wVCqUdAnY" />
+  <component name="ProjectId" id="2Ac6NVbi7HqGBa3AQS00D7DO9ng" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "16",
-    "last_directory_selection": "E:/GitProj/CedroIDS/Connectivity/src",
-    "last_opened_file_path": "E:/GitProj/CedroIDS/System/src/Main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.editor"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;16&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/JavaProj/IDS2/System/src/Connectivity&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\GitProj\CedroIDS\System\imgs" />
-      <recent name="E:\GitProj\CedroIDS\System\lib" />
-      <recent name="E:\GitProj\CedroIDS\System" />
-      <recent name="E:\GitProj\CedroIDS\lib" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\JavaProj\IDS2\System\src\Connectivity" />
+      <recent name="E:\JavaProj\IDS2\System\lib" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Autenticazione" />
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager">
@@ -74,18 +74,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4f74075f-be27-44cf-80d0-832804b61f6f" name="Changes" comment="" />
-      <created>1654531683562</created>
+      <changelist id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="" />
+      <created>1655296488662</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1654531683562</updated>
-      <workItem from="1654531700908" duration="6202000" />
-      <workItem from="1654599843531" duration="19113000" />
-      <workItem from="1654719192861" duration="3299000" />
-      <workItem from="1654761641210" duration="8289000" />
-      <workItem from="1654778834787" duration="14948000" />
-      <workItem from="1654863603265" duration="3018000" />
-      <workItem from="1654871769257" duration="7121000" />
+      <updated>1655296488662</updated>
+      <workItem from="1655296490589" duration="206000" />
+      <workItem from="1655302079278" duration="11008000" />
+      <workItem from="1655313628556" duration="1001000" />
     </task>
     <servers />
   </component>

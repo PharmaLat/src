@@ -1,28 +1,60 @@
 package Autenticazione;
+
 public class Utente {
-    private static String nome;
-    private static String cognome;
-    private static String ruolo;
-    private static int ID_Farmacia;
 
-    public static void UtenteImpiegato(String nome1, String cognome1, String ruolo1) {
-        nome = nome1;
-        cognome = cognome1;
-        ruolo = ruolo1;
-    }
+    private String nome;
+    private String cognome;
+    private String ruolo;
+    private int ID_Farmacia;
 
-    public static void Utentefarmacista(String nome1, String cognome1, String ruolo1, int id_farm) {
-        nome = nome1;
-        cognome = cognome1;
-        ruolo = ruolo1;
-        ID_Farmacia=id_farm;
-    }
+    private String nomeFarmacia;
+    private String indirizzoFarmacia;
 
     public String getNome() {
         return nome;
     }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getCognome() {
+        return cognome;
+    }
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+    public String getRuolo() {
+        return ruolo;
+    }
+    public void setRuolo(String ruolo) {
+        this.ruolo = ruolo;
+    }
+    public int getID_Farmacia() {
+        return ID_Farmacia;
+    }
+    public void setID_Farmacia(int ID_Farmacia) {
+        this.ID_Farmacia = ID_Farmacia;
+    }
 
-    public static String getRuolo(){return ruolo;}
+    public String getNomeFarmacia() {
+        return nomeFarmacia;
+    }
+    public void setNomeFarmacia(String nomeFarmacia) {
+        this.nomeFarmacia = nomeFarmacia;
+    }
+    public String getIndirizzoFarmacia() {
+        return indirizzoFarmacia;
+    }
+    public void setIndirizzoFarmacia(String indirizzoFarmacia) {
+        this.indirizzoFarmacia = indirizzoFarmacia;
+    }
 
+    public void cancellaDati(){
+        this.setNome("");
+        this.setCognome("");
+        this.setRuolo("");
+        this.setID_Farmacia(999999);
+        this.setIndirizzoFarmacia("");
+        this.setNomeFarmacia("");
+    }
 
 }
