@@ -21,21 +21,23 @@ public class SchermataPrincipale extends JFrame {
     }
 
     JLabel gestioneOrdini = new JLabel("Gestione Ordini", JLabel.CENTER);
-    JButton ordinaFarmaci;
-    JButton visOrdiniPeriodici;
-    JButton visOrdini;
+    JButton ordinaFarmaci = new JButton("Ordina Farmaci");
+    JButton visOrdiniPeriodici = new JButton("Visualizza Ordini Periodici");
+    JButton visOrdini = new JButton("Visualizza Ordini");
 
     JLabel gestioneMagazzino = new JLabel("Gestione Magazzino", JLabel.CENTER);
-    JButton caricaFarmaci;
-    JButton scaricaFarmaci;
-    JButton visInventario;
+    JButton caricaFarmaci = new JButton("Carica farmaci");
+    JButton scaricaFarmaci = new JButton("Scarica farmaci");
+
+    JButton visInventario = new JButton("Visualizza Inventario");
+
 
     JLabel gestioneConsegne = new JLabel("Gestione Consegne", JLabel.CENTER);
-    JButton visConsegne;
+    JButton visConsegne = new JButton("Visualizza Consegne");
 
     JLabel gestioneSegnalazioni = new JLabel("Gestione Segnalazioni", JLabel.CENTER);
-    JButton avviaSegnalazione;
-    JButton visualizzaSegnalazioni;
+    JButton avviaSegnalazione = new JButton("Avvia Segnalazione");
+    JButton visualizzaSegnalazioni = new JButton("Visualizza Segnalazioni");
 
     JButton logout = new JButton("Logout");
     JButton notifiche = new JButton("Notifiche");
@@ -105,10 +107,10 @@ public class SchermataPrincipale extends JFrame {
     }
 
     private void initGstOrdini(JPanel g){
-        ordinaFarmaci = new JButton("Ordina Farmaci");
+
         ordinaFarmaci.setActionCommand("ordina");
-        visOrdiniPeriodici = new JButton("Visualizza Ordini Periodici");
-        visOrdini = new JButton("Visualizza Ordini");
+
+
         g.add(gestioneOrdini);
         g.add(ordinaFarmaci);
         g.add(visOrdiniPeriodici);
@@ -116,9 +118,7 @@ public class SchermataPrincipale extends JFrame {
     }
 
     private void initGstMagazzino(JPanel g){
-        caricaFarmaci = new JButton("Carica farmaci");
-        scaricaFarmaci = new JButton("Scarica farmaci");
-        visInventario = new JButton("Visualizza Inventario");
+
         g.add(gestioneMagazzino);
         g.add(caricaFarmaci);
         g.add(scaricaFarmaci);
@@ -126,14 +126,14 @@ public class SchermataPrincipale extends JFrame {
     }
 
     private void initGstConsegne(JPanel g){
-        visConsegne = new JButton("Visualizza Consegne");
+
         g.add(gestioneConsegne);
         g.add(visConsegne);
     }
 
     private void initGstSegnalazioni(JPanel g){
-        avviaSegnalazione = new JButton("Avvia Segnalazione");
-        visualizzaSegnalazioni = new JButton("Visualizza Segnalazioni");
+
+
         g.add(gestioneSegnalazioni);
         g.add(avviaSegnalazione);
         g.add(visualizzaSegnalazioni);
@@ -148,4 +148,39 @@ public class SchermataPrincipale extends JFrame {
         return cont;
     }
 
+    public JButton getOrdinaFarmaci() {
+        return ordinaFarmaci;
+    }
+
+    public JButton getVisOrdiniPeriodici() {
+        return visOrdiniPeriodici;
+    }
+
+    public JButton getVisOrdini() {
+        return visOrdini;
+    }
+
+    public JButton getCaricaFarmaci() {
+        return caricaFarmaci;
+    }
+
+    public JButton getScaricaFarmaci() {
+        return scaricaFarmaci;
+    }
+
+    public JButton getVisInventario() {
+        return visInventario;
+    }
+
+    public JButton getAvviaSegnalazione() {
+        return avviaSegnalazione;
+    }
+
+    public JButton getVisualizzaSegnalazioni() {
+        return visualizzaSegnalazioni;
+    }
+
+    public JButton getNotifiche() {
+        return notifiche;
+    }
 }

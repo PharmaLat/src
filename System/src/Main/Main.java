@@ -3,6 +3,7 @@ package Main;
 import Autenticazione.LoginControl;
 import Autenticazione.Utente;
 import Connectivity.DBMSInterface;
+import GestioneMagazzino.VisInventarioControl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,7 @@ public class Main {
 		Utente utente = new Utente();
 		SchermataPrincipale s = new SchermataPrincipale();
 		LoginControl lc = new LoginControl(s, utente, db);
-
+		VisInventarioControl vic = new VisInventarioControl(s, utente, db);
 		Container c = s.getContainerPane();
 
 		JPanel panel = new JPanel(new FlowLayout());

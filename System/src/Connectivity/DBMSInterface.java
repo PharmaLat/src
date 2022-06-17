@@ -1,10 +1,14 @@
 package Connectivity;
 
 import Autenticazione.LoginControl;
+import GestioneMagazzino.Farmaco;
+
+import javax.swing.table.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DBMSInterface {
     ConnectionClass connClass = new ConnectionClass();
@@ -43,6 +47,32 @@ public class DBMSInterface {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public ArrayList<Farmaco> getInventario(int ID_FARM){
+        Statement st;
+        ResultSet res;
+        String query = "SELECT * FROM farmaco WHERE ID_FARM = "+ID_FARM+";";
+        ArrayList<Farmaco> farmaci = new ArrayList<>();
+        try {
+            st=connFarmacia.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return null;
+            }else {
+
+                do {
+                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio Attivo"), res.getString("Scadenza"), res.getInt("Da Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                    farmaci.add(f);
+                }while(res.next());
+
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return farmaci;
     }
 
 }
