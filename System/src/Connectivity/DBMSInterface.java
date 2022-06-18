@@ -63,7 +63,7 @@ public class DBMSInterface {
             }else {
 
                 do {
-                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio Attivo"), res.getString("Scadenza"), res.getInt("Da Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
                     farmaci.add(f);
                 }while(res.next());
 
@@ -78,7 +78,7 @@ public class DBMSInterface {
         ArrayList<Farmaco> farmaci = new ArrayList<>();
         Statement st;
         ResultSet res;
-        String prAtt = "[Principio Attivo] LIKE '%"+parola+"%'";
+        String prAtt = "Principio_Attivo LIKE '%"+parola+"%'";
         String nome = "Nome_F LIKE '%"+parola+"%'";
         String query = "SELECT * FROM farmaco WHERE ID_FARM = "+ID_FARM+ " AND "+ (filtro==0 ? nome:prAtt);
         System.out.println(query);
@@ -89,7 +89,7 @@ public class DBMSInterface {
                 return null;
             }else {
                 do {
-                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio Attivo"), res.getString("Scadenza"), res.getInt("Da Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
                     farmaci.add(f);
                 }while(res.next());
             }

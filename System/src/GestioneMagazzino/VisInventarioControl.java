@@ -62,6 +62,7 @@ public class VisInventarioControl {
         ActionListener cercaLstnr = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                errore.setVisible(false);
                 ArrayList<Farmaco> farmaci;
                 System.out.println("Cliccato cerca");
                 if (!cerca.getText().equals("")){
@@ -70,7 +71,7 @@ public class VisInventarioControl {
                     } else{
                         farmaci = db.getRicerca(u.getID_Farmacia(), 1, parola.getText());
                     }
-                    if (!farmaci.isEmpty() || farmaci == null){
+                    if (farmaci != null){
                         DefaultTableModel model = (DefaultTableModel) inventario.getTabella().getModel();
                         model.setRowCount(0);
                         String[] colonne = {"Nome", "Principio Attivo", "Scadenza", "Da Banco", "Quantità"};
