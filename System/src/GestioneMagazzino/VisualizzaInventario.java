@@ -11,9 +11,9 @@ public class VisualizzaInventario extends JFrame {
     private JRadioButton perNomeRadioButton;
     private JRadioButton perPrincipioAttivoRadioButton;
     private JButton cercaButton;
-    JTable tabella;
+    private JTable tabella;
     private Container cont = this.getContentPane();
-
+    private JLabel errore = new JLabel("Nessun elemento trovato");
 
     public VisualizzaInventario() {
         this.setTitle("Inventario");
@@ -38,17 +38,24 @@ public class VisualizzaInventario extends JFrame {
         campoRicerca.setColumns(10);
         panel2.add(campoRicerca);
 
-        perNomeRadioButton = new JRadioButton();
-        perNomeRadioButton.setText("per nome");
+        perNomeRadioButton = new JRadioButton("Per nome", true);
         panel2.add(perNomeRadioButton);
 
-        perPrincipioAttivoRadioButton = new JRadioButton();
-        perPrincipioAttivoRadioButton.setText("per principio attivo");
+        perPrincipioAttivoRadioButton = new JRadioButton("Per principio attivo");
         panel2.add(perPrincipioAttivoRadioButton);
+
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(perNomeRadioButton);
+        bg.add(perPrincipioAttivoRadioButton);
 
         cercaButton = new JButton();
         cercaButton.setText("Cerca");
         panel2.add(cercaButton);
+
+
+        errore.setForeground(Color.red);
+        errore.setVisible(false);
+        panel2.add(errore);
 
         tabella = new JTable();
         tabella.setShowGrid(true);
@@ -87,7 +94,7 @@ public class VisualizzaInventario extends JFrame {
         return cercaButton;
     }
 
-
+    public JLabel getErrore(){return errore;}
 
 }
 

@@ -22,16 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Main/SchermataPrincipale.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/SchermataPrincipale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Main/SchermataPrincipale.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Main/SchermataPrincipale.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/com/intellij/uiDesigner/core/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
-    </list>
+    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,19 +50,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propGUI" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\JavaProj\IDS2\System\src\Connectivity" />
@@ -83,6 +75,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="System" />
@@ -92,17 +95,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,6 +117,7 @@
       <workItem from="1655302079278" duration="11008000" />
       <workItem from="1655313628556" duration="1001000" />
       <workItem from="1655451986898" duration="17038000" />
+      <workItem from="1655542742595" duration="9040000" />
     </task>
     <servers />
   </component>
@@ -141,43 +134,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="344" y="153" key="#Getter_Template" timestamp="1655475056301">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="344" y="153" key="#Getter_Template/0.0.1500.952@0.0.1500.952" timestamp="1655475056301" />
-    <state x="556" y="177" key="#com.intellij.ide.util.MemberChooser" timestamp="1655478795430">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="556" y="177" key="#com.intellij.ide.util.MemberChooser/0.0.1500.952@0.0.1500.952" timestamp="1655478795430" />
-    <state x="481" y="223" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1655457702435">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="481" y="223" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1500.952@0.0.1500.952" timestamp="1655457702435" />
-    <state width="1458" height="253" key="GridCell.Tab.0.bottom" timestamp="1655478752803">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state width="1458" height="253" key="GridCell.Tab.0.bottom/0.0.1500.952@0.0.1500.952" timestamp="1655478752803" />
-    <state width="1458" height="253" key="GridCell.Tab.0.center" timestamp="1655478752803">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state width="1458" height="253" key="GridCell.Tab.0.center/0.0.1500.952@0.0.1500.952" timestamp="1655478752803" />
-    <state width="1458" height="253" key="GridCell.Tab.0.left" timestamp="1655478752803">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state width="1458" height="253" key="GridCell.Tab.0.left/0.0.1500.952@0.0.1500.952" timestamp="1655478752803" />
-    <state width="1458" height="253" key="GridCell.Tab.0.right" timestamp="1655478752803">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state width="1458" height="253" key="GridCell.Tab.0.right/0.0.1500.952@0.0.1500.952" timestamp="1655478752803" />
-    <state x="252" y="121" key="SettingsEditor" timestamp="1655455850394">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="252" y="121" key="SettingsEditor/0.0.1500.952@0.0.1500.952" timestamp="1655455850394" />
-    <state x="414" y="205" width="672" height="678" key="search.everywhere.popup" timestamp="1655476751886">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="414" y="205" width="672" height="678" key="search.everywhere.popup/0.0.1500.952@0.0.1500.952" timestamp="1655476751886" />
   </component>
 </project>

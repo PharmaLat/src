@@ -5,6 +5,7 @@ import GestioneMagazzino.Farmaco;
 
 import javax.swing.table.*;
 
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -67,11 +68,35 @@ public class DBMSInterface {
                 }while(res.next());
 
             }
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
+        return farmaci;
+    }
+
+    public ArrayList<Farmaco> getRicerca(int ID_FARM, int filtro, String parola){
+        ArrayList<Farmaco> farmaci = new ArrayList<>();
+        Statement st;
+        ResultSet res;
+        String prAtt = "[Principio Attivo] LIKE '%"+parola+"%'";
+        String nome = "Nome_F LIKE '%"+parola+"%'";
+        String query = "SELECT * FROM farmaco WHERE ID_FARM = "+ID_FARM+ " AND "+ (filtro==0 ? nome:prAtt);
+        System.out.println(query);
+        try {
+            st=connFarmacia.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return null;
+            }else {
+                do {
+                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio Attivo"), res.getString("Scadenza"), res.getInt("Da Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                    farmaci.add(f);
+                }while(res.next());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         return farmaci;
     }
 
