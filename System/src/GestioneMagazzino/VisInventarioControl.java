@@ -35,17 +35,7 @@ public class VisInventarioControl {
                 farmaci = db.getInventario(u.getID_Farmacia());
                 //System.out.println("dim: "+farmaci.size());
                 DefaultTableModel model = (DefaultTableModel) inventario.getTabella().getModel();
-                String[] colonne = {"Nome", "Principio Attivo", "Scadenza", "Da Banco", "Quantità"};
-                model.setColumnIdentifiers(colonne);
-                String[] riga = new String[5];
-                for (int i = 0; i < farmaci.size(); i++) {
-                    riga[0] = farmaci.get(i).getNome();
-                    riga[1] = farmaci.get(i).getPrincipioAttivo();
-                    riga[2] = farmaci.get(i).getData();
-                    riga[3] = farmaci.get(i).getDaBanco();
-                    riga[4] = farmaci.get(i).getQuantità()+"";
-                    model.addRow(riga);
-                }
+                mostraTabella(farmaci, model);
                 ricerca();
             }
         };
@@ -74,23 +64,26 @@ public class VisInventarioControl {
                     if (farmaci != null){
                         DefaultTableModel model = (DefaultTableModel) inventario.getTabella().getModel();
                         model.setRowCount(0);
-                        String[] colonne = {"Nome", "Principio Attivo", "Scadenza", "Da Banco", "Quantità"};
-                        model.setColumnIdentifiers(colonne);
-                        String[] riga = new String[5];
-                        for (int i = 0; i < farmaci.size(); i++) {
-                            riga[0] = farmaci.get(i).getNome();
-                            riga[1] = farmaci.get(i).getPrincipioAttivo();
-                            riga[2] = farmaci.get(i).getData();
-                            riga[3] = farmaci.get(i).getDaBanco();
-                            riga[4] = farmaci.get(i).getQuantità()+"";
-                            model.addRow(riga);
-                        }
+                        mostraTabella(farmaci, model);
                     }else errore.setVisible(true);
 
                 }
             }
         };
         cerca.addActionListener(cercaLstnr);
+    }
+    private void mostraTabella(ArrayList<Farmaco> farmaci, DefaultTableModel model) {
+        String[] colonne = {"Nome", "Principio Attivo", "Scadenza", "Da Banco", "Quantità"};
+        model.setColumnIdentifiers(colonne);
+        String[] riga = new String[5];
+        for (int i = 0; i < farmaci.size(); i++) {
+            riga[0] = farmaci.get(i).getNome();
+            riga[1] = farmaci.get(i).getPrincipioAttivo();
+            riga[2] = farmaci.get(i).getData();
+            riga[3] = farmaci.get(i).getDaBanco();
+            riga[4] = farmaci.get(i).getQuantità()+"";
+            model.addRow(riga);
+        }
     }
 
 }

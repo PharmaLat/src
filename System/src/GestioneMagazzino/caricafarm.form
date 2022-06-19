@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GestioneMagazzino.caricafarm">
+  <grid id="27dc6" binding="framePnl" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="767" height="411"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="9922b" binding="mainPnl" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <enabled value="true"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="783d4" class="javax.swing.JLabel" binding="nomeLbl">
+            <constraints/>
+            <properties>
+              <text value="Nome"/>
+            </properties>
+          </component>
+          <component id="ba761" class="javax.swing.JTextField" binding="nomeF">
+            <constraints/>
+            <properties>
+              <columns value="25"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="167a" class="javax.swing.JLabel" binding="qtaLbl">
+            <constraints/>
+            <properties>
+              <text value="Quantità"/>
+            </properties>
+          </component>
+          <component id="56f65" class="javax.swing.JTextField" binding="qta">
+            <constraints/>
+            <properties>
+              <columns value="5"/>
+            </properties>
+          </component>
+          <component id="7c742" class="javax.swing.JLabel" binding="scadenzaLbl">
+            <constraints/>
+            <properties>
+              <text value="Scadenza"/>
+            </properties>
+          </component>
+          <component id="cef14" class="javax.swing.JTextField" binding="scadenza">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </grid>
+      <grid id="d289" binding="headerPnl" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="c9ccd" binding="notifichePnl" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="d44a2" class="javax.swing.JButton" binding="notificheButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Notifiche"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="9e2e0" binding="farmaciaPnl" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="18730" class="javax.swing.JLabel" binding="farmaciaLbl">
+                <constraints/>
+                <properties>
+                  <text value="Farmacia"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="cb8e8" binding="LogoutPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="2">
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="a173a" class="javax.swing.JButton" binding="logoutButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Logout"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

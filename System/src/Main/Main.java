@@ -3,6 +3,7 @@ package Main;
 import Autenticazione.LoginControl;
 import Autenticazione.Utente;
 import Connectivity.DBMSInterface;
+import GestioneMagazzino.CaricafarmaciControl;
 import GestioneMagazzino.VisInventarioControl;
 
 import javax.swing.*;
@@ -15,6 +16,11 @@ public class Main {
 		SchermataPrincipale s = new SchermataPrincipale();
 		LoginControl lc = new LoginControl(s, utente, db);
 		VisInventarioControl vic = new VisInventarioControl(s, utente, db);
+		CaricafarmaciControl cfc = new CaricafarmaciControl(utente, s, db);
+
+
+
+		/**     cose che vedo se rimane tempo
 		Container c = s.getContainerPane();
 
 		JPanel panel = new JPanel(new FlowLayout());
@@ -27,7 +33,7 @@ public class Main {
 		panel.add(d);
 
 		c.add(panel);
-
+		**/
 
 	}
 }

@@ -6,9 +6,7 @@ import GestioneMagazzino.Farmaco;
 import javax.swing.table.*;
 
 import java.awt.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DBMSInterface {
@@ -98,6 +96,36 @@ public class DBMSInterface {
         }
 
         return farmaci;
+    }
+
+    public ArrayList<Farmaco> getFarmaciAcquistabili(){
+        ArrayList<Farmaco> farmaci = new ArrayList<>();
+        Statement st;
+        ResultSet res;
+        String query = "Select * FROM farmaco";
+        try {
+            st = connAzienda.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return null;
+            }else {
+                do {
+                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                    farmaci.add(f);
+                }while(res.next());
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return farmaci;
+    }
+
+    public void inserisciFarmacoFarmacia(Farmaco f){
+        Statement st;
+        ResultSet res;
+        String query = "INSERT INTO farmaco (Nome_F, Principio_Attivo, Scadenza, Da_Banco, Quantità) VALUES ('"+f.getNome()+"', '"+f.getPrincipioAttivo()+"', '"+f.getData()+"', "+(f.getDaBanco().equals("Si")?1:0)+", "+f.getQuantità()+");";
+        System.out.println(query);
     }
 
 }
