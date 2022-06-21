@@ -7,6 +7,7 @@ import GestioneMagazzino.CaricafarmaciControl;
 import GestioneMagazzino.ScaricaFarmaci;
 import GestioneMagazzino.ScaricafarmaciControl;
 import GestioneMagazzino.VisInventarioControl;
+import GestioneSegnalazioni.AvviaSegnalazioneControl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +21,7 @@ public class Main {
 		VisInventarioControl vic = new VisInventarioControl(s, utente, db);
 		CaricafarmaciControl cfc = new CaricafarmaciControl(utente, s, db);
 		ScaricafarmaciControl sfc = new ScaricafarmaciControl(s, utente, db);
-
+		AvviaSegnalazioneControl asc = new AvviaSegnalazioneControl(s, utente, db);
 
 		/**     cose che vedo se rimane tempo
 		Container c = s.getContainerPane();
