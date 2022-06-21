@@ -1,11 +1,8 @@
 package Connectivity;
 
-import Autenticazione.LoginControl;
 import GestioneMagazzino.Farmaco;
 
-import javax.swing.table.*;
-
-import java.awt.*;
+import javax.xml.stream.events.StartDocument;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -62,6 +59,7 @@ public class DBMSInterface {
 
                 do {
                     Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                    f.setID(res.getInt("ID_F"));
                     farmaci.add(f);
                 }while(res.next());
 
@@ -121,11 +119,58 @@ public class DBMSInterface {
         return farmaci;
     }
 
-    public void inserisciFarmacoFarmacia(Farmaco f){
+    public void inserisciFarmacoFarmacia(Farmaco f, int id_farm){
         Statement st;
         ResultSet res;
-        String query = "INSERT INTO farmaco (Nome_F, Principio_Attivo, Scadenza, Da_Banco, Quantità) VALUES ('"+f.getNome()+"', '"+f.getPrincipioAttivo()+"', '"+f.getData()+"', "+(f.getDaBanco().equals("Si")?1:0)+", "+f.getQuantità()+");";
+        String query = "INSERT INTO farmaco (Nome_F, Principio_Attivo, Scadenza, Da_Banco, Quantità, ID_FARM) VALUES ('"+f.getNome()+"', '"+f.getPrincipioAttivo()+"', '"+f.getData()+"', "+(f.getDaBanco().equals("Si")?1:0)+", "+f.getQuantità()+", "+ id_farm +");";
         System.out.println(query);
+        try {
+            st = connFarmacia.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
+    public ArrayList<Farmaco> getfarmaciMagazzino() {
+        ArrayList<Farmaco> farmaci = new ArrayList<>();
+        Statement st;
+        ResultSet res;
+        String query = "Select * FROM farmaco";
+        try {
+            st = connFarmacia.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return null;
+            }else {
+                do {
+                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                    f.setID(res.getInt("ID_F"));
+                    farmaci.add(f);
+                }while(res.next());
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return farmaci;
+    }
+
+    public void scaricaFarmaci(int qtaint, Farmaco farmaco) {
+        Statement st;
+        int newQta = farmaco.getQuantità()-qtaint;
+        String query;
+        if (newQta == 0){
+            query= "DELETE FROM farmaco WHERE ID_F = "+farmaco.getID()+";";
+        }else query = "UPDATE farmaco SET Quantità = "+newQta+" WHERE ID_F = "+farmaco.getID()+";";
+        System.out.println(query);
+
+        try {
+            st = connFarmacia.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

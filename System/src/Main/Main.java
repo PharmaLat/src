@@ -4,6 +4,8 @@ import Autenticazione.LoginControl;
 import Autenticazione.Utente;
 import Connectivity.DBMSInterface;
 import GestioneMagazzino.CaricafarmaciControl;
+import GestioneMagazzino.ScaricaFarmaci;
+import GestioneMagazzino.ScaricafarmaciControl;
 import GestioneMagazzino.VisInventarioControl;
 
 import javax.swing.*;
@@ -17,7 +19,7 @@ public class Main {
 		LoginControl lc = new LoginControl(s, utente, db);
 		VisInventarioControl vic = new VisInventarioControl(s, utente, db);
 		CaricafarmaciControl cfc = new CaricafarmaciControl(utente, s, db);
-
+		ScaricafarmaciControl sfc = new ScaricafarmaciControl(s, utente, db);
 
 
 		/**     cose che vedo se rimane tempo

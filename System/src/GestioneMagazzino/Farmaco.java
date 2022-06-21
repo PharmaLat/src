@@ -6,7 +6,7 @@ public class Farmaco {
     private String data;
     private String daBanco;
     private int quantità;
-
+    private int ID;
     public Farmaco(String nome, String principioAttivo, String data, String daBanco, int quantità) {
         this.nome = nome;
         this.principioAttivo = principioAttivo;
@@ -55,6 +55,12 @@ public class Farmaco {
         this.quantità = quantità;
     }
 
+    public int getID() {
+        return ID;
+    }
+    public void setID(int ID) {
+        this.ID = ID;
+    }
     @Override
     public String toString() {
         return "Farmaco{" +
@@ -63,6 +69,7 @@ public class Farmaco {
                 ", data='" + data + '\'' +
                 ", daBanco='" + daBanco + '\'' +
                 ", quantità=" + quantità +
+                ", ID="+ID+
                 '}';
     }
 }

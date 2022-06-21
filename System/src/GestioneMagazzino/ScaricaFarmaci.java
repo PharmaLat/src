@@ -2,21 +2,17 @@ package GestioneMagazzino;
 
 import javax.swing.*;
 import java.awt.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
-public class CaricaFarmaci extends JFrame {
+public class ScaricaFarmaci extends JFrame{
 
 	private int height = 720;
 	private int width = 1280;
 
 	private JPanel framePnl;
-	private JTextField nomeF;
+	private JComboBox nomeF;
 	private JTextField qta;
-	private JTextField scadenza;
 	private JLabel qtaLbl;
 	private JLabel nomeLbl;
-	private JLabel scadenzaLbl;
 	private JButton notificheButton;
 	private JButton logoutButton;
 	private JPanel headerPnl;
@@ -25,23 +21,23 @@ public class CaricaFarmaci extends JFrame {
 	private JLabel farmaciaLbl;
 	private JPanel LogoutPanel;
 	private JPanel mainPnl;
-	private JButton carica;
+	private JButton scarica;
 	private JLabel erroreNome;
-	private JLabel erroreData;
+	private JLabel erroreQta;
 	private JLabel erroreCampo;
 	private JLabel caricoRiuscito;
 	private Container cont = this.getContentPane();
 
-	public CaricaFarmaci(){
+	public ScaricaFarmaci(String[] farmaci){
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setSize(width, height);
 		this.setResizable(false);
-		this.setTitle("Carico Farmaci");
+		this.setTitle("Scarico Farmaci");
 		this.setVisible(true);
-		initItems();
+		initItems(farmaci);
 	}
 
-	private void initItems(){
+	private void initItems(String[] farmaci){
 		framePnl = new JPanel();
 		framePnl.setLayout(null);
 
@@ -77,9 +73,7 @@ public class CaricaFarmaci extends JFrame {
 		nomeLbl = new JLabel();
 		nomeLbl.setText("Nome");
 		mainPnl.add(nomeLbl);
-		nomeF = new JTextField();
-		nomeF.setColumns(25);
-		nomeF.setText("");
+		nomeF = new JComboBox(farmaci);
 		mainPnl.add(nomeF);
 		qtaLbl = new JLabel();
 		qtaLbl.setText("Quantità");
@@ -87,17 +81,10 @@ public class CaricaFarmaci extends JFrame {
 		qta = new JTextField();
 		qta.setColumns(5);
 		mainPnl.add(qta);
-		scadenzaLbl = new JLabel();
-		scadenzaLbl.setText("Scadenza (yyyy-mm)");
-		mainPnl.add(scadenzaLbl);
-		scadenza = new JTextField();
-		scadenza.setColumns(10);
 
-		mainPnl.add(scadenza);
-
-		carica = new JButton("Conferma carico");
-		carica.setBounds(1100, 600, 150, 25);
-		framePnl.add(carica);
+		scarica = new JButton("Conferma scarico");
+		scarica.setBounds(1100, 600, 150, 25);
+		framePnl.add(scarica);
 
 		erroreNome = new JLabel("Non esiste un farmaco con quel nome");
 		erroreNome.setForeground(Color.red);
@@ -105,11 +92,11 @@ public class CaricaFarmaci extends JFrame {
 		erroreNome.setVisible(false);
 		framePnl.add(erroreNome);
 
-		erroreData = new JLabel("Inserisci una data valida");
-		erroreData.setForeground(Color.red);
-		erroreData.setBounds(400, 230, 200, 20);
-		erroreData.setVisible(false);
-		framePnl.add(erroreData);
+		erroreQta = new JLabel("Quantità inserita maggiore di quella presente in magazzino");
+		erroreQta.setForeground(Color.red);
+		erroreQta.setBounds(400, 230, 250, 20);
+		erroreQta.setVisible(false);
+		framePnl.add(erroreQta);
 
 		erroreCampo = new JLabel("Compila tutti i campi");
 		erroreCampo.setForeground(Color.red);
@@ -127,14 +114,11 @@ public class CaricaFarmaci extends JFrame {
 		framePnl.add(mainPnl, BorderLayout.CENTER);
 		cont.add(framePnl);
 	}
-	public JTextField getNomeF() {
+	public JComboBox getNomeF() {
 		return nomeF;
 	}
 	public JTextField getQta() {
 		return qta;
-	}
-	public JTextField getScadenza() {
-		return scadenza;
 	}
 	public JButton getNotificheButton() {
 		return notificheButton;
@@ -143,13 +127,13 @@ public class CaricaFarmaci extends JFrame {
 		return logoutButton;
 	}
 
-	public JButton getCarica(){return carica;};
+	public JButton getScarica(){return scarica;};
 
 	public JLabel getErroreNome() {
 		return erroreNome;
 	}
-	public JLabel getErroreData() {
-		return erroreData;
+	public JLabel geterroreQta() {
+		return erroreQta;
 	}
 	public JLabel getErroreCampo() {
 		return erroreCampo;
@@ -157,4 +141,5 @@ public class CaricaFarmaci extends JFrame {
 	public JLabel getCaricoRiuscito() {
 		return caricoRiuscito;
 	}
+
 }

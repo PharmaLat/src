@@ -54,7 +54,7 @@ public class CaricafarmaciControl {
 		JLabel erroreNome = cf.getErroreNome();
 		JLabel erroreData = cf.getErroreData();
 		JLabel erroreCampo = cf.getErroreCampo();
-
+		JLabel caricoRiuscito = cf.getCaricoRiuscito();
 		ActionListener caricaLstnr = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -62,6 +62,7 @@ public class CaricafarmaciControl {
 				erroreNome.setVisible(false);
 				erroreData.setVisible(false);
 				erroreCampo.setVisible(false);
+				caricoRiuscito.setVisible(false);
 				boolean esiste = false;
 				String prAtt = "";
 				String daBanco = "";
@@ -82,8 +83,8 @@ public class CaricafarmaciControl {
 					erroreData.setVisible(true);
 				}else{
 					Farmaco f = new Farmaco(nome.getText(), prAtt,scadenza.getText()+"-01" , daBanco, Integer.parseInt(qta.getText()));
-					db.inserisciFarmacoFarmacia(f);
-
+					db.inserisciFarmacoFarmacia(f, u.getID_Farmacia());
+					caricoRiuscito.setVisible(true);
 				}
 
 			}
@@ -97,11 +98,11 @@ public class CaricafarmaciControl {
 		int mese = oggi.getMonthValue();
 		String[] scadenza = data.split("-");
 		int annoScadenza = Integer.parseInt(scadenza[0]);
-		int meseScadenza = Integer.parseInt(scadenza[0]);
+		int meseScadenza = Integer.parseInt(scadenza[1]);
 		System.out.println(annoScadenza);
 		System.out.println(meseScadenza);
 
-		Pattern pattern = Pattern.compile("[0-9]{4}-[0-9]{2}");
+		Pattern pattern = Pattern.compile("^[0-9]{4}-[0-9]{2}$");
 		Matcher matcher = pattern.matcher(data);
 		boolean matchFound = matcher.find();
 
