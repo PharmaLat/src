@@ -21,11 +21,11 @@ public class VisInventarioControl {
         this.u = u;
         this.db = db;
         visualizzaInventario();
-
     }
 
     private void visualizzaInventario(){
         JButton visualizza = s.getVisInventario();
+
         ActionListener visLstnr = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -35,55 +35,20 @@ public class VisInventarioControl {
                 farmaci = db.getInventario(u.getID_Farmacia());
                 //System.out.println("dim: "+farmaci.size());
                 DefaultTableModel model = (DefaultTableModel) inventario.getTabella().getModel();
-                mostraTabella(farmaci, model);
-                ricerca();
-            }
-        };
-        visualizza.addActionListener(visLstnr);
-
-    }
-
-    public void ricerca(){
-        JButton cerca = inventario.getCercaButton();
-        JRadioButton nome = inventario.getPerNomeRadioButton();
-        JRadioButton prAtt = inventario.getPerPrincipioAttivoRadioButton();
-        JTextField parola = inventario.getCampoRicerca();
-        JLabel errore = inventario.getErrore();
-        ActionListener cercaLstnr = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                errore.setVisible(false);
-                ArrayList<Farmaco> farmaci;
-                System.out.println("Cliccato cerca");
-                if (!cerca.getText().equals("")){
-                    if (nome.isSelected()){
-                        farmaci = db.getRicerca(u.getID_Farmacia(), 0, parola.getText());
-                    } else{
-                        farmaci = db.getRicerca(u.getID_Farmacia(), 1, parola.getText());
-                    }
-                    if (farmaci != null){
-                        DefaultTableModel model = (DefaultTableModel) inventario.getTabella().getModel();
-                        model.setRowCount(0);
-                        mostraTabella(farmaci, model);
-                    }else errore.setVisible(true);
-
+                String[] colonne = {"Nome", "Principio Attivo", "Scadenza", "Da Banco", "Quantità"};
+                model.setColumnIdentifiers(colonne);
+                String[] riga = new String[5];
+                for (int i = 0; i < farmaci.size(); i++) {
+                    riga[0] = farmaci.get(i).getNome();
+                    riga[1] = farmaci.get(i).getPrincipioAttivo();
+                    riga[2] = farmaci.get(i).getData();
+                    riga[3] = farmaci.get(i).getDaBanco();
+                    riga[4] = farmaci.get(i).getQuantità()+"";
+                    model.addRow(riga);
                 }
             }
         };
-        cerca.addActionListener(cercaLstnr);
-    }
-    private void mostraTabella(ArrayList<Farmaco> farmaci, DefaultTableModel model) {
-        String[] colonne = {"Nome", "Principio Attivo", "Scadenza", "Da Banco", "Quantità"};
-        model.setColumnIdentifiers(colonne);
-        String[] riga = new String[5];
-        for (int i = 0; i < farmaci.size(); i++) {
-            riga[0] = farmaci.get(i).getNome();
-            riga[1] = farmaci.get(i).getPrincipioAttivo();
-            riga[2] = farmaci.get(i).getData();
-            riga[3] = farmaci.get(i).getDaBanco();
-            riga[4] = farmaci.get(i).getQuantità()+"";
-            model.addRow(riga);
-        }
+        visualizza.addActionListener(visLstnr);
     }
 
 }
