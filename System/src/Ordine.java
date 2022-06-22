@@ -6,7 +6,6 @@ import java.util.HashMap;
 public class Ordine {
 	private int ID_O;
 	private Date dataConsegna;
-	private HashMap farmaci;
 	private String stato;
 	private String tipo;
 
@@ -16,11 +15,6 @@ public class Ordine {
 		this.stato = stato;
 		this.tipo = tipo;
 	}
-
-	public void addFarmaco(Farmaco f, int qta){
-		farmaci.put(f, qta);
-	}
-
 
 	public int getID_O() {
 		return ID_O;
@@ -33,12 +27,6 @@ public class Ordine {
 	}
 	public void setDataConsegna(Date dataConsegna) {
 		this.dataConsegna = dataConsegna;
-	}
-	public HashMap getFarmaci() {
-		return farmaci;
-	}
-	public void setFarmaci(HashMap farmaci) {
-		this.farmaci = farmaci;
 	}
 	public String getStato() {
 		return stato;

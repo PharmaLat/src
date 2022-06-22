@@ -5,6 +5,9 @@ import GestioneMagazzino.Farmaco;
 import javax.xml.stream.events.StartDocument;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class DBMSInterface {
     ConnectionClass connClass = new ConnectionClass();
@@ -174,6 +177,50 @@ public class DBMSInterface {
 
     }
 
-    public ArrayList<>
+    public List<Map<Farmaco,Integer>> getOrdini(String indirizzo){
+
+        List<Map<Farmaco,Integer>> listaOrdini  = new ArrayList<>();
+
+        /*myMap1.put("URL", "Val0");
+        myMap.add(0,myMap1);*/
+        /*for (Map.Entry<String, Object> entry : map.entrySet()) {
+
+        }*/
+
+        Statement st;
+        ResultSet res;
+        String query = "SELECT * FROM farmaco, comprende, ordine WHERE ordine.Indirizzo = '"+indirizzo+"' AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F;";
+        try {
+            st = connAzienda.createStatement();
+            res = st.executeQuery(query);
+
+            if (!res.next()) {
+                return null;
+            }else {
+                Map<Farmaco,Integer> ordine = new HashMap<>();
+                int id_o = res.getInt("ID_O");
+                do {
+                    if (id_o == res.getInt("ID_O")){
+                        Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                        f.setID(res.getInt("ID_F"));
+                        Integer qta_O = res.getInt("Quantità_O");
+                        ordine.put(f, qta_O);
+                    }else {
+                        listaOrdini.add(ordine);
+                        id_o = res.getInt("ID_O");
+                        ordine = new HashMap<>();
+                        Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                        f.setID(res.getInt("ID_F"));
+                        Integer qta_O = res.getInt("Quantità_O");
+                        ordine.put(f, qta_O);
+                    }
+                }while(res.next());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaOrdini;
+    }
 
 }
