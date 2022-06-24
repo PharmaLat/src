@@ -22,21 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="da sistemare getOrdini">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="getOrdini sistemato più qualche altra cosa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazione.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazioneControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazioneControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazione.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/VisInventarioControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/VisInventarioControl.java" afterDir="false" />
     </list>
     <list id="b7058ebe-14af-4bcc-b6d9-38512fba0615" name="Changes by impel" comment="">
       <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
@@ -56,15 +44,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/System/src/Main/Main.java">
-      <ranges>
-        <range start1="5" end1="9" start2="5" end2="6" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
-        <range start1="13" end1="13" start2="10" end2="11" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
-        <range start1="40" end1="40" start2="38" end2="45" changelist="b7058ebe-14af-4bcc-b6d9-38512fba0615" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -152,9 +131,16 @@
       <workItem from="1655801886021" duration="14385000" />
       <workItem from="1655882705773" duration="5344000" />
       <workItem from="1656011828827" duration="1681000" />
-      <workItem from="1656062812116" duration="14077000" />
+      <workItem from="1656062812116" duration="14920000" />
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="getOrdini sistemato più qualche altra cosa">
+      <created>1656080263056</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656080263056</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +164,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="getOrdini sistemato più qualche altra cosa" />
+    <option name="LAST_COMMIT_MESSAGE" value="getOrdini sistemato più qualche altra cosa" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
