@@ -31,18 +31,34 @@ public class AvviaSegnalazioneControl {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Cliccato avvia Segnalazione");
+				JComboBox idOrdine;
 				as = new AvviaSegnalazione();
-				List<Map<Farmaco,Integer>> listaOrdini;
+				List<Map<Farmaco,String>> listaOrdini;
 				listaOrdini = db.getOrdini(u.getIndirizzoFarmacia());
+				idOrdine = as.getIdOrdine();
 				for (int i = 0; i < listaOrdini.size(); i++) {
-					System.out.println("Ordine "+i);
-					for (Map.Entry<Farmaco, Integer> entry : listaOrdini.get(i).entrySet()) {
-						System.out.println(entry.getKey()+ " " + entry.getValue());
-					}
+					Map.Entry<Farmaco,String> entry = listaOrdini.get(i).entrySet().iterator().next();
+					String[] info = entry.getValue().split("-");
+					idOrdine.addItem(info[1]);
 				}
+				inviaSegnalazione();
 			}
 		};
 		avvia.addActionListener(avviaLstnr);
+	}
 
+	private void inviaSegnalazione(){
+		JButton invia = as.getInviaSegnalazione();
+		ActionListener inviaLstnr = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JComboBox idOrdine = as.getIdOrdine();
+				JTextArea descrizione = as.getDescrizione();
+				//System.out.println("Id :" + idOrdine.getSelectedItem());
+				//System.out.println("Descrizione: "+descrizione.getText());
+				db.inviaSegnalazione(Integer.parseInt((String)idOrdine.getSelectedItem()), descrizione.getText());
+			}
+		};
+		invia.addActionListener(inviaLstnr);
 	}
 }

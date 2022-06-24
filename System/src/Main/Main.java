@@ -3,14 +3,12 @@ package Main;
 import Autenticazione.LoginControl;
 import Autenticazione.Utente;
 import Connectivity.DBMSInterface;
-import GestioneMagazzino.CaricafarmaciControl;
-import GestioneMagazzino.ScaricaFarmaci;
-import GestioneMagazzino.ScaricafarmaciControl;
-import GestioneMagazzino.VisInventarioControl;
+import GestioneMagazzino.*;
 import GestioneSegnalazioni.AvviaSegnalazioneControl;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
 
 public class Main {
 	public static void main(String[] args) {

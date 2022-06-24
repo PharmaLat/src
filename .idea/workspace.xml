@@ -22,14 +22,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="">
+    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="da sistemare getOrdini">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Autenticazione/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Autenticazione/LoginControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/VisInventarioControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/VisInventarioControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazioneControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazioneControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazione.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Main/Main.class" afterDir="false" />
+    </list>
+    <list id="b7058ebe-14af-4bcc-b6d9-38512fba0615" name="Changes by impel" comment="">
+      <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +57,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/System/src/Main/Main.java">
+      <ranges>
+        <range start1="5" end1="9" start2="5" end2="6" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="13" end1="13" start2="10" end2="11" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="40" end1="40" start2="38" end2="45" changelist="b7058ebe-14af-4bcc-b6d9-38512fba0615" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -58,14 +77,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.keymap"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\JavaProj\IDS2\System\src\Connectivity" />
@@ -77,6 +104,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="System" />
@@ -112,7 +150,11 @@
       <workItem from="1655632498621" duration="19451000" />
       <workItem from="1655718589345" duration="15723000" />
       <workItem from="1655801886021" duration="14385000" />
+      <workItem from="1655882705773" duration="5344000" />
+      <workItem from="1656011828827" duration="1681000" />
+      <workItem from="1656062812116" duration="14077000" />
     </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,57 +165,22 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="134" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="127" />
+                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="127" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="344" y="153" key="#Getter_Template" timestamp="1655475056301">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="344" y="153" key="#Getter_Template/0.0.1500.952@0.0.1500.952" timestamp="1655475056301" />
-    <state x="556" y="177" key="#com.intellij.ide.util.MemberChooser" timestamp="1655478795430">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="556" y="177" key="#com.intellij.ide.util.MemberChooser/0.0.1500.952@0.0.1500.952" timestamp="1655478795430" />
-    <state x="481" y="223" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1655457702435">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="481" y="223" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1500.952@0.0.1500.952" timestamp="1655457702435" />
-    <state width="1458" height="253" key="GridCell.Tab.0.bottom" timestamp="1655895809123">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state width="1458" height="253" key="GridCell.Tab.0.bottom/0.0.1500.952@0.0.1500.952" timestamp="1655895809123" />
-    <state width="1458" height="253" key="GridCell.Tab.0.center" timestamp="1655895809121">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state width="1458" height="253" key="GridCell.Tab.0.center/0.0.1500.952@0.0.1500.952" timestamp="1655895809121" />
-    <state width="1458" height="253" key="GridCell.Tab.0.left" timestamp="1655895809121">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state width="1458" height="253" key="GridCell.Tab.0.left/0.0.1500.952@0.0.1500.952" timestamp="1655895809121" />
-    <state width="1458" height="253" key="GridCell.Tab.0.right" timestamp="1655895809123">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state width="1458" height="253" key="GridCell.Tab.0.right/0.0.1500.952@0.0.1500.952" timestamp="1655895809123" />
-    <state x="143" y="78" key="MergeDialog" timestamp="1655893322665">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="143" y="78" key="MergeDialog/0.0.1500.952@0.0.1500.952" timestamp="1655893322665" />
-    <state x="252" y="121" key="SettingsEditor" timestamp="1655455850394">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="252" y="121" key="SettingsEditor/0.0.1500.952@0.0.1500.952" timestamp="1655455850394" />
-    <state x="568" y="390" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1655893272164">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="568" y="390" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1500.952@0.0.1500.952" timestamp="1655893272164" />
-    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1655896126523">
-      <screen x="0" y="0" width="1500" height="952" />
-    </state>
-    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1500.952@0.0.1500.952" timestamp="1655896126523" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

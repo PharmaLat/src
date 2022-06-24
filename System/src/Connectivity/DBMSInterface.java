@@ -2,6 +2,7 @@ package Connectivity;
 
 import GestioneMagazzino.Farmaco;
 
+import javax.swing.*;
 import javax.xml.stream.events.StartDocument;
 import java.sql.*;
 import java.util.ArrayList;
@@ -177,9 +178,9 @@ public class DBMSInterface {
 
     }
 
-    public List<Map<Farmaco,Integer>> getOrdini(String indirizzo){
+    public List<Map<Farmaco,String>> getOrdini(String indirizzo){
 
-        List<Map<Farmaco,Integer>> listaOrdini  = new ArrayList<>();
+        List<Map<Farmaco,String>> listaOrdini  = new ArrayList<>();
 
         /*myMap1.put("URL", "Val0");
         myMap.add(0,myMap1);*/
@@ -192,41 +193,45 @@ public class DBMSInterface {
         String query = "SELECT * FROM farmaco, comprende, ordine WHERE ordine.Indirizzo = '"+indirizzo+"' AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F;";
         System.out.println(query);
         try {
-            st = connAzienda.createStatement();
+            st = connAzienda.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             res = st.executeQuery(query);
-            System.out.println(res);
             if (!res.next()) {
                 return null;
             }else {
-                Map<Farmaco,Integer> ordine = new HashMap<>();
+                Map<Farmaco,String> ordine = new HashMap<>();
                 int id_o = res.getInt("ID_O");
-                System.out.println("Primo id_o: "+id_o);
+                //System.out.println("Primo id_o: "+id_o);
                 int rows = 0;
                 if (res.last()) {
                     rows = res.getRow();
                     res.beforeFirst();
                 }
+                //System.out.println("Numero di righe: "+rows);
+                res.next();
                 do {
-                    res.next();
                     if (id_o == res.getInt("ID_O")){
-                        System.out.println("IF uguali: "+id_o+"="+res.getInt("ID_O"));
+                        //System.out.println("Riga "+res.getRow());
+                        //System.out.println("IF uguali: "+id_o+"="+res.getInt("ID_O"));
                         Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
                         f.setID(res.getInt("ID_F"));
                         Integer qta_O = res.getInt("Quantità_O");
-                        ordine.put(f, qta_O);
+                        String info = qta_O+"-"+res.getInt("ID_O");
+                        ordine.put(f, info);
                         //listaOrdini.add(ordine);
-                        System.out.println("Farmaco :"+f);
+                        //System.out.println("Farmaco :"+f);
                     }else {
-                        System.out.println("IF diversi: "+id_o+"!="+res.getInt("ID_O"));
+                        //System.out.println("Riga "+res.getRow());
+                        //System.out.println("IF diversi: "+id_o+"!="+res.getInt("ID_O"));
                         listaOrdini.add(ordine);
                         id_o = res.getInt("ID_O");
-                        System.out.println("id_o ora è "+id_o);
+                        //System.out.println("id_o ora è "+id_o);
                         ordine = new HashMap<>();
                         Farmaco f2 = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
                         f2.setID(res.getInt("ID_F"));
                         Integer qta_O = res.getInt("Quantità_O");
-                        ordine.put(f2, qta_O);
-                        System.out.println("Farmaco2 :"+f2);
+                        String info = qta_O+"-"+res.getInt("ID_O");
+                        ordine.put(f2, info);
+                        //System.out.println("Farmaco2 :"+f2);
                         if (res.getRow() == rows){
                             listaOrdini.add(ordine);
                         }
@@ -263,4 +268,25 @@ public class DBMSInterface {
         return indirizzo;
     }
 
+    public void inviaSegnalazione(int idOrdine, String descrizione) {
+        Statement st;
+        ResultSet res;
+        String query = "INSERT INTO segnalazione(Descrizione, Stato_S) VALUES('"+descrizione+"', 'Aperta')";
+        String query2 = "SELECT LAST_INSERT_ID()";
+        try {
+            st = connAzienda.createStatement();
+            st.executeUpdate(query);
+            System.out.println("query1: "+query);
+            System.out.println("query2: "+query2);
+            res = st.executeQuery(query2);
+            res.next();
+            int idsegnalazione = res.getInt("LAST_INSERT_ID()");
+            System.out.println("last id: "+idsegnalazione);
+            String query3 = "INSERT INTO ordine(ID_S) VALUES("+idsegnalazione+") WHERE ID_O = "+idOrdine;
+            System.out.println(query3);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
