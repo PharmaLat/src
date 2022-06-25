@@ -96,8 +96,45 @@ public class GestioneSegnalazioniControl {
                     db.inviaOrdine(farmaciOrdine, db.getIndirizzoFromOrdine(Integer.parseInt(e.getActionCommand())));
                 });
 
+                annulla.addActionListener(e1 -> {
+                    noaf.dispose();
+                });
             });
+
             modificaOrdine.addActionListener(e -> {
+                ModificaOrdineForm moaf = new ModificaOrdineForm();
+                System.out.println("Cliccato modifica ordine di id "+e.getActionCommand());
+                ArrayList<Farmaco> farmaci = db.getOrdine(Integer.parseInt(e.getActionCommand()));
+                JPanel label = moaf.getLabelPnl();
+                JPanel text = moaf.getTextPnl();
+                JTextField qta[] = new JTextField[farmaci.size()];
+                JButton ok = moaf.getButtonOK();
+                JButton annulla = moaf.getButtonCancel();
+
+                for (int j = 0; j < farmaci.size(); j++) {
+                    JPanel label1 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+                    JPanel text1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+                    JLabel nome = new JLabel(farmaci.get(j).getNome());
+                    qta[j] = new JTextField();
+
+                    qta[j].setColumns(10);
+                    label1.add(nome);
+                    text1.add(qta[j]);
+                    JLabel qtaprima = new JLabel(""+farmaci.get(j).getQuantità());
+                    text.add(qtaprima);
+                    label.add(label1);
+                    text.add(text1);
+                }
+
+                ok.addActionListener(e1 -> {
+                    ArrayList<Farmaco> farmaciOrdine = new ArrayList<>();
+                    for (int j = 0; j < qta.length; j++) {
+                        Farmaco f = new Farmaco(farmaci.get(j).getNome(), farmaci.get(j).getPrincipioAttivo(),farmaci.get(j).getData(), farmaci.get(j).getDaBanco(),Integer.parseInt(qta[j].getText()));
+                        f.setID(farmaci.get(j).getID());
+                        farmaciOrdine.add(f);
+                    }
+                    db.modificaOrdine(farmaciOrdine, Integer.parseInt(e.getActionCommand()));
+                });
 
             });
             chiudiSegnalazione.addActionListener(e -> {});

@@ -5,6 +5,7 @@ import GestioneOrdini.Ordine;
 import GestioneSegnalazioni.Segnalazione;
 
 import javax.print.DocFlavor;
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -428,6 +429,21 @@ public class DBMSInterface {
             e.printStackTrace();
         }
         return indirizzo;
+    }
+
+    public void modificaOrdine(ArrayList<Farmaco> farmaci, int idOrdine){
+        Statement st;
+        String query = "";
+        try {
+            st = connAzienda.createStatement();
+            for (int i = 0; i < farmaci.size(); i++) {
+                query = "UPDATE comprende SET Quantità_O = "+farmaci.get(i).getQuantità()+" WHERE ID_O="+idOrdine;
+                System.out.println(query);
+                st.executeUpdate(query);
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
