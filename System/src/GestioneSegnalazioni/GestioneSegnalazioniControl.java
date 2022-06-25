@@ -3,6 +3,7 @@ package GestioneSegnalazioni;
 import Autenticazione.Utente;
 import Connectivity.DBMSInterface;
 import GestioneMagazzino.Farmaco;
+import GestioneOrdini.OrdFarmaciControl;
 import Main.SchermataPrincipale;
 
 import javax.swing.*;
@@ -86,10 +87,12 @@ public class GestioneSegnalazioniControl {
                 }
 
                 ok.addActionListener(e1 -> {
-                    for (int j = 0; j < qta.length; j++) {
-
-                    }
                     ArrayList<Farmaco> farmaciOrdine = new ArrayList<>();
+                    for (int j = 0; j < qta.length; j++) {
+                        Farmaco f = new Farmaco(farmaci.get(j).getNome(), farmaci.get(j).getPrincipioAttivo(),farmaci.get(j).getData(), farmaci.get(j).getDaBanco(),Integer.parseInt(qta[j].getText()));
+                        f.setID(farmaci.get(j).getID());
+                        farmaciOrdine.add(f);
+                    }
                     db.inviaOrdine(farmaciOrdine, db.getIndirizzoFromOrdine(Integer.parseInt(e.getActionCommand())));
                 });
 

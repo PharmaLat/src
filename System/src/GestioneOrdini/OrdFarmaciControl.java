@@ -68,7 +68,9 @@ public class OrdFarmaciControl {
 
     void aggiungiAlCarrello(Farmaco f, int qta){
         if(isFarmAcquistabile(f, qta)){
-            carrello.add(new Farmaco(f.getNome(), f.getPrincipioAttivo(), f.getData(), f.getDaBanco(), qta));
+            Farmaco f1 = new Farmaco(f.getNome(), f.getPrincipioAttivo(), f.getData(), f.getDaBanco(), qta);
+            f1.setID(f.getID());
+            carrello.add(f1);
             System.out.println(f.getQuantità());
             f.setQuantità(f.getQuantità() - qta);
             System.out.println(f.getQuantità());
@@ -101,8 +103,8 @@ public class OrdFarmaciControl {
     }
 
     void nuovoOrdine(){
-        //db.inserisciOrdine();
-        JOptionPane.showMessageDialog(ordForm.getCont(), "GestioneOrdini.Ordine completato con successo");
+        db.inviaOrdine(this.carrello, utente.getIndirizzoFarmacia());
+        JOptionPane.showMessageDialog(ordForm.getCont(), "Ordine completato con successo");
         ordForm.dispose();
         carrello.clear();
         qtàFarm.clear();

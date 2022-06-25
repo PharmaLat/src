@@ -116,6 +116,7 @@ public class DBMSInterface {
             }else {
                 do {
                     Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                    f.setID(res.getInt("ID_F"));
                     farmaci.add(f);
                 }while(res.next());
             }
@@ -392,18 +393,16 @@ public class DBMSInterface {
             st.executeUpdate(queryOrdine);
             String query2 = "SELECT LAST_INSERT_ID()";
             res = st.executeQuery(query2);
-            if (!res.next()) {
-                System.out.println("Nessun risultato");
-            }else {
-                do {
-                    int id_ordine = res.getInt("LAST_INSERT_ID()");
-                    for (int i = 0; i < farmaci.size(); i++) {
-                        String queryComprende = "INSERT INTO comprende (ID_O, ID_F) VALUES ("+id_ordine+", "+farmaci.get(i).getID()+")";
-                        System.out.println(queryComprende);
-                        st.executeUpdate(queryComprende);
-                    }
-                }while(res.next());
+            res.next();
+
+            int id_ordine = res.getInt("LAST_INSERT_ID()");
+            for (int i = 0; i < farmaci.size(); i++) {
+                String queryComprende = "INSERT INTO comprende (ID_O, ID_F, Quantità_O) VALUES ("+id_ordine+", "+farmaci.get(i).getID()+", "+farmaci.get(i).getQuantità()+")";
+                System.out.println(queryComprende);
+                st.executeUpdate(queryComprende);
             }
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
