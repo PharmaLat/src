@@ -22,9 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="getOrdini sistemato più qualche altra cosa">
+    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="si era buggata la ricerca, ora funziona">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/VisInventarioControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/VisInventarioControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Autenticazione/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Autenticazione/LoginControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Main/SchermataPrincipale.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/SchermataPrincipale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Ordine.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Ordine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/Main/SchermataPrincipale.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Main/SchermataPrincipale.class" afterDir="false" />
     </list>
     <list id="b7058ebe-14af-4bcc-b6d9-38512fba0615" name="Changes by impel" comment="">
       <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
@@ -45,6 +54,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/System/src/Main/Main.java">
+      <ranges>
+        <range start1="6" end1="6" start2="6" end2="7" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="7" end1="7" start2="8" end2="10" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="22" end1="23" start2="25" end2="27" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="38" end1="38" start2="42" end2="49" changelist="b7058ebe-14af-4bcc-b6d9-38512fba0615" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -56,33 +75,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\JavaProj\IDS2\System\src\Connectivity" />
       <recent name="E:\JavaProj\IDS2\System\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GitProj\CedroIDS\System\src\GestioneOrdini" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Autenticazione" />
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -107,9 +129,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NuovoOrdineAzienda" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GestioneSegnalazioni.NuovoOrdineAzienda" />
+      <module name="System" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GestioneSegnalazioni.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.NuovoOrdineAzienda" />
       </list>
     </recent_temporary>
   </component>
@@ -131,7 +167,8 @@
       <workItem from="1655801886021" duration="14385000" />
       <workItem from="1655882705773" duration="5344000" />
       <workItem from="1656011828827" duration="1681000" />
-      <workItem from="1656062812116" duration="14920000" />
+      <workItem from="1656062812116" duration="30318000" />
+      <workItem from="1656144808315" duration="9877000" />
     </task>
     <task id="LOCAL-00002" summary="getOrdini sistemato più qualche altra cosa">
       <created>1656080263056</created>
@@ -140,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656080263056</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="si era buggata la ricerca, ora funziona">
+      <created>1656081071248</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656081071248</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +211,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="getOrdini sistemato più qualche altra cosa" />
-    <option name="LAST_COMMIT_MESSAGE" value="getOrdini sistemato più qualche altra cosa" />
+    <MESSAGE value="si era buggata la ricerca, ora funziona" />
+    <option name="LAST_COMMIT_MESSAGE" value="si era buggata la ricerca, ora funziona" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -8,6 +8,7 @@ public class Ordine {
 	private Date dataConsegna;
 	private String stato;
 	private String tipo;
+	private HashMap<Farmaco, Integer> farmaci;
 
 	public Ordine(int ID_O, Date dataConsegna, String stato, String tipo) {
 		this.ID_O = ID_O;

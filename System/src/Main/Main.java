@@ -4,7 +4,10 @@ import Autenticazione.LoginControl;
 import Autenticazione.Utente;
 import Connectivity.DBMSInterface;
 import GestioneMagazzino.*;
+import GestioneOrdini.OrdFarmaciControl;
 import GestioneSegnalazioni.AvviaSegnalazioneControl;
+import GestioneSegnalazioni.VisualizzaSegnalazioni;
+import GestioneSegnalazioni.VisualizzaSegnalazioniControl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +23,8 @@ public class Main {
 		CaricafarmaciControl cfc = new CaricafarmaciControl(utente, s, db);
 		ScaricafarmaciControl sfc = new ScaricafarmaciControl(s, utente, db);
 		AvviaSegnalazioneControl asc = new AvviaSegnalazioneControl(s, utente, db);
-
+		VisualizzaSegnalazioniControl vsc = new VisualizzaSegnalazioniControl(s, utente, db);
+		OrdFarmaciControl ofc = new OrdFarmaciControl(s, utente, db);
 		/**     cose che vedo se rimane tempo
 		Container c = s.getContainerPane();
 

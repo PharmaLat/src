@@ -1,8 +1,10 @@
 package Connectivity;
 
 import GestioneMagazzino.Farmaco;
+import GestioneSegnalazioni.Segnalazione;
 
 import javax.swing.*;
+import javax.swing.plaf.nimbus.State;
 import javax.xml.stream.events.StartDocument;
 import java.sql.*;
 import java.util.ArrayList;
@@ -282,11 +284,63 @@ public class DBMSInterface {
             res.next();
             int idsegnalazione = res.getInt("LAST_INSERT_ID()");
             System.out.println("last id: "+idsegnalazione);
-            String query3 = "INSERT INTO ordine(ID_S) VALUES("+idsegnalazione+") WHERE ID_O = "+idOrdine;
+            String query3 = "UPDATE ordine SET ID_S = "+idsegnalazione+" WHERE ID_O="+idOrdine;
+            st.executeUpdate(query3);
             System.out.println(query3);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<Segnalazione> getSegnalazioni(){
+        ArrayList<Segnalazione> segnalazioni = new ArrayList<>();
+        Statement st;
+        ResultSet res;
+        String query = "Select * FROM ordine, segnalazione WHERE segnalazione.Stato_S != 'Chiusa' AND ordine.ID_S = segnalazione.ID_S";
+        try {
+            st = connAzienda.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return null;
+            }else {
+                do {
+                    Segnalazione s = new Segnalazione(res.getInt("ID_S"), res.getString("Descrizione"), res.getString("Stato_S"), res.getInt("ID_O"));
+                    segnalazioni.add(s);
+                }while(res.next());
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return segnalazioni;
 
     }
+
+    public ArrayList<Farmaco> getOrdine(int idOrdine){
+        ArrayList<Farmaco> farmaci = new ArrayList<>();
+        Statement st;
+        ResultSet res;
+        String query = "SELECT * FROM farmaco, comprende, ordine WHERE ordine.ID_O = "+idOrdine+" AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F;";
+
+
+        try {
+            st = connAzienda.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return null;
+            }else {
+                do {
+                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità_O"));
+                    f.setID(res.getInt("ID_F"));
+                    //System.out.println("Sto aggingendo "+f);
+                    farmaci.add(f);
+                }while(res.next());
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return farmaci;
+    }
+
 }

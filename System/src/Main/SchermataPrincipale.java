@@ -60,6 +60,7 @@ public class SchermataPrincipale extends JFrame {
         grid2.add(gst_ordPanel);
         grid2.add(gst_magPanel);
         grid2.add(gst_segPanel);
+        visualizzaSegnalazioni.setVisible(false);
 
         JPanel boxGst = new JPanel();
         boxGst.setLayout(new BoxLayout(boxGst, BoxLayout.X_AXIS));
@@ -78,6 +79,7 @@ public class SchermataPrincipale extends JFrame {
         JPanel boxGst = new JPanel();
         boxGst.setLayout(new BoxLayout(boxGst, BoxLayout.X_AXIS));
         boxGst.add(gst_segPanel);
+        avviaSegnalazione.setVisible(false);
         addettoPanel = new JPanel(new FlowLayout());
         addettoPanel.add(boxGst);
         cont.add(addettoPanel, BorderLayout.CENTER);

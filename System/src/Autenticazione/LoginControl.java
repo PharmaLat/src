@@ -95,12 +95,14 @@ public class LoginControl {
 				switch (utente.getRuolo()){
 					case "Farmacista":
 						s.removeFarmPanel();
+						s.getVisualizzaSegnalazioni().setVisible(true);
 						break;
 					case "corriere":
 						s.removeCorrierePanel();
 						break;
 					case "Addetto Azienda":
 						s.removeAddettoPanel();
+						s.getAvviaSegnalazione().setVisible(true);
 						break;
 				}
 				username.setText(null);
