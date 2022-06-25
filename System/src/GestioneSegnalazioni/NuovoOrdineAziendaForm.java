@@ -53,6 +53,14 @@ public class NuovoOrdineAziendaForm extends JDialog {
         cont.add(contentPane);
     }
 
+    public JButton getButtonOK() {
+        return buttonOK;
+    }
+
+    public JButton getButtonCancel() {
+        return buttonCancel;
+    }
+
     public JPanel getLabelPnl() {
         return labelPnl;
     }

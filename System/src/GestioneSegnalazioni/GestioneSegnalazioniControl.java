@@ -63,25 +63,36 @@ public class GestioneSegnalazioniControl {
             chiudiSegnalazione.setActionCommand(idOrdine+"");
 
             nuovoOrdine.addActionListener(e -> {
-                NuovoOrdineAziendaForm ordine = new NuovoOrdineAziendaForm();
+                NuovoOrdineAziendaForm noaf = new NuovoOrdineAziendaForm();
                 System.out.println("Cliccato nuovo ordine di id "+e.getActionCommand());
                 ArrayList<Farmaco> farmaci = db.getOrdine(Integer.parseInt(e.getActionCommand()));
-                JPanel label = ordine.getLabelPnl();
-                JPanel text = ordine.getTextPnl();
-                JTextField qta;
+                JPanel label = noaf.getLabelPnl();
+                JPanel text = noaf.getTextPnl();
+                JTextField qta[] = new JTextField[farmaci.size()];
+                JButton ok = noaf.getButtonOK();
+                JButton annulla = noaf.getButtonCancel();
 
                 for (int j = 0; j < farmaci.size(); j++) {
                     JPanel label1 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
                     JPanel text1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
                     JLabel nome = new JLabel(farmaci.get(j).getNome());
-                    qta = new JTextField();
+                    qta[j] = new JTextField();
 
-                    qta.setColumns(10);
+                    qta[j].setColumns(10);
                     label1.add(nome);
-                    text1.add(qta);
+                    text1.add(qta[j]);
                     label.add(label1);
                     text.add(text1);
                 }
+
+                ok.addActionListener(e1 -> {
+                    for (int j = 0; j < qta.length; j++) {
+
+                    }
+                    ArrayList<Farmaco> farmaciOrdine = new ArrayList<>();
+                    db.inviaOrdine(farmaciOrdine, db.getIndirizzoFromOrdine(Integer.parseInt(e.getActionCommand())));
+                });
+
             });
             modificaOrdine.addActionListener(e -> {
 
@@ -96,6 +107,5 @@ public class GestioneSegnalazioniControl {
         }
         segnalazioniPanel.add(flow1);
     }
-
 
 }

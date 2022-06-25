@@ -4,7 +4,10 @@ import GestioneMagazzino.Farmaco;
 import GestioneOrdini.Ordine;
 import GestioneSegnalazioni.Segnalazione;
 
+import javax.print.DocFlavor;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -372,6 +375,60 @@ public class DBMSInterface {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void inviaOrdine(ArrayList<Farmaco> farmaci, String indirizzo){
+        Statement st;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime consegna = now.plusWeeks(2);
+        //System.out.println(dtf.format(consegna));
+        String queryOrdine = "INSERT INTO ordine(DataDiConsegna, Indirizzo, Stato_O) VALUES ('"+dtf.format(consegna)+"', '"+indirizzo+"', 'In Lavorazione')";
+        System.out.println(queryOrdine);
+        //st.executeQuery(queryOrdine);
+        ResultSet res;
+        try {
+            st = connAzienda.createStatement();
+            st.executeUpdate(queryOrdine);
+            String query2 = "SELECT LAST_INSERT_ID()";
+            res = st.executeQuery(query2);
+            if (!res.next()) {
+                System.out.println("Nessun risultato");
+            }else {
+                do {
+                    int id_ordine = res.getInt("LAST_INSERT_ID()");
+                    for (int i = 0; i < farmaci.size(); i++) {
+                        String queryComprende = "INSERT INTO comprende (ID_O, ID_F) VALUES ("+id_ordine+", "+farmaci.get(i).getID()+")";
+                        System.out.println(queryComprende);
+                        st.executeUpdate(queryComprende);
+                    }
+                }while(res.next());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public String getIndirizzoFromOrdine(int ID_O){
+        Statement st;
+        String query = "SELECT Indirizzo FROM ordine WHERE ID_O="+ID_O;
+        String indirizzo="";
+        ResultSet res;
+        try {
+            st = connAzienda.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return null;
+            }else {
+                do {
+                    indirizzo = res.getString("Indirizzo");
+                }while(res.next());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return indirizzo;
     }
 
 }
