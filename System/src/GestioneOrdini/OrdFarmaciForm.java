@@ -10,7 +10,7 @@ public class OrdFarmaciForm extends JFrame {
     private Container cont;
     private JButton nuovoOrdineBtn;
     public OrdFarmaciForm() {
-        this.setTitle("Nuovo Ordine");
+        this.setTitle("Nuovo GestioneOrdini.Ordine");
         this.setSize(1280, 720);
         this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

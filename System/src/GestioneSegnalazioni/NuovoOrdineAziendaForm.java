@@ -15,10 +15,11 @@ public class NuovoOrdineAziendaForm extends JDialog {
     private JPanel bottomPnl;
     private JPanel okCancelPnl;
 
+
     public NuovoOrdineAziendaForm(){
         setContentPane(cont);
         setVisible(true);
-        pack();
+        setSize(500, 400);
         initItems();
     }
 
@@ -59,4 +60,5 @@ public class NuovoOrdineAziendaForm extends JDialog {
     public JPanel getTextPnl() {
         return textPnl;
     }
+
 }

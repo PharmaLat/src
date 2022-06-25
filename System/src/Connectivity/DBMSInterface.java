@@ -1,11 +1,9 @@
 package Connectivity;
 
 import GestioneMagazzino.Farmaco;
+import GestioneOrdini.Ordine;
 import GestioneSegnalazioni.Segnalazione;
 
-import javax.swing.*;
-import javax.swing.plaf.nimbus.State;
-import javax.xml.stream.events.StartDocument;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -180,15 +178,11 @@ public class DBMSInterface {
 
     }
 
+
+
     public List<Map<Farmaco,String>> getOrdini(String indirizzo){
 
         List<Map<Farmaco,String>> listaOrdini  = new ArrayList<>();
-
-        /*myMap1.put("URL", "Val0");
-        myMap.add(0,myMap1);*/
-        /*for (Map.Entry<String, Object> entry : map.entrySet()) {
-
-        }*/
 
         Statement st;
         ResultSet res;
@@ -322,7 +316,6 @@ public class DBMSInterface {
         ResultSet res;
         String query = "SELECT * FROM farmaco, comprende, ordine WHERE ordine.ID_O = "+idOrdine+" AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F;";
 
-
         try {
             st = connAzienda.createStatement();
             res = st.executeQuery(query);
@@ -332,7 +325,7 @@ public class DBMSInterface {
                 do {
                     Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità_O"));
                     f.setID(res.getInt("ID_F"));
-                    //System.out.println("Sto aggingendo "+f);
+                    //System.out.println("Sto aggiungendo "+f);
                     farmaci.add(f);
                 }while(res.next());
             }
@@ -341,6 +334,44 @@ public class DBMSInterface {
             e.printStackTrace();
         }
         return farmaci;
+    }
+
+    public ArrayList<Ordine> getConsegne(String data){
+        ArrayList<Ordine> consegne = new ArrayList<>();
+        Statement st;
+        ResultSet res;
+        String query = "SELECT * FROM ordine WHERE DataDiConsegna = '"+data+"' AND Stato_O <> 'In Lavorazione';";
+
+        try {
+            st = connAzienda.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return null;
+            }else {
+                do {
+                    Ordine o = new Ordine(res.getInt("ID_O"), res.getDate("DataDiConsegna"), res.getString("Stato_O"), res.getString("Indirizzo"));
+                    consegne.add(o);
+                }while(res.next());
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return consegne;
+    }
+
+    public void firmaConsegna(String firma, String idOrdine){
+        Statement st;
+        String query="UPDATE ordine SET Stato_O = 'Consegnato', Firma='"+firma+"' WHERE ID_O = "+idOrdine;
+        System.out.println(query);
+        try {
+            st = connAzienda.createStatement();
+            st.executeUpdate(query);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

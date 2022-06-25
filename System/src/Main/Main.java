@@ -3,11 +3,12 @@ package Main;
 import Autenticazione.LoginControl;
 import Autenticazione.Utente;
 import Connectivity.DBMSInterface;
+import GestioneConsegne.GestioneConsegneControl;
 import GestioneMagazzino.*;
 import GestioneOrdini.OrdFarmaciControl;
 import GestioneSegnalazioni.AvviaSegnalazioneControl;
+import GestioneSegnalazioni.GestioneSegnalazioniControl;
 import GestioneSegnalazioni.VisualizzaSegnalazioni;
-import GestioneSegnalazioni.VisualizzaSegnalazioniControl;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,8 +24,10 @@ public class Main {
 		CaricafarmaciControl cfc = new CaricafarmaciControl(utente, s, db);
 		ScaricafarmaciControl sfc = new ScaricafarmaciControl(s, utente, db);
 		AvviaSegnalazioneControl asc = new AvviaSegnalazioneControl(s, utente, db);
-		VisualizzaSegnalazioniControl vsc = new VisualizzaSegnalazioniControl(s, utente, db);
+		GestioneSegnalazioniControl vsc = new GestioneSegnalazioniControl(s, utente, db);
 		OrdFarmaciControl ofc = new OrdFarmaciControl(s, utente, db);
+		GestioneConsegneControl vcc = new GestioneConsegneControl(utente, s, db);
+
 		/**     cose che vedo se rimane tempo
 		Container c = s.getContainerPane();
 

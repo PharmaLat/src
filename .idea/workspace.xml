@@ -22,18 +22,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="si era buggata la ricerca, ora funziona">
+    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="gestione segnalazioni e ordini WIP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Autenticazione/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Autenticazione/LoginControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneOrdini/OrdFarmaciControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/OrdFarmaciControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneOrdini/OrdFarmaciForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/OrdFarmaciForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/NuovoOrdineAziendaForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/NuovoOrdineAziendaForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/VisualizzaSegnalazioniControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/GestioneSegnalazioniControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System/src/Main/SchermataPrincipale.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/SchermataPrincipale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Ordine.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Ordine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Ordine.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/Ordine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/NuovoOrdineAziendaForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/NuovoOrdineAziendaForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/VisualizzaSegnalazioniControl$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/VisualizzaSegnalazioniControl$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/VisualizzaSegnalazioniControl$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/VisualizzaSegnalazioniControl$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/VisualizzaSegnalazioniControl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/System/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/System/Main/SchermataPrincipale.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Main/SchermataPrincipale.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/Ordine.class" beforeDir="false" />
     </list>
     <list id="b7058ebe-14af-4bcc-b6d9-38512fba0615" name="Changes by impel" comment="">
       <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
@@ -57,10 +67,12 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/System/src/Main/Main.java">
       <ranges>
-        <range start1="6" end1="6" start2="6" end2="7" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
-        <range start1="7" end1="7" start2="8" end2="10" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
-        <range start1="22" end1="23" start2="25" end2="27" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
-        <range start1="38" end1="38" start2="42" end2="49" changelist="b7058ebe-14af-4bcc-b6d9-38512fba0615" />
+        <range start1="5" end1="5" start2="5" end2="6" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="8" end1="8" start2="9" end2="10" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="9" end1="10" start2="11" end2="11" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="25" end1="26" start2="26" end2="27" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="27" end1="27" start2="28" end2="30" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="42" end1="42" start2="45" end2="52" changelist="b7058ebe-14af-4bcc-b6d9-38512fba0615" />
       </ranges>
     </file>
   </component>
@@ -75,22 +87,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "jdk.selected.JAVA_MODULE": "16",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.keymap"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\JavaProj\IDS2\System\src\Connectivity" />
@@ -168,7 +181,7 @@
       <workItem from="1655882705773" duration="5344000" />
       <workItem from="1656011828827" duration="1681000" />
       <workItem from="1656062812116" duration="30318000" />
-      <workItem from="1656144808315" duration="9877000" />
+      <workItem from="1656144808315" duration="22623000" />
     </task>
     <task id="LOCAL-00002" summary="getOrdini sistemato più qualche altra cosa">
       <created>1656080263056</created>
@@ -184,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656081071248</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="gestione segnalazioni e ordini WIP">
+      <created>1656158348142</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656158348142</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +232,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="getOrdini sistemato più qualche altra cosa" />
     <MESSAGE value="si era buggata la ricerca, ora funziona" />
-    <option name="LAST_COMMIT_MESSAGE" value="si era buggata la ricerca, ora funziona" />
+    <MESSAGE value="gestione segnalazioni e ordini WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="gestione segnalazioni e ordini WIP" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

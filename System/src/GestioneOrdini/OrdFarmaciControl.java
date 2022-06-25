@@ -102,7 +102,7 @@ public class OrdFarmaciControl {
 
     void nuovoOrdine(){
         //db.inserisciOrdine();
-        JOptionPane.showMessageDialog(ordForm.getCont(), "Ordine completato con successo");
+        JOptionPane.showMessageDialog(ordForm.getCont(), "GestioneOrdini.Ordine completato con successo");
         ordForm.dispose();
         carrello.clear();
         qtàFarm.clear();

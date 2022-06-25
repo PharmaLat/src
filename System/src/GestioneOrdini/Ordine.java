@@ -1,3 +1,5 @@
+package GestioneOrdini;
+
 import GestioneMagazzino.Farmaco;
 
 import java.util.Date;
@@ -7,14 +9,22 @@ public class Ordine {
 	private int ID_O;
 	private Date dataConsegna;
 	private String stato;
-	private String tipo;
 	private HashMap<Farmaco, Integer> farmaci;
+	private String indirizzo;
 
-	public Ordine(int ID_O, Date dataConsegna, String stato, String tipo) {
+	public Ordine(int ID_O, Date dataConsegna, String stato, String indirizzo) {
 		this.ID_O = ID_O;
 		this.dataConsegna = dataConsegna;
 		this.stato = stato;
-		this.tipo = tipo;
+		this.indirizzo = indirizzo;
+	}
+
+	public HashMap<Farmaco, Integer> getFarmaci() {
+		return farmaci;
+	}
+
+	public void setFarmaci(HashMap<Farmaco, Integer> farmaci) {
+		this.farmaci = farmaci;
 	}
 
 	public int getID_O() {
@@ -35,10 +45,18 @@ public class Ordine {
 	public void setStato(String stato) {
 		this.stato = stato;
 	}
-	public String getTipo() {
-		return tipo;
+
+	public String getIndirizzo() {
+		return indirizzo;
 	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+
+	@Override
+	public String toString() {
+		return "Ordine{" +
+				"ID_O=" + ID_O +
+				", dataConsegna=" + dataConsegna +
+				", stato='" + stato + '\'' +
+				", farmaci=" + farmaci +
+				'}';
 	}
 }

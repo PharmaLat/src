@@ -185,4 +185,8 @@ public class SchermataPrincipale extends JFrame {
     public JButton getNotifiche() {
         return notifiche;
     }
+
+    public JButton getVisConsegne() {
+        return visConsegne;
+    }
 }
