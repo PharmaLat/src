@@ -7,6 +7,7 @@ import GestioneSegnalazioni.Segnalazione;
 import javax.print.DocFlavor;
 import javax.swing.plaf.nimbus.State;
 import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -481,6 +482,90 @@ public class DBMSInterface {
         }
 
         return idOrdine;
+    }
+
+    public int getNumConsegneInArrivo(){
+        int consegne = 0;
+        Statement st;
+        ResultSet res;
+        LocalDate oggi = LocalDate.now();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        String query = "SELECT COUNT(*) FROM ordine WHERE DataDiConsegna = '"+dtf.format(oggi)+"';";
+        System.out.println(query);
+        try {
+            st = connAzienda.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return 0;
+            }else {
+                do {
+                    consegne = res.getInt("COUNT(*)");
+                }while(res.next());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return consegne;
+    }
+
+    public ArrayList<Farmaco> getFarmaciInScadenza(){
+        ArrayList<Farmaco> farmaci = new ArrayList<>();
+        Statement st;
+        ResultSet res;
+        LocalDate oggi = LocalDate.now();
+        String data=oggi.getYear()+"-"+oggi.getMonthValue()+"-01";
+        String query = "SELECT * FROM farmaco WHERE DataDiScadenza ='"+data+"'";
+        try {
+            st = connFarmacia.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return null;
+            }else {
+                do {
+                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Pricipio_Attivo"), res.getString("DataDiScadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità_O"));
+                    f.setID(res.getInt("ID_F"));
+                }while(res.next());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return farmaci;
+    }
+
+    public void eliminaOrdine(int idOrdine){
+        Statement st;
+        String query = "DELETE FROM ordine WHERE ID_O = "+idOrdine;
+        String query2 = "DELETE FROM comprende WHERE ID_O = "+idOrdine;
+        System.out.println(query);
+        try {
+            st = connAzienda.createStatement();
+            st.executeUpdate(query2);
+            st.executeUpdate(query);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void modificaOrdine(int idOrdine, ArrayList<Farmaco> farmaci){
+        Statement st;
+        String query="";
+
+        try {
+            st = connAzienda.createStatement();
+
+            for (int i = 0; i < farmaci.size(); i++) {
+                query= "UPDATE comprende SET Quantità_O = "+farmaci.get(i).getQuantità()+" WHERE ID_O = "+idOrdine+" AND ID_F= "+farmaci.get(i).getID();
+                System.out.println(query);
+                st.executeUpdate(query);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

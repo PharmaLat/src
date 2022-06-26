@@ -9,11 +9,6 @@ import GestioneOrdini.OrdFarmaciControl;
 import GestioneOrdini.VisualizzaOrdiniControl;
 import GestioneSegnalazioni.AvviaSegnalazioneControl;
 import GestioneSegnalazioni.GestioneSegnalazioniControl;
-import GestioneSegnalazioni.VisualizzaSegnalazioni;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.Map;
 
 public class Main {
 	public static void main(String[] args) {
@@ -29,21 +24,8 @@ public class Main {
 		OrdFarmaciControl ofc = new OrdFarmaciControl(s, utente, db);
 		GestioneConsegneControl vcc = new GestioneConsegneControl(utente, s, db);
 		VisualizzaOrdiniControl voc = new VisualizzaOrdiniControl(s, utente, db);
+		NotificheControl nc = new NotificheControl(s, db, utente);
 
-		/**     cose che vedo se rimane tempo
-		Container c = s.getContainerPane();
-
-		JPanel panel = new JPanel(new FlowLayout());
-		JButton a = new JButton("aadfwadf");
-		JButton b = new JButton("awdadaw");
-		JButton d = new JButton("awdadaaww");
-
-		panel.add(a);
-		panel.add(b);
-		panel.add(d);
-
-		c.add(panel);
-		**/
 
 	}
 }
