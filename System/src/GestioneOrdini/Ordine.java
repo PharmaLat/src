@@ -11,12 +11,21 @@ public class Ordine {
 	private String stato;
 	private HashMap<Farmaco, Integer> farmaci;
 	private String indirizzo;
+	private int periodicità;
+	private String dataUltimoOrdine;
 
 	public Ordine(int ID_O, Date dataConsegna, String stato, String indirizzo) {
 		this.ID_O = ID_O;
 		this.dataConsegna = dataConsegna;
 		this.stato = stato;
 		this.indirizzo = indirizzo;
+	}
+
+	public Ordine(int ID_O, String indirizzo, int periodicità, String dataUltimoOrdine) {
+		this.ID_O = ID_O;
+		this.indirizzo = indirizzo;
+		this.periodicità = periodicità;
+		this.dataUltimoOrdine = dataUltimoOrdine;
 	}
 
 	public HashMap<Farmaco, Integer> getFarmaci() {
@@ -48,6 +57,14 @@ public class Ordine {
 
 	public String getIndirizzo() {
 		return indirizzo;
+	}
+
+	public int getPeriodicità() {
+		return periodicità;
+	}
+
+	public void setPeriodicità(int periodicità) {
+		this.periodicità = periodicità;
 	}
 
 	@Override

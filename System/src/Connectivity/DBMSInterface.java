@@ -568,4 +568,65 @@ public class DBMSInterface {
         }
     }
 
+    public List<Map<Farmaco,String>> getOrdiniPeriodici(String indirizzo){
+        List<Map<Farmaco,String>> listaOrdini  = new ArrayList<>();
+
+        Statement st;
+        ResultSet res;
+        String query = "SELECT * FROM farmaco, comprendeperiodico, ordineperiodico WHERE ordineperiodico.Indirizzo = '"+indirizzo+"' AND ordineperiodico.ID_O = comprendeperiodico.ID_O AND comprendeperiodico.ID_F = farmaco.ID_F;";
+        System.out.println(query);
+        try {
+            st = connAzienda.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return null;
+            }else {
+                Map<Farmaco,String> ordine = new HashMap<>();
+                int id_o = res.getInt("ID_O");
+                //System.out.println("Primo id_o: "+id_o);
+                int rows = 0;
+                if (res.last()) {
+                    rows = res.getRow();
+                    res.beforeFirst();
+                }
+                //System.out.println("Numero di righe: "+rows);
+                res.next();
+                do {
+                    if (id_o == res.getInt("ID_O")){
+                        //System.out.println("Riga "+res.getRow());
+                        //System.out.println("IF uguali: "+id_o+"="+res.getInt("ID_O"));
+                        Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                        f.setID(res.getInt("ID_F"));
+                        Integer qta_O = res.getInt("Quantità_O");
+                        String info = qta_O+"-"+res.getInt("ID_O");
+                        ordine.put(f, info);
+                        //listaOrdini.add(ordine);
+                        //System.out.println("Farmaco :"+f);
+                    }else {
+                        //System.out.println("Riga "+res.getRow());
+                        //System.out.println("IF diversi: "+id_o+"!="+res.getInt("ID_O"));
+                        listaOrdini.add(ordine);
+                        id_o = res.getInt("ID_O");
+                        //System.out.println("id_o ora è "+id_o);
+                        ordine = new HashMap<>();
+                        Farmaco f2 = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                        f2.setID(res.getInt("ID_F"));
+                        Integer qta_O = res.getInt("Quantità_O");
+                        String info = qta_O+"-"+res.getInt("ID_O");
+                        ordine.put(f2, info);
+                        //System.out.println("Farmaco2 :"+f2);
+                        if (res.getRow() == rows){
+                            listaOrdini.add(ordine);
+                        }
+                        // listaOrdini.add(ordine);
+                    }
+                }while(res.next());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaOrdini;
+    }
+
 }

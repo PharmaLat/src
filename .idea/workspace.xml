@@ -22,10 +22,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="in via di completamento pt.2">
+    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="in via di completamento pt.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotificheControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotificheControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotifichePopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotifichePopUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneOrdini/Ordine.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/Ordine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotificheControl$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotificheControl$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotificheControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotificheControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotifichePopUp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotifichePopUp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/prova$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/prova$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/prova$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/prova$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/prova.class" beforeDir="false" />
     </list>
     <list id="b7058ebe-14af-4bcc-b6d9-38512fba0615" name="Changes by impel" comment="">
       <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
@@ -154,7 +164,7 @@
       <workItem from="1656062812116" duration="30318000" />
       <workItem from="1656144808315" duration="36994000" />
       <workItem from="1656192855419" duration="625000" />
-      <workItem from="1656228788735" duration="29546000" />
+      <workItem from="1656228788735" duration="34106000" />
     </task>
     <task id="LOCAL-00002" summary="getOrdini sistemato più qualche altra cosa">
       <created>1656080263056</created>
@@ -226,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656259080185</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="in via di completamento pt.3">
+      <created>1656259949912</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1656259949912</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +279,8 @@
     <MESSAGE value="segnalazioni da sistemare e inizio notifiche" />
     <MESSAGE value="in via di completamento" />
     <MESSAGE value="in via di completamento pt.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="in via di completamento pt.2" />
+    <MESSAGE value="in via di completamento pt.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="in via di completamento pt.3" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
