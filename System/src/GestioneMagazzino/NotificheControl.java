@@ -77,15 +77,15 @@ public class NotificheControl {
             @Override
             public void actionPerformed(ActionEvent e) {
                 notif = new NotifichePopUp();
-                //JPanel grid = notif.getGridPnl();
+                JPanel grid = notif.getGridPnl();
                 if (notifiche.isEmpty()){
                     System.out.println("Notifiche vuote");
                     JLabel vuoto = new JLabel("Non ci sono notifiche");
-                    //grid.add(vuoto);
+                    grid.add(vuoto);
                 }else{
                     for (int i = 0; i < notifiche.size(); i++) {
                         JLabel not = new JLabel(notifiche.get(i).getTesto());
-                        //grid.add(not);
+                        grid.add(not);
                     }
                 }
 
