@@ -629,4 +629,8 @@ public class DBMSInterface {
         return listaOrdini;
     }
 
+    public void modificaOrdinePeriodico(int idOrdine, int periodicità){
+
+    }
+
 }

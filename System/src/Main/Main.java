@@ -6,6 +6,7 @@ import Connectivity.DBMSInterface;
 import GestioneConsegne.GestioneConsegneControl;
 import GestioneMagazzino.*;
 import GestioneOrdini.OrdFarmaciControl;
+import GestioneOrdini.OrdiniPeriodiciControl;
 import GestioneOrdini.VisualizzaOrdiniControl;
 import GestioneSegnalazioni.AvviaSegnalazioneControl;
 import GestioneSegnalazioni.GestioneSegnalazioniControl;
@@ -25,7 +26,7 @@ public class Main {
 		GestioneConsegneControl vcc = new GestioneConsegneControl(utente, s, db);
 		VisualizzaOrdiniControl voc = new VisualizzaOrdiniControl(s, utente, db);
 		NotificheControl nc = new NotificheControl(s, db, utente);
-
+		OrdiniPeriodiciControl opc = new OrdiniPeriodiciControl(s, utente, db);
 
 	}
 }

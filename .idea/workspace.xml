@@ -22,20 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="in via di completamento pt.3">
+    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="getOrdiniPeriodici">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotificheControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotificheControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotifichePopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotifichePopUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneOrdini/Ordine.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/Ordine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotificheControl$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotificheControl$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotificheControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotificheControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotifichePopUp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotifichePopUp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/prova$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/prova$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/prova$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/prova$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/prova.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
     </list>
     <list id="b7058ebe-14af-4bcc-b6d9-38512fba0615" name="Changes by impel" comment="">
       <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
@@ -55,6 +45,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/System/src/Main/Main.java">
+      <ranges>
+        <range start1="8" end1="8" start2="8" end2="9" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="27" end1="28" start2="28" end2="29" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="29" end1="29" start2="30" end2="37" changelist="b7058ebe-14af-4bcc-b6d9-38512fba0615" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -77,7 +76,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -164,7 +163,8 @@
       <workItem from="1656062812116" duration="30318000" />
       <workItem from="1656144808315" duration="36994000" />
       <workItem from="1656192855419" duration="625000" />
-      <workItem from="1656228788735" duration="34106000" />
+      <workItem from="1656228788735" duration="36983000" />
+      <workItem from="1656273951058" duration="655000" />
     </task>
     <task id="LOCAL-00002" summary="getOrdini sistemato più qualche altra cosa">
       <created>1656080263056</created>
@@ -243,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656259949912</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="getOrdiniPeriodici">
+      <created>1656266909540</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656266909540</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +287,8 @@
     <MESSAGE value="in via di completamento" />
     <MESSAGE value="in via di completamento pt.2" />
     <MESSAGE value="in via di completamento pt.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="in via di completamento pt.3" />
+    <MESSAGE value="getOrdiniPeriodici" />
+    <option name="LAST_COMMIT_MESSAGE" value="getOrdiniPeriodici" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
