@@ -22,20 +22,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="segnalazioni da sistemare e inizio notifiche">
+    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="in via di completamento">
+      <change afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/Notifica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotificheControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotifichePopUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/EliminaOrdineControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/OrdFarmaciControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/OrdFarmaciForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/SchermataOrdini.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/ModificaOrdineForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/EliminaOrdineControl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/ModificaOrdineControl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/SchermataOrdini.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/VisualizzaOrdiniControl$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/VisualizzaOrdiniControl$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/VisualizzaOrdiniControl$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/VisualizzaOrdiniControl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/ModificaOrdineForm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/Utente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/Utente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciControl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciControl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciControl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciControl$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciControl$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Main/Main.class" afterDir="false" />
     </list>
     <list id="b7058ebe-14af-4bcc-b6d9-38512fba0615" name="Changes by impel" comment="">
       <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
@@ -55,16 +59,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/System/src/Main/Main.java">
-      <ranges>
-        <range start1="11" end1="16" start2="11" end2="11" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
-        <range start1="31" end1="34" start2="26" end2="27" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
-        <range start1="35" end1="46" start2="28" end2="28" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
-        <range start1="47" end1="47" start2="29" end2="36" changelist="b7058ebe-14af-4bcc-b6d9-38512fba0615" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -174,7 +168,7 @@
       <workItem from="1656062812116" duration="30318000" />
       <workItem from="1656144808315" duration="36994000" />
       <workItem from="1656192855419" duration="625000" />
-      <workItem from="1656228788735" duration="24078000" />
+      <workItem from="1656228788735" duration="28606000" />
     </task>
     <task id="LOCAL-00002" summary="getOrdini sistemato più qualche altra cosa">
       <created>1656080263056</created>
@@ -232,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656245186115</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="in via di completamento">
+      <created>1656254311530</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1656254311530</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +267,8 @@
     <MESSAGE value="inviaOrdine vero" />
     <MESSAGE value="qualcosa" />
     <MESSAGE value="segnalazioni da sistemare e inizio notifiche" />
-    <option name="LAST_COMMIT_MESSAGE" value="segnalazioni da sistemare e inizio notifiche" />
+    <MESSAGE value="in via di completamento" />
+    <option name="LAST_COMMIT_MESSAGE" value="in via di completamento" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
