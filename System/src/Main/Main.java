@@ -6,6 +6,7 @@ import Connectivity.DBMSInterface;
 import GestioneConsegne.GestioneConsegneControl;
 import GestioneMagazzino.*;
 import GestioneOrdini.OrdFarmaciControl;
+import GestioneOrdini.VisualizzaOrdiniControl;
 import GestioneSegnalazioni.AvviaSegnalazioneControl;
 import GestioneSegnalazioni.GestioneSegnalazioniControl;
 import GestioneSegnalazioni.VisualizzaSegnalazioni;
@@ -27,6 +28,7 @@ public class Main {
 		GestioneSegnalazioniControl vsc = new GestioneSegnalazioniControl(s, utente, db);
 		OrdFarmaciControl ofc = new OrdFarmaciControl(s, utente, db);
 		GestioneConsegneControl vcc = new GestioneConsegneControl(utente, s, db);
+		VisualizzaOrdiniControl voc = new VisualizzaOrdiniControl(s, utente, db);
 
 		/**     cose che vedo se rimane tempo
 		Container c = s.getContainerPane();

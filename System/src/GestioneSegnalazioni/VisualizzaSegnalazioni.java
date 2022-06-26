@@ -60,15 +60,16 @@ public class VisualizzaSegnalazioni extends JFrame {
         mainPnl.setEnabled(true);
         mainPnl.setBounds(0,100,width, 620);
 
-        segnalazioniLbl = new JLabel("Segnalazioni ricevute:");
+        /*segnalazioniLbl = new JLabel("Segnalazioni ricevute:");
         JPanel flowPnl1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        flowPnl1.add(segnalazioniLbl);
+        flowPnl1.add(segnalazioniLbl);*/
 
         segnalazioniPnl = new JPanel();
-        JPanel flowPnl2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        flowPnl2.add(segnalazioniPnl);
-
-        mainPnl.add(flowPnl1);
+        JPanel flowPnl2 = new JPanel(new BorderLayout());
+        flowPnl2.add(segnalazioniPnl, BorderLayout.CENTER);
+        flowPnl2.add(new JLabel("       "), BorderLayout.EAST);
+        flowPnl2.add(new JLabel("       "), BorderLayout.WEST);
+        /*mainPnl.add(flowPnl1);*/
         mainPnl.add(flowPnl2);
         framePnl.add(headerPnl, BorderLayout.NORTH);
         framePnl.add(mainPnl, BorderLayout.CENTER);

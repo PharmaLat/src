@@ -6,7 +6,7 @@ public class Utente {
     private String cognome;
     private String ruolo;
     private int ID_Farmacia;
-
+    private int ID;
     private String nomeFarmacia;
     private String indirizzoFarmacia;
 
@@ -46,6 +46,14 @@ public class Utente {
     }
     public void setIndirizzoFarmacia(String indirizzoFarmacia) {
         this.indirizzoFarmacia = indirizzoFarmacia;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public void cancellaDati(){

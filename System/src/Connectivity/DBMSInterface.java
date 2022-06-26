@@ -445,5 +445,42 @@ public class DBMSInterface {
             throw new RuntimeException(e);
         }
     }
+    //da sistemare id_segnalazione non è is_segnalazione
+    public void chiudiSegnalazione(int id_segnalazione, int id_addetto){
+        Statement st;
+        String query = "UPDATE segnalazione SET Stato_S = 'Chiusa' WHERE ID_S = "+id_segnalazione;
+        System.out.println(query);
+        try {
+            st = connAzienda.createStatement();
+            st.executeUpdate(query);
+            int id_ordine = getIdOrdineFromIdSegnalazione(id_segnalazione);
+            String query1 = "UPDATE ordine SET ID_A = "+id_addetto+" WHERE ID_O = "+id_ordine;
+            st.executeUpdate(query1);
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int getIdOrdineFromIdSegnalazione(int idSegnalazione){
+        int idOrdine = 0;
+        Statement st;
+        ResultSet res;
+        String query = "SELECT * FROM ordine, segnalazione WHERE ordine.ID_S = segnalazione.ID_S";
+        try {
+            st = connAzienda.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return 0;
+            }else {
+                do {
+                    idOrdine = res.getInt("ID_O");
+                }while(res.next());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return idOrdine;
+    }
 
 }

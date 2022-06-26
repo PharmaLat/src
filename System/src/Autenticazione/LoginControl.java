@@ -63,6 +63,7 @@ public class LoginControl {
 							utente.setNome(res.getString("Nome_I"));
 							utente.setCognome(res.getString("Cognome_I"));
 							utente.setRuolo(res.getString("Ruolo"));
+							utente.setID(res.getInt("ID_I"));
 							if (res.getString("Ruolo").equals("corriere")){
 								s.initCorriere();
 							} else if (res.getString("Ruolo").equalsIgnoreCase("Addetto Azienda")) {

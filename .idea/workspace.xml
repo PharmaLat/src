@@ -22,11 +22,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="inviaOrdine vero">
+    <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="qualcosa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Autenticazione/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Autenticazione/LoginControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Autenticazione/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Autenticazione/Utente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneOrdini/OrdFarmaciControl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneOrdini/OrdFarmaciForm.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/GestioneSegnalazioniControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/GestioneSegnalazioniControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/VisualizzaSegnalazioni.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/VisualizzaSegnalazioni.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Connectivity/DBMSInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/GestioneSegnalazioniControl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/GestioneSegnalazioniControl$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/GestioneSegnalazioniControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/GestioneSegnalazioniControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/VisualizzaSegnalazioni.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/VisualizzaSegnalazioni.class" afterDir="false" />
     </list>
     <list id="b7058ebe-14af-4bcc-b6d9-38512fba0615" name="Changes by impel" comment="">
       <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
@@ -46,6 +55,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/System/src/Main/Main.java">
+      <ranges>
+        <range start1="8" end1="8" start2="8" end2="9" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="29" end1="29" start2="30" end2="31" changelist="0a2ebf0f-91c6-403a-9dca-b520af207cbf" />
+        <range start1="45" end1="45" start2="47" end2="54" changelist="b7058ebe-14af-4bcc-b6d9-38512fba0615" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -67,6 +85,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.keymap"
   },
   "keyToStringList": {
@@ -152,7 +171,9 @@
       <workItem from="1655882705773" duration="5344000" />
       <workItem from="1656011828827" duration="1681000" />
       <workItem from="1656062812116" duration="30318000" />
-      <workItem from="1656144808315" duration="36775000" />
+      <workItem from="1656144808315" duration="36994000" />
+      <workItem from="1656192855419" duration="625000" />
+      <workItem from="1656228788735" duration="15161000" />
     </task>
     <task id="LOCAL-00002" summary="getOrdini sistemato più qualche altra cosa">
       <created>1656080263056</created>
@@ -196,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656186754359</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="qualcosa">
+      <created>1656192313250</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1656192313250</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +256,8 @@
     <MESSAGE value="gestioneConsegne finita" />
     <MESSAGE value="inviaOrdine" />
     <MESSAGE value="inviaOrdine vero" />
-    <option name="LAST_COMMIT_MESSAGE" value="inviaOrdine vero" />
+    <MESSAGE value="qualcosa" />
+    <option name="LAST_COMMIT_MESSAGE" value="qualcosa" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
