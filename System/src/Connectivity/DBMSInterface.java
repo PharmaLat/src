@@ -188,7 +188,7 @@ public class DBMSInterface {
         ResultSet res;
         try {
             st = connAzienda.createStatement();
-            String query1 = "SELECT DISTINCT (ordine.ID_O), DataDiConsegna, Stato_O FROM ordine, comprende, farmaco WHERE Indirizzo = 'Via Ruffo di calabria, 33' AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F";
+            String query1 = "SELECT DISTINCT (ordine.ID_O), DataDiConsegna, Stato_O FROM ordine, comprende, farmaco WHERE Indirizzo = '"+indirizzo+"' AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F";
             res = st.executeQuery(query1);
             if (!res.next()) {
                 return null;
@@ -551,63 +551,56 @@ public class DBMSInterface {
         }
     }
 
-    public List<Map<Farmaco,String>> getOrdiniPeriodici(String indirizzo){
-        List<Map<Farmaco,String>> listaOrdini  = new ArrayList<>();
-
+    public ArrayList<Ordine> getOrdiniPeriodici(String indirizzo){
+        ArrayList<Ordine> ordini = new ArrayList<>();
         Statement st;
         ResultSet res;
-        String query = "SELECT * FROM farmaco, comprendeperiodico, ordineperiodico WHERE ordineperiodico.Indirizzo = '"+indirizzo+"' AND ordineperiodico.ID_O = comprendeperiodico.ID_O AND comprendeperiodico.ID_F = farmaco.ID_F;";
-        System.out.println(query);
         try {
-            st = connAzienda.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            res = st.executeQuery(query);
+            st = connAzienda.createStatement();
+            String query1 = "SELECT DISTINCT (ordineperiodico.ID_O), Periodicità, DataUltimoOrdine, Quantita_O FROM ordineperiodico, comprendeperiodico, farmaco WHERE Indirizzo = '"+indirizzo+"' AND ordineperiodico.ID_O = comprendeperiodico.ID_O AND comprendeperiodico.ID_F = farmaco.ID_F";
+            res = st.executeQuery(query1);
             if (!res.next()) {
                 return null;
             }else {
-                Map<Farmaco,String> ordine = new HashMap<>();
-                int id_o = res.getInt("ID_O");
-                //System.out.println("Primo id_o: "+id_o);
-                int rows = 0;
-                if (res.last()) {
-                    rows = res.getRow();
-                    res.beforeFirst();
-                }
-                //System.out.println("Numero di righe: "+rows);
-                res.next();
+                Ordine o;
                 do {
-                    if (id_o == res.getInt("ID_O")){
-                        //System.out.println("Riga "+res.getRow());
-                        //System.out.println("IF uguali: "+id_o+"="+res.getInt("ID_O"));
-                        Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita"));
-                        Integer qta_O = res.getInt("Quantita_O");
-                        String info = qta_O+"-"+res.getInt("ID_O");
-                        ordine.put(f, info);
-                        //listaOrdini.add(ordine);
-                        //System.out.println("Farmaco :"+f);
-                    }else {
-                        //System.out.println("Riga "+res.getRow());
-                        //System.out.println("IF diversi: "+id_o+"!="+res.getInt("ID_O"));
-                        listaOrdini.add(ordine);
-                        id_o = res.getInt("ID_O");
-                        //System.out.println("id_o ora è "+id_o);
-                        ordine = new HashMap<>();
-                        Farmaco f2 = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita"));
-                        Integer qta_O = res.getInt("Quantita_O");
-                        String info = qta_O+"-"+res.getInt("ID_O");
-                        ordine.put(f2, info);
-                        //System.out.println("Farmaco2 :"+f2);
-                        if (res.getRow() == rows){
-                            listaOrdini.add(ordine);
-                        }
-                        // listaOrdini.add(ordine);
-                    }
+                    int idOrdine = res.getInt("ID_O");
+                    System.out.println("ID ORDINE "+ idOrdine);
+                    String data = res.getString("DataUltimoOrdine");
+                    int periodicita = res.getInt("Periodicita");
+                    o = new Ordine(idOrdine, indirizzo, periodicita, data);
+                    ordini.add(o);
                 }while(res.next());
+
+                for (int i = 0; i < ordini.size(); i++) {
+                    String query2 = "SELECT farmaco.ID_F, farmaco.Nome_F, farmaco.Principio_Attivo, farmaco.Da_Banco, comprende.Quantita_O, farmaco.Scadenza"+
+                            " FROM ordine, comprende, farmaco WHERE ordine.ID_O = "+ordini.get(i).getID_O()+" AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F";
+                    ResultSet res2;
+                    res2 = st.executeQuery(query2);
+                    if (!res2.next()){
+                        return null;
+                    }else {
+                        ArrayList<Farmaco> farmaci = new ArrayList<>();
+                        do {
+                            int id = res2.getInt("ID_F");
+                            String nome = res2.getString("Nome_F");
+                            String prAtt = res2.getString("Principio_Attivo");
+                            String daBanco = res2.getInt("Da_Banco") == 1 ? "Si":"No";
+                            int qta = res2.getInt("Quantita_O");
+                            String scadenza = res2.getString("Scadenza");
+                            Farmaco f = new Farmaco(id, nome, prAtt, scadenza, daBanco, qta);
+                            farmaci.add(f);
+                        }while(res2.next());
+                        ordini.get(i).setFarmaci(farmaci);
+                    }
+                }
+
+
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return listaOrdini;
+        return ordini;
     }
 
     public void modificaOrdinePeriodico(int idOrdine, int periodicita){
