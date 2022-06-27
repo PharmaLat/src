@@ -19,7 +19,7 @@ public class OrdFarmaciControl {
     private DBMSInterface db;
     private OrdFarmaciForm ordForm;
     private ArrayList<Farmaco> carrello = new ArrayList<Farmaco>();
-    private ArrayList<JSpinner> qtàFarm = new ArrayList<JSpinner>();
+    private ArrayList<JSpinner> qtaFarm = new ArrayList<JSpinner>();
     private ArrayList<Farmaco> farmAcquistabili = new ArrayList<Farmaco>();
 
     public OrdFarmaciControl(SchermataPrincipale sc, Utente u, DBMSInterface db) {
@@ -37,7 +37,7 @@ public class OrdFarmaciControl {
             public void actionPerformed(ActionEvent e) {
                 farmAcquistabili = db.getFarmaciAcquistabili();
                 carrello.clear();
-                qtàFarm.clear();
+                qtaFarm.clear();
                 ordForm = new OrdFarmaciForm();
                 formFarmAcquistabili();
             }
@@ -58,7 +58,7 @@ public class OrdFarmaciControl {
             ordForm.getLblCenter2().add(new JLabel(farmAcquistabili.get(i).getPrincipioAttivo()));
             ordForm.getLblCenter3().add(new JLabel(farmAcquistabili.get(i).getData()));
             JSpinner spinner = new JSpinner(new SpinnerNumberModel(1, 1, 999, 1));
-            qtàFarm.add(spinner);
+            qtaFarm.add(spinner);
             ordForm.getSpnCenter().add(spinner);
             JButton addBtn = new JButton("Aggiungi al carrello " + farmAcquistabili.get(i).getNome());
             addBtn.addActionListener(addCarrelloListener);
@@ -74,7 +74,7 @@ public class OrdFarmaciControl {
             Farmaco f1 = new Farmaco(f.getNome(), f.getPrincipioAttivo(), f.getData(), f.getDaBanco(), qta);
             f1.setID(f.getID());
             carrello.add(f1);
-            f.setQuantità(f.getQuantità() - qta);
+            f.setQuantita(f.getQuantita() - qta);
             JPanel pnl = new JPanel(new GridLayout(1, 2, 10, 10));
             pnl.add(new JLabel(f.getNome()));
             pnl.add(new JLabel(f.getData()));
@@ -91,8 +91,8 @@ public class OrdFarmaciControl {
         LocalDate date = LocalDate.parse(f.getData());
         ChronoUnit.MONTHS.between(date, LocalDate.now());
         int conferma;
-        if (f.getQuantità() < qta){
-            JOptionPane.showMessageDialog(ordForm.getCont(), "Quantità non disponibile");
+        if (f.getQuantita() < qta){
+            JOptionPane.showMessageDialog(ordForm.getCont(), "Quantita non disponibile");
             return false;
         }
         else if(ChronoUnit.MONTHS.between(date, LocalDate.now()) > -2) {
@@ -110,7 +110,7 @@ public class OrdFarmaciControl {
         JOptionPane.showMessageDialog(ordForm.getCont(), "Ordine completato con successo");
         ordForm.dispose();
         carrello.clear();
-        qtàFarm.clear();
+        qtaFarm.clear();
     }
 
     ActionListener addCarrelloListener = new ActionListener() {
@@ -119,7 +119,7 @@ public class OrdFarmaciControl {
             JButton btn = (JButton) e.getSource();
             for(int i = 0; i < farmAcquistabili.size(); i++){
                 if (btn.getActionCommand().equals(String.valueOf(farmAcquistabili.get(i).getID())))
-                    aggiungiAlCarrello(farmAcquistabili.get(i), (Integer) qtàFarm.get(i).getValue());
+                    aggiungiAlCarrello(farmAcquistabili.get(i), (Integer) qtaFarm.get(i).getValue());
             }
 
         }

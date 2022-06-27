@@ -2,37 +2,38 @@ package GestioneOrdini;
 
 import GestioneMagazzino.Farmaco;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
 public class Ordine {
 	private int ID_O;
-	private Date dataConsegna;
+	private String dataConsegna;
 	private String stato;
-	private HashMap<Farmaco, Integer> farmaci;
+	private ArrayList<Farmaco> farmaci;
 	private String indirizzo;
-	private int periodicità;
+	private int periodicita;
 	private String dataUltimoOrdine;
 
-	public Ordine(int ID_O, Date dataConsegna, String stato, String indirizzo) {
+	public Ordine(int ID_O, String dataConsegna, String stato, String indirizzo) {
 		this.ID_O = ID_O;
 		this.dataConsegna = dataConsegna;
 		this.stato = stato;
 		this.indirizzo = indirizzo;
 	}
 
-	public Ordine(int ID_O, String indirizzo, int periodicità, String dataUltimoOrdine) {
+	public Ordine(int ID_O, String indirizzo, int periodicita, String dataUltimoOrdine) {
 		this.ID_O = ID_O;
 		this.indirizzo = indirizzo;
-		this.periodicità = periodicità;
+		this.periodicita = periodicita;
 		this.dataUltimoOrdine = dataUltimoOrdine;
 	}
 
-	public HashMap<Farmaco, Integer> getFarmaci() {
+	public ArrayList<Farmaco> getFarmaci() {
 		return farmaci;
 	}
 
-	public void setFarmaci(HashMap<Farmaco, Integer> farmaci) {
+	public void setFarmaci(ArrayList<Farmaco> farmaci) {
 		this.farmaci = farmaci;
 	}
 
@@ -42,10 +43,10 @@ public class Ordine {
 	public void setID_O(int ID_O) {
 		this.ID_O = ID_O;
 	}
-	public Date getDataConsegna() {
+	public String getDataConsegna() {
 		return dataConsegna;
 	}
-	public void setDataConsegna(Date dataConsegna) {
+	public void setDataConsegna(String dataConsegna) {
 		this.dataConsegna = dataConsegna;
 	}
 	public String getStato() {
@@ -59,12 +60,12 @@ public class Ordine {
 		return indirizzo;
 	}
 
-	public int getPeriodicità() {
-		return periodicità;
+	public int getPeriodicita() {
+		return periodicita;
 	}
 
-	public void setPeriodicità(int periodicità) {
-		this.periodicità = periodicità;
+	public void setPeriodicita(int periodicita) {
+		this.periodicita = periodicita;
 	}
 
 	@Override
@@ -73,7 +74,6 @@ public class Ordine {
 				"ID_O=" + ID_O +
 				", dataConsegna=" + dataConsegna +
 				", stato='" + stato + '\'' +
-				", farmaci=" + farmaci +
 				'}';
 	}
 }

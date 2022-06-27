@@ -188,7 +188,7 @@ public class GestioneSegnalazioniControl {
             qta[j].setColumns(10);
             label1.add(nome);
             text1.add(qta[j]);
-            JLabel qtaprima = new JLabel(""+farmaci.get(j).getQuantità());
+            JLabel qtaprima = new JLabel(""+farmaci.get(j).getQuantita());
             text.add(qtaprima);
             label.add(label1);
             text.add(text1);

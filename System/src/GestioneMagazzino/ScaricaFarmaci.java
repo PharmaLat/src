@@ -76,7 +76,7 @@ public class ScaricaFarmaci extends JFrame{
 		nomeF = new JComboBox(farmaci);
 		mainPnl.add(nomeF);
 		qtaLbl = new JLabel();
-		qtaLbl.setText("Quantità");
+		qtaLbl.setText("Quantita");
 		mainPnl.add(qtaLbl);
 		qta = new JTextField();
 		qta.setColumns(5);
@@ -92,7 +92,7 @@ public class ScaricaFarmaci extends JFrame{
 		erroreNome.setVisible(false);
 		framePnl.add(erroreNome);
 
-		erroreQta = new JLabel("Quantità inserita maggiore di quella presente in magazzino");
+		erroreQta = new JLabel("Quantita inserita maggiore di quella presente in magazzino");
 		erroreQta.setForeground(Color.red);
 		erroreQta.setBounds(400, 230, 250, 20);
 		erroreQta.setVisible(false);

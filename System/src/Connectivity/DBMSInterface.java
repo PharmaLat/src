@@ -7,6 +7,7 @@ import GestioneSegnalazioni.Segnalazione;
 import javax.print.DocFlavor;
 import javax.swing.plaf.nimbus.State;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -67,8 +68,7 @@ public class DBMSInterface {
             }else {
 
                 do {
-                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
-                    f.setID(res.getInt("ID_F"));
+                    Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita"));
                     farmaci.add(f);
                 }while(res.next());
 
@@ -94,7 +94,7 @@ public class DBMSInterface {
                 return null;
             }else {
                 do {
-                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
+                    Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita"));
                     farmaci.add(f);
                 }while(res.next());
             }
@@ -117,8 +117,7 @@ public class DBMSInterface {
                 return null;
             }else {
                 do {
-                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
-                    f.setID(res.getInt("ID_F"));
+                    Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita"));
                     farmaci.add(f);
                 }while(res.next());
             }
@@ -132,7 +131,7 @@ public class DBMSInterface {
     public void inserisciFarmacoFarmacia(Farmaco f, int id_farm){
         Statement st;
         ResultSet res;
-        String query = "INSERT INTO farmaco (Nome_F, Principio_Attivo, Scadenza, Da_Banco, Quantità, ID_FARM) VALUES ('"+f.getNome()+"', '"+f.getPrincipioAttivo()+"', '"+f.getData()+"', "+(f.getDaBanco().equals("Si")?1:0)+", "+f.getQuantità()+", "+ id_farm +");";
+        String query = "INSERT INTO farmaco (Nome_F, Principio_Attivo, Scadenza, Da_Banco, Quantita, ID_FARM) VALUES ('"+f.getNome()+"', '"+f.getPrincipioAttivo()+"', '"+f.getData()+"', "+(f.getDaBanco().equals("Si")?1:0)+", "+f.getQuantita()+", "+ id_farm +");";
         System.out.println(query);
         try {
             st = connFarmacia.createStatement();
@@ -154,8 +153,7 @@ public class DBMSInterface {
                 return null;
             }else {
                 do {
-                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
-                    f.setID(res.getInt("ID_F"));
+                    Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita"));
                     farmaci.add(f);
                 }while(res.next());
             }
@@ -168,11 +166,11 @@ public class DBMSInterface {
 
     public void scaricaFarmaci(int qtaint, Farmaco farmaco) {
         Statement st;
-        int newQta = farmaco.getQuantità()-qtaint;
+        int newQta = farmaco.getQuantita()-qtaint;
         String query;
         if (newQta == 0){
             query= "DELETE FROM farmaco WHERE ID_F = "+farmaco.getID()+";";
-        }else query = "UPDATE farmaco SET Quantità = "+newQta+" WHERE ID_F = "+farmaco.getID()+";";
+        }else query = "UPDATE farmaco SET Quantita = "+newQta+" WHERE ID_F = "+farmaco.getID()+";";
         System.out.println(query);
 
         try {
@@ -184,68 +182,55 @@ public class DBMSInterface {
 
     }
 
-
-
-    public List<Map<Farmaco,String>> getOrdini(String indirizzo){
-
-        List<Map<Farmaco,String>> listaOrdini  = new ArrayList<>();
-
+    public ArrayList<Ordine> getOrdini(String indirizzo){
+        ArrayList<Ordine> ordini = new ArrayList<>();
         Statement st;
         ResultSet res;
-        String query = "SELECT * FROM farmaco, comprende, ordine WHERE ordine.Indirizzo = '"+indirizzo+"' AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F;";
-        System.out.println(query);
         try {
-            st = connAzienda.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            res = st.executeQuery(query);
+            st = connAzienda.createStatement();
+            String query1 = "SELECT DISTINCT (ordine.ID_O), DataDiConsegna, Stato_O FROM ordine, comprende, farmaco WHERE Indirizzo = 'Via Ruffo di calabria, 33' AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F";
+            res = st.executeQuery(query1);
             if (!res.next()) {
                 return null;
             }else {
-                Map<Farmaco,String> ordine = new HashMap<>();
-                int id_o = res.getInt("ID_O");
-                //System.out.println("Primo id_o: "+id_o);
-                int rows = 0;
-                if (res.last()) {
-                    rows = res.getRow();
-                    res.beforeFirst();
-                }
-                //System.out.println("Numero di righe: "+rows);
-                res.next();
+                Ordine o;
                 do {
-                    if (id_o == res.getInt("ID_O")){
-                        //System.out.println("Riga "+res.getRow());
-                        //System.out.println("IF uguali: "+id_o+"="+res.getInt("ID_O"));
-                        Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
-                        f.setID(res.getInt("ID_F"));
-                        Integer qta_O = res.getInt("Quantità_O");
-                        String info = qta_O+"-"+res.getInt("ID_O");
-                        ordine.put(f, info);
-                        //listaOrdini.add(ordine);
-                        //System.out.println("Farmaco :"+f);
-                    }else {
-                        //System.out.println("Riga "+res.getRow());
-                        //System.out.println("IF diversi: "+id_o+"!="+res.getInt("ID_O"));
-                        listaOrdini.add(ordine);
-                        id_o = res.getInt("ID_O");
-                        //System.out.println("id_o ora è "+id_o);
-                        ordine = new HashMap<>();
-                        Farmaco f2 = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
-                        f2.setID(res.getInt("ID_F"));
-                        Integer qta_O = res.getInt("Quantità_O");
-                        String info = qta_O+"-"+res.getInt("ID_O");
-                        ordine.put(f2, info);
-                        //System.out.println("Farmaco2 :"+f2);
-                        if (res.getRow() == rows){
-                            listaOrdini.add(ordine);
-                        }
-                       // listaOrdini.add(ordine);
-                    }
+                    int idOrdine = res.getInt("ID_O");
+                    System.out.println("ID ORDINE "+ idOrdine);
+                    String data = res.getString("DataDiConsegna");
+                    o = new Ordine(idOrdine, data, res.getString("Stato_O"), indirizzo);
+                    ordini.add(o);
                 }while(res.next());
+
+                for (int i = 0; i < ordini.size(); i++) {
+                    String query2 = "SELECT farmaco.ID_F, farmaco.Nome_F, farmaco.Principio_Attivo, farmaco.Da_Banco, comprende.Quantita_O, farmaco.Scadenza"+
+                            " FROM ordine, comprende, farmaco WHERE ordine.ID_O = "+ordini.get(i).getID_O()+" AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F";
+                    ResultSet res2;
+                    res2 = st.executeQuery(query2);
+                    if (!res2.next()){
+                        return null;
+                    }else {
+                        ArrayList<Farmaco> farmaci = new ArrayList<>();
+                        do {
+                            int id = res2.getInt("ID_F");
+                            String nome = res2.getString("Nome_F");
+                            String prAtt = res2.getString("Principio_Attivo");
+                            String daBanco = res2.getInt("Da_Banco") == 1 ? "Si":"No";
+                            int qta = res2.getInt("Quantita_O");
+                            String scadenza = res2.getString("Scadenza");
+                            Farmaco f = new Farmaco(id, nome, prAtt, scadenza, daBanco, qta);
+                            farmaci.add(f);
+                        }while(res2.next());
+                        ordini.get(i).setFarmaci(farmaci);
+                    }
+                }
+
+
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return listaOrdini;
+        return ordini;
     }
 
     public String getIndirizzo(int ID_F){
@@ -329,8 +314,7 @@ public class DBMSInterface {
                 return null;
             }else {
                 do {
-                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità_O"));
-                    f.setID(res.getInt("ID_F"));
+                    Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita_O"));
                     //System.out.println("Sto aggiungendo "+f);
                     farmaci.add(f);
                 }while(res.next());
@@ -355,7 +339,7 @@ public class DBMSInterface {
                 return null;
             }else {
                 do {
-                    Ordine o = new Ordine(res.getInt("ID_O"), res.getDate("DataDiConsegna"), res.getString("Stato_O"), res.getString("Indirizzo"));
+                    Ordine o = new Ordine(res.getInt("ID_O"), res.getString("DataDiConsegna"), res.getString("Stato_O"), res.getString("Indirizzo"));
                     consegne.add(o);
                 }while(res.next());
             }
@@ -399,7 +383,7 @@ public class DBMSInterface {
 
             int id_ordine = res.getInt("LAST_INSERT_ID()");
             for (int i = 0; i < farmaci.size(); i++) {
-                String queryComprende = "INSERT INTO comprende (ID_O, ID_F, Quantità_O) VALUES ("+id_ordine+", "+farmaci.get(i).getID()+", "+farmaci.get(i).getQuantità()+")";
+                String queryComprende = "INSERT INTO comprende (ID_O, ID_F, Quantita_O) VALUES ("+id_ordine+", "+farmaci.get(i).getID()+", "+farmaci.get(i).getQuantita()+")";
                 System.out.println(queryComprende);
                 st.executeUpdate(queryComprende);
             }
@@ -438,7 +422,7 @@ public class DBMSInterface {
         try {
             st = connAzienda.createStatement();
             for (int i = 0; i < farmaci.size(); i++) {
-                query = "UPDATE comprende SET Quantità_O = "+farmaci.get(i).getQuantità()+" WHERE ID_O="+idOrdine;
+                query = "UPDATE comprende SET Quantita_O = "+farmaci.get(i).getQuantita()+" WHERE ID_O="+idOrdine;
                 System.out.println(query);
                 st.executeUpdate(query);
             }
@@ -524,8 +508,7 @@ public class DBMSInterface {
                 return null;
             }else {
                 do {
-                    Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Pricipio_Attivo"), res.getString("DataDiScadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità_O"));
-                    f.setID(res.getInt("ID_F"));
+                    Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Pricipio_Attivo"), res.getString("DataDiScadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita_O"));
                 }while(res.next());
             }
         } catch (SQLException e) {
@@ -558,7 +541,7 @@ public class DBMSInterface {
             st = connAzienda.createStatement();
 
             for (int i = 0; i < farmaci.size(); i++) {
-                query= "UPDATE comprende SET Quantità_O = "+farmaci.get(i).getQuantità()+" WHERE ID_O = "+idOrdine+" AND ID_F= "+farmaci.get(i).getID();
+                query= "UPDATE comprende SET Quantita_O = "+farmaci.get(i).getQuantita()+" WHERE ID_O = "+idOrdine+" AND ID_F= "+farmaci.get(i).getID();
                 System.out.println(query);
                 st.executeUpdate(query);
             }
@@ -595,9 +578,8 @@ public class DBMSInterface {
                     if (id_o == res.getInt("ID_O")){
                         //System.out.println("Riga "+res.getRow());
                         //System.out.println("IF uguali: "+id_o+"="+res.getInt("ID_O"));
-                        Farmaco f = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
-                        f.setID(res.getInt("ID_F"));
-                        Integer qta_O = res.getInt("Quantità_O");
+                        Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita"));
+                        Integer qta_O = res.getInt("Quantita_O");
                         String info = qta_O+"-"+res.getInt("ID_O");
                         ordine.put(f, info);
                         //listaOrdini.add(ordine);
@@ -609,9 +591,8 @@ public class DBMSInterface {
                         id_o = res.getInt("ID_O");
                         //System.out.println("id_o ora è "+id_o);
                         ordine = new HashMap<>();
-                        Farmaco f2 = new Farmaco(res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantità"));
-                        f2.setID(res.getInt("ID_F"));
-                        Integer qta_O = res.getInt("Quantità_O");
+                        Farmaco f2 = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita"));
+                        Integer qta_O = res.getInt("Quantita_O");
                         String info = qta_O+"-"+res.getInt("ID_O");
                         ordine.put(f2, info);
                         //System.out.println("Farmaco2 :"+f2);
@@ -629,7 +610,7 @@ public class DBMSInterface {
         return listaOrdini;
     }
 
-    public void modificaOrdinePeriodico(int idOrdine, int periodicità){
+    public void modificaOrdinePeriodico(int idOrdine, int periodicita){
 
     }
 

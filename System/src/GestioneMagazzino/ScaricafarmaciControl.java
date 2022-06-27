@@ -85,7 +85,7 @@ public class ScaricafarmaciControl {
 
 						for (int i = 0; i < farmaciUguali.size(); i++) {
 							System.out.println(farmaciUguali.get(i));
-							sumQta += farmaciUguali.get(i).getQuantità();
+							sumQta += farmaciUguali.get(i).getQuantita();
 						}
 						System.out.println("Somma qta: "+sumQta);
 					}else {
@@ -95,16 +95,16 @@ public class ScaricafarmaciControl {
 
 					int qtaint = Integer.parseInt(qta.getText());
 
-					if (qtaint < farmaciUguali.get(minIndex).getQuantità()){
+					if (qtaint < farmaciUguali.get(minIndex).getQuantita()){
 						db.scaricaFarmaci(qtaint, farmaciUguali.get(minIndex));
 					} else if (qtaint > sumQta) {
 						erroreQta.setVisible(true);
 					}else {
 						int x = 0;
 						while(qtaint>0){
-							if (qtaint>farmaciUguali.get(x).getQuantità()){
-								db.scaricaFarmaci(farmaciUguali.get(x).getQuantità(), farmaciUguali.get(x));
-								qtaint = qtaint-farmaciUguali.get(x).getQuantità();
+							if (qtaint>farmaciUguali.get(x).getQuantita()){
+								db.scaricaFarmaci(farmaciUguali.get(x).getQuantita(), farmaciUguali.get(x));
+								qtaint = qtaint-farmaciUguali.get(x).getQuantita();
 								x++;
 							}else {
 								db.scaricaFarmaci(qtaint, farmaciUguali.get(x));

@@ -22,7 +22,7 @@ public class ModificaOrdineControl {
     private int index;
     private ArrayList<Farmaco> farmaciMod = new ArrayList<>();
 
-    private ArrayList<JSpinner> qtàFarm = new ArrayList<JSpinner>();
+    private ArrayList<JSpinner> qtaFarm = new ArrayList<JSpinner>();
     private  JDialog modificaDialog;
     public ModificaOrdineControl(SchermataOrdini s, Utente u, DBMSInterface db, String id, List<Map<Farmaco,String>> ordiniList, int index){
         this.scOrdini = s;
@@ -48,7 +48,7 @@ public class ModificaOrdineControl {
         for(int i = 0; i < ordiniList.get(index).size(); i++){
             lblCenter.add(new JLabel("CIAO"));
             JSpinner spinner = new JSpinner(new SpinnerNumberModel(1, 1, 999, 1));//vedere se posso mettere di default quello vecchio
-            qtàFarm.add(spinner);
+            qtaFarm.add(spinner);
             spnCenter.add(spinner);
         }
 
@@ -89,7 +89,7 @@ public class ModificaOrdineControl {
             int i = 0;
             for (Map.Entry<Farmaco, String> entry : ordiniList.get(index).entrySet()) {
                 Farmaco f = entry.getKey();
-                f.setQuantità((Integer) qtàFarm.get(i).getValue());
+                f.setQuantita((Integer) qtaFarm.get(i).getValue());
                 farmaciMod.add(f);
                 i++;
             }
@@ -97,7 +97,7 @@ public class ModificaOrdineControl {
             
             db.modificaOrdine(Integer.parseInt(id), farmaciMod);
             farmaciMod.clear();
-            qtàFarm.clear();
+            qtaFarm.clear();
             modificaDialog.dispose();
         }
     };

@@ -82,7 +82,7 @@ public class CaricaFarmaci extends JFrame {
 		nomeF.setText("");
 		mainPnl.add(nomeF);
 		qtaLbl = new JLabel();
-		qtaLbl.setText("Quantità");
+		qtaLbl.setText("Quantita");
 		mainPnl.add(qtaLbl);
 		qta = new JTextField();
 		qta.setColumns(5);

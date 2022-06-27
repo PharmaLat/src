@@ -40,12 +40,12 @@ public class OrdiniPeriodiciControl {
             String id = "";
             String nome = "";
             String qta = "";
-            String periodicità = "";
+            String periodicita = "";
             String data = "";
             for (Map.Entry<Farmaco, String> entry : ordiniListPeriodici.get(i).entrySet()) {
                 String info[] = entry.getValue().split("-");
                 nome = entry.getKey().getNome();
-                qta = String.valueOf(entry.getKey().getQuantità());
+                qta = String.valueOf(entry.getKey().getQuantita());
                 data = entry.getKey().getData();
                 id = info[1];
             }
@@ -56,7 +56,7 @@ public class OrdiniPeriodiciControl {
 
             schermataOrdiniPeriodici.getLblCenter1().add(new JLabel(nome));
             schermataOrdiniPeriodici.getLblCenter2().add(new JLabel(qta));
-            schermataOrdiniPeriodici.getLblCenter3().add(new JLabel(periodicità));
+            schermataOrdiniPeriodici.getLblCenter3().add(new JLabel(periodicita));
             schermataOrdiniPeriodici.getLblCenter4().add(new JLabel(data));
             schermataOrdiniPeriodici.getBtnCenter1().add(btnM);
         }

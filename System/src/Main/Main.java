@@ -6,10 +6,13 @@ import Connectivity.DBMSInterface;
 import GestioneConsegne.GestioneConsegneControl;
 import GestioneMagazzino.*;
 import GestioneOrdini.OrdFarmaciControl;
+import GestioneOrdini.Ordine;
 import GestioneOrdini.OrdiniPeriodiciControl;
 import GestioneOrdini.VisualizzaOrdiniControl;
 import GestioneSegnalazioni.AvviaSegnalazioneControl;
 import GestioneSegnalazioni.GestioneSegnalazioniControl;
+
+import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) {

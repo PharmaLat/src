@@ -5,16 +5,24 @@ public class Farmaco {
     private String principioAttivo;
     private String data;
     private String daBanco;
-    private int quantità;
+    private int quantita;
     private int ID;
-    public Farmaco(String nome, String principioAttivo, String data, String daBanco, int quantità) {
+    public Farmaco(int ID, String nome, String principioAttivo, String data, String daBanco, int quantita) {
+        this.ID = ID;
         this.nome = nome;
         this.principioAttivo = principioAttivo;
         this.data = data;
         this.daBanco = daBanco;
-        this.quantità = quantità;
+        this.quantita = quantita;
     }
 
+    public Farmaco(String nome, String principioAttivo, String data, String daBanco, int quantita) {
+        this.nome = nome;
+        this.principioAttivo = principioAttivo;
+        this.data = data;
+        this.daBanco = daBanco;
+        this.quantita = quantita;
+    }
     public String getNome() {
         return nome;
     }
@@ -47,12 +55,12 @@ public class Farmaco {
         this.daBanco = daBanco;
     }
 
-    public int getQuantità() {
-        return quantità;
+    public int getQuantita() {
+        return quantita;
     }
 
-    public void setQuantità(int quantità) {
-        this.quantità = quantità;
+    public void setQuantita(int quantita) {
+        this.quantita = quantita;
     }
 
     public int getID() {
@@ -68,7 +76,7 @@ public class Farmaco {
                 ", principioAttivo='" + principioAttivo + '\'' +
                 ", data='" + data + '\'' +
                 ", daBanco='" + daBanco + '\'' +
-                ", quantità=" + quantità +
+                ", quantita=" + quantita +
                 ", ID="+ID+
                 '}';
     }
