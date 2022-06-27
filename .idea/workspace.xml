@@ -24,47 +24,21 @@
   <component name="ChangeListManager">
     <list default="true" id="0a2ebf0f-91c6-403a-9dca-b520af207cbf" name="Changes" comment="iniziano le migliorie grafiche">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Autenticazione/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Autenticazione/LoginControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Autenticazione/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Autenticazione/LoginForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Connectivity/DBMSInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneConsegne/ConfermaConsegna.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneConsegne/ConfermaConsegna.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneConsegne/GestioneConsegneControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneConsegne/GestioneConsegneControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneConsegne/VisualizzaConsegne.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneConsegne/VisualizzaConsegne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/CaricaFarmaci.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/CaricaFarmaci.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/CaricafarmaciControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/CaricafarmaciControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotifichePopUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/NotifichePopUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/ScaricaFarmaci.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/ScaricaFarmaci.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/ScaricafarmaciControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/ScaricafarmaciControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/VisInventarioControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/VisInventarioControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneMagazzino/VisualizzaInventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneMagazzino/VisualizzaInventario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneOrdini/OrdFarmaciForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/OrdFarmaciForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneOrdini/SchermataOrdini.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/SchermataOrdini.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneOrdini/SchermataOrdiniPeriodici.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneOrdini/SchermataOrdiniPeriodici.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazione.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazioneControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/AvviaSegnalazioneControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/GestioneSegnalazioniControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/GestioneSegnalazioniControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/ModificaOrdineForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/ModificaOrdineForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/NuovoOrdineAziendaForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/NuovoOrdineAziendaForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/VisualizzaSegnalazioni.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/GestioneSegnalazioni/VisualizzaSegnalazioni.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/src/Main/SchermataPrincipale.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/SchermataPrincipale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Autenticazione/LoginForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/CaricaFarmaci.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/CaricaFarmaci.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/CaricafarmaciControl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/CaricafarmaciControl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/CaricafarmaciControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/CaricafarmaciControl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/CaricafarmaciControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/CaricafarmaciControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/ScaricaFarmaci.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/ScaricaFarmaci.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/ScaricafarmaciControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/ScaricafarmaciControl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisInventarioControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneOrdini/SchermataOrdiniPeriodici.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/SchermataOrdiniPeriodici.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazioneControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/GestioneSegnalazioniControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/GestioneSegnalazioniControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/System/Main/SchermataPrincipale.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/Main/SchermataPrincipale.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/src/Main/ProduzioneFarmaci.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/ProduzioneFarmaci.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneConsegne/ConfermaConsegna.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneConsegne/ConfermaConsegna.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneConsegne/GestioneConsegneControl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneConsegne/GestioneConsegneControl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneConsegne/GestioneConsegneControl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneConsegne/GestioneConsegneControl$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneConsegne/GestioneConsegneControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneConsegne/GestioneConsegneControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneConsegne/VisualizzaConsegne.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneConsegne/VisualizzaConsegne.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotifichePopUp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/NotifichePopUp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/ScaricafarmaciControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/ScaricafarmaciControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisualizzaInventario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneMagazzino/VisualizzaInventario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/OrdFarmaciForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneOrdini/SchermataOrdini.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneOrdini/SchermataOrdini.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/AvviaSegnalazione.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/ModificaOrdineForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/ModificaOrdineForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/NuovoOrdineAziendaForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/NuovoOrdineAziendaForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/VisualizzaSegnalazioni.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/System/GestioneSegnalazioni/VisualizzaSegnalazioni.class" afterDir="false" />
     </list>
     <list id="b7058ebe-14af-4bcc-b6d9-38512fba0615" name="Changes by impel" comment="">
       <change beforePath="$PROJECT_DIR$/System/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/System/src/Main/Main.java" afterDir="false" />
@@ -196,7 +170,7 @@
       <workItem from="1656228788735" duration="36983000" />
       <workItem from="1656273951058" duration="1572000" />
       <workItem from="1656275907215" duration="4744000" />
-      <workItem from="1656319901118" duration="23252000" />
+      <workItem from="1656319901118" duration="25060000" />
     </task>
     <task id="LOCAL-00002" summary="getOrdini sistemato più qualche altra cosa">
       <created>1656080263056</created>
@@ -310,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656337239473</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="iniziano le migliorie grafiche">
+      <created>1656350018498</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1656350018498</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
