@@ -11,6 +11,14 @@ public class SchermataPrincipale extends JFrame {
     int width = 1280;
     int heigth = 720;
     Container cont = this.getContentPane();
+    private JPanel headerPnl;
+    private JPanel mainPnl;
+    private JPanel farmaciaPnl;
+    private JPanel notifichePnl;
+    private JPanel LogoutPanel;
+    private JLabel farmaciaLbl;
+    private JButton notificheButton;
+    private JButton logoutButton;
     public SchermataPrincipale(){
         this.setTitle(titolo);
         this.setSize(width, heigth);
@@ -98,14 +106,31 @@ public class SchermataPrincipale extends JFrame {
     }
 
      public void initItems(){
-        JPanel flowPanelN = new JPanel(new FlowLayout());
-        logout.setActionCommand("logout");
+         headerPnl = new JPanel();
+         headerPnl.setLayout(new GridLayout());
 
-        flowPanelN.add(notifiche);
-        flowPanelN.add(farmacia);
-        flowPanelN.add(logout);
+         notifichePnl = new JPanel();
+         notifichePnl.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+         headerPnl.add(notifichePnl);
+         notificheButton = new JButton();
+         notificheButton.setText("Notifiche");
+         notifichePnl.add(notificheButton);
+         farmaciaPnl = new JPanel();
+         farmaciaPnl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+         headerPnl.add(farmaciaPnl);
+         farmaciaLbl = new JLabel();
+         farmaciaLbl.setText("Farmacia");
+         farmaciaLbl.setFont(new Font("Calibri", Font.PLAIN, 23));
+         farmaciaPnl.add(farmaciaLbl);
+         LogoutPanel = new JPanel();
+         LogoutPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
+         headerPnl.add(LogoutPanel);
+         headerPnl.setBounds(0, 0, width-15, 50);
+         logoutButton = new JButton();
+         logoutButton.setText("Logout");
+         LogoutPanel.add(logoutButton);
 
-        cont.add(flowPanelN, BorderLayout.NORTH);
+        cont.add(headerPnl, BorderLayout.NORTH);
     }
 
     private void initGstOrdini(JPanel g){
@@ -144,7 +169,7 @@ public class SchermataPrincipale extends JFrame {
     public void removeFarmPanel(){cont.remove(farmPanel);}
     public void removeAddettoPanel(){cont.remove(addettoPanel);}
     public void removeCorrierePanel(){cont.remove(corrierePanel);}
-    public JButton getLogout(){return logout;}
+    public JButton getLogout(){return logoutButton;}
 
     public Container getContainerPane(){
         return cont;
@@ -183,10 +208,14 @@ public class SchermataPrincipale extends JFrame {
     }
 
     public JButton getNotifiche() {
-        return notifiche;
+        return notificheButton;
     }
 
     public JButton getVisConsegne() {
         return visConsegne;
+    }
+
+    public JLabel getFarmaciaLbl() {
+        return farmaciaLbl;
     }
 }

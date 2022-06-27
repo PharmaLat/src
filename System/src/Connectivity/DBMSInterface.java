@@ -607,4 +607,20 @@ public class DBMSInterface {
 
     }
 
+    public String getNomeFarmacia(int ID_FARM){
+        String nome = "";
+        Statement st;
+        ResultSet res;
+        String query = "SELECT * FROM farmacia WHERE ID_FARM = "+ID_FARM;
+        try {
+            st = connFarmacia.createStatement();
+            res = st.executeQuery(query);
+            res.next();
+            nome = res.getString("Nome");
+        }catch (SQLException e){
+
+        }
+        return nome;
+    }
+
 }

@@ -34,13 +34,13 @@ public class AvviaSegnalazioneControl {
 				JComboBox idOrdine;
 				as = new AvviaSegnalazione();
 				List<Map<Farmaco,String>> listaOrdini;
-				listaOrdini = db.getOrdini(u.getIndirizzoFarmacia());
+				/*listaOrdini = db.getOrdini(u.getIndirizzoFarmacia());
 				idOrdine = as.getIdOrdine();
 				for (int i = 0; i < listaOrdini.size(); i++) {
 					Map.Entry<Farmaco,String> entry = listaOrdini.get(i).entrySet().iterator().next();
 					String[] info = entry.getValue().split("-");
 					idOrdine.addItem(info[1]);
-				}
+				}*/
 				inviaSegnalazione();
 			}
 		};

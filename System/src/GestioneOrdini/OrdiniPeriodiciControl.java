@@ -91,7 +91,7 @@ public class OrdiniPeriodiciControl {
         ActionListener visualizzaPeriodiciListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ordiniListPeriodici = db.getOrdiniPeriodici(utente.getIndirizzoFarmacia());
+                //ordiniListPeriodici = db.getOrdiniPeriodici(utente.getIndirizzoFarmacia());
                 System.out.println(ordiniListPeriodici);
                 schermataOrdiniPeriodici  = new SchermataOrdiniPeriodici();
                 formVisualizzaOrdini();

@@ -66,8 +66,10 @@ public class LoginControl {
 							utente.setID(res.getInt("ID_I"));
 							if (res.getString("Ruolo").equals("corriere")){
 								s.initCorriere();
+								s.getFarmaciaLbl().setText("PharmaLat");
 							} else if (res.getString("Ruolo").equalsIgnoreCase("Addetto Azienda")) {
 								s.initAddetto();
+								s.getFarmaciaLbl().setText("PharmaLat");
 							}
 						} else if (ruolo.equals("farmacia")) {
 							utente.setNome(res.getString("Nome"));
@@ -76,6 +78,8 @@ public class LoginControl {
 							utente.setID_Farmacia(Integer.parseInt(res.getString("ID_FARM")));
 							utente.setIndirizzoFarmacia(db.getIndirizzo(res.getInt("ID_FARM")));
 							s.initFarmacista();
+							String nome = db.getNomeFarmacia(Integer.parseInt(res.getString("ID_FARM")));
+							s.getFarmaciaLbl().setText(nome);
 						}
 						s.setVisible(true);
 						login.setVisible(false);

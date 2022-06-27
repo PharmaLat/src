@@ -66,7 +66,7 @@ public class VisualizzaOrdiniControl {
             JButton btn = (JButton) e.getSource();
 
             String id = "";
-            for (int i = 0; i < ordiniList.size(); i++) {
+            /*for (int i = 0; i < ordiniList.size(); i++) {
                 for (Map.Entry<Farmaco, String> entry : ordiniList.get(i).entrySet()) {
                     String info[] = entry.getValue().split("-");
                     id = info[1];
@@ -82,7 +82,7 @@ public class VisualizzaOrdiniControl {
                         }
                   //   }
                 }
-            }
+            }*/
         }
     };
     ActionListener modificaListener = new ActionListener() {
@@ -113,7 +113,7 @@ public class VisualizzaOrdiniControl {
         ActionListener visualizzaListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ordiniList = db.getOrdini(utente.getIndirizzoFarmacia());
+                //ordiniList = db.getOrdini(utente.getIndirizzoFarmacia());
                 scOrdini  = new SchermataOrdini();
                 formVisualizzaOrdini();
             }

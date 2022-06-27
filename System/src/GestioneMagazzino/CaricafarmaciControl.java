@@ -29,6 +29,7 @@ public class CaricafarmaciControl {
 		this.u = u;
 		this.s = s;
 		this.db = db;
+
 		caricafarmaci();
 	}
 

@@ -40,7 +40,6 @@ public class CaricaFarmaci extends JFrame {
 		this.setVisible(true);
 		initItems();
 	}
-
 	private void initItems(){
 		framePnl = new JPanel();
 		framePnl.setLayout(null);
@@ -51,9 +50,7 @@ public class CaricaFarmaci extends JFrame {
 		notifichePnl = new JPanel();
 		notifichePnl.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		headerPnl.add(notifichePnl);
-		notificheButton = new JButton();
-		notificheButton.setText("Notifiche");
-		notifichePnl.add(notificheButton);
+
 		farmaciaPnl = new JPanel();
 		farmaciaPnl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		headerPnl.add(farmaciaPnl);

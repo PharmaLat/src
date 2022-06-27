@@ -1,9 +1,13 @@
 package Autenticazione;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class LoginForm extends JFrame{
 
@@ -29,11 +33,15 @@ public class LoginForm extends JFrame{
         panel.setLayout(null);
 
         //Logo
-        JLabel logo = new JLabel("ETICHETTA");
-        logo.setBackground(Color.BLACK);
-        logo.setOpaque(true);
-
-        panel.add(logo);
+        BufferedImage myPicture = null;
+        try {
+            myPicture = ImageIO.read(new File("System/imgs/img.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+        picLabel.setBounds(400, 70, 415, 150);
+        panel.add(picLabel);
 
         //Input Username e password
         JLabel usernamelbl = new JLabel("Username:");
