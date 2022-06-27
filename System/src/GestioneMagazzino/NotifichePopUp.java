@@ -19,6 +19,7 @@ public class NotifichePopUp extends JDialog {
         }else{
             notifiche(notifiche);
         }
+        this.setLocationRelativeTo(null);
         setModal(true);
         pack();
         setVisible(true);

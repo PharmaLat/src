@@ -25,6 +25,7 @@ public class ConfermaConsegna extends JFrame {
         this.setSize(width, height);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
         initItems();
     }
 

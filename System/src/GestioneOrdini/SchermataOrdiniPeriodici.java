@@ -18,7 +18,8 @@ public class SchermataOrdiniPeriodici extends JFrame {
         this.setSize(1280, 720);
         this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        initItems();
+        this.setLocationRelativeTo(null);
+        this.initItems();
         this.setVisible(true);
     }
 

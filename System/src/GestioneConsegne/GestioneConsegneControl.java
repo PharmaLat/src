@@ -38,28 +38,35 @@ public class GestioneConsegneControl {
                 LocalDateTime now = LocalDateTime.now();
                 ArrayList<Ordine> consegne = db.getConsegne(dtf.format(now));
                 vc = new VisualizzaConsegne();
-                JPanel consegnePnl = vc.getConsegnePnl();
-                consegnePnl.setLayout(new GridLayout(consegne.size(), 1, 20, 10));
-                JPanel flow1 = new JPanel();
-                flow1.setLayout(new BoxLayout(flow1, BoxLayout.Y_AXIS));
+                vc.getFarmaciaLbl().setText("Pharmalat");
+                vc.getLogoutButton().addActionListener(e1 -> vc.dispose());
+                if (consegne != null){
+                    JPanel consegnePnl = vc.getConsegnePnl();
+                    consegnePnl.setLayout(new GridLayout(consegne.size(), 1, 20, 10));
+                    JPanel flow1 = new JPanel();
+                    flow1.setLayout(new BoxLayout(flow1, BoxLayout.Y_AXIS));
 
-                for (int i = 0; i < consegne.size(); i++) {
-                    JPanel grid = new JPanel(new GridLayout(1, 3, 20, 10));
-                    int idOrdine = consegne.get(i).getID_O();
-                    JLabel ordine = new JLabel("Ordine N. "+ idOrdine);
-                    JLabel indirizzo = new JLabel(consegne.get(i).getIndirizzo());
-                    JButton confermaConsegna = new JButton("Conferma Consegna");
+                    for (int i = 0; i < consegne.size(); i++) {
+                        JPanel grid = new JPanel(new GridLayout(1, 3, 20, 10));
+                        int idOrdine = consegne.get(i).getID_O();
+                        JLabel ordine = new JLabel("Ordine N. "+ idOrdine);
+                        JLabel indirizzo = new JLabel(consegne.get(i).getIndirizzo());
+                        JButton confermaConsegna = new JButton("Conferma Consegna");
 
-                    grid.add(ordine);
-                    confermaConsegna.setActionCommand(idOrdine+"");
-                    grid.add(indirizzo);
-                    grid.add(confermaConsegna);
+                        grid.add(ordine);
+                        confermaConsegna.setActionCommand(idOrdine+"");
+                        grid.add(indirizzo);
+                        grid.add(confermaConsegna);
 
-                    confermaConsegna.addActionListener(confermaLstnr);
+                        confermaConsegna.addActionListener(confermaLstnr);
 
-                    flow1.add(grid);
+                        flow1.add(grid);
+                    }
+                    consegnePnl.add(flow1);
+                }else {
+                    JOptionPane.showMessageDialog(vc, "Non ci sono consegne oggi", "Errore", JOptionPane.ERROR_MESSAGE);
+                    vc.dispose();
                 }
-                consegnePnl.add(flow1);
             }
         };
         visualizza.addActionListener(visConsegneLstnr);

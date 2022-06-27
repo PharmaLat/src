@@ -38,6 +38,7 @@ public class CaricaFarmaci extends JFrame {
 		this.setResizable(false);
 		this.setTitle("Carico Farmaci");
 		this.setVisible(true);
+		this.setLocationRelativeTo(null);
 		initItems();
 	}
 	private void initItems(){
@@ -56,6 +57,7 @@ public class CaricaFarmaci extends JFrame {
 		headerPnl.add(farmaciaPnl);
 		farmaciaLbl = new JLabel();
 		farmaciaLbl.setText("Farmacia");
+		farmaciaLbl.setFont(new Font("Calibri", Font.PLAIN, 23));
 		farmaciaPnl.add(farmaciaLbl);
 		LogoutPanel = new JPanel();
 		LogoutPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
@@ -69,7 +71,6 @@ public class CaricaFarmaci extends JFrame {
 		mainPnl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		mainPnl.setEnabled(true);
 		mainPnl.setBounds(0,100,width, 50);
-
 
 		nomeLbl = new JLabel();
 		nomeLbl.setText("Nome");
@@ -139,9 +140,7 @@ public class CaricaFarmaci extends JFrame {
 	public JButton getLogoutButton() {
 		return logoutButton;
 	}
-
 	public JButton getCarica(){return carica;};
-
 	public JLabel getErroreNome() {
 		return erroreNome;
 	}
@@ -153,5 +152,8 @@ public class CaricaFarmaci extends JFrame {
 	}
 	public JLabel getCaricoRiuscito() {
 		return caricoRiuscito;
+	}
+	public JLabel getFarmaciaLbl() {
+		return farmaciaLbl;
 	}
 }

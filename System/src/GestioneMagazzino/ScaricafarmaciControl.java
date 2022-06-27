@@ -58,7 +58,11 @@ public class ScaricafarmaciControl {
 		JLabel erroreCampo = sf.getErroreCampo();
 		JLabel erroreNome = sf.getErroreNome();
 		JLabel erroreQta = sf.geterroreQta();
-
+		JButton indietro = sf.getLogoutButton();
+		indietro.addActionListener(e1 -> {
+			sf.dispose();
+		});
+		sf.getFarmaciaLbl().setText(u.getNomeFarmacia());
 		ActionListener scaricaLStnr = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

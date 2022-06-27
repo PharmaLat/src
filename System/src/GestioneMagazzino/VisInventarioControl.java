@@ -31,6 +31,10 @@ public class VisInventarioControl {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Visualizza inventario");
                 inventario = new VisualizzaInventario();
+                inventario.getFarmaciaLbl().setText(u.getNomeFarmacia());
+                inventario.getLogoutButton().addActionListener(e1 -> {
+                    inventario.dispose();
+                });
                 ArrayList<Farmaco> farmaci = new ArrayList<>();
                 farmaci = db.getInventario(u.getID_Farmacia());
                 //System.out.println("dim: "+farmaci.size());

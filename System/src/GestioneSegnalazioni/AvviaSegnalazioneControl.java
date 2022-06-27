@@ -3,11 +3,13 @@ package GestioneSegnalazioni;
 import Autenticazione.Utente;
 import Connectivity.DBMSInterface;
 import GestioneMagazzino.Farmaco;
+import GestioneOrdini.Ordine;
 import Main.SchermataPrincipale;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -26,21 +28,20 @@ public class AvviaSegnalazioneControl {
 
 	private void gestisciAvviaSeg(){
 		JButton avvia = s.getAvviaSegnalazione();
-
 		ActionListener avviaLstnr = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Cliccato avvia Segnalazione");
-				JComboBox idOrdine;
 				as = new AvviaSegnalazione();
-				List<Map<Farmaco,String>> listaOrdini;
-				/*listaOrdini = db.getOrdini(u.getIndirizzoFarmacia());
-				idOrdine = as.getIdOrdine();
+				as.getFarmaciaLbl().setText(u.getNomeFarmacia());
+				as.getLogoutButton().addActionListener(e1 -> {
+					as.dispose();
+				});
+				JComboBox idOrdine = as.getIdOrdine();
+				ArrayList<Ordine> listaOrdini = db.getOrdini(u.getIndirizzoFarmacia());;
 				for (int i = 0; i < listaOrdini.size(); i++) {
-					Map.Entry<Farmaco,String> entry = listaOrdini.get(i).entrySet().iterator().next();
-					String[] info = entry.getValue().split("-");
-					idOrdine.addItem(info[1]);
-				}*/
+					idOrdine.addItem(listaOrdini.get(i).getID_O());
+				}
 				inviaSegnalazione();
 			}
 		};

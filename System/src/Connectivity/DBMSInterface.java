@@ -509,6 +509,7 @@ public class DBMSInterface {
             }else {
                 do {
                     Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Pricipio_Attivo"), res.getString("DataDiScadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita_O"));
+                    farmaci.add(f);
                 }while(res.next());
             }
         } catch (SQLException e) {
@@ -535,7 +536,7 @@ public class DBMSInterface {
 
     public void modificaOrdine(int idOrdine, ArrayList<Farmaco> farmaci){
         Statement st;
-        String query="";
+        String query;
 
         try {
             st = connAzienda.createStatement();
@@ -557,7 +558,7 @@ public class DBMSInterface {
         ResultSet res;
         try {
             st = connAzienda.createStatement();
-            String query1 = "SELECT DISTINCT (ordineperiodico.ID_O), Periodicità, DataUltimoOrdine, Quantita_O FROM ordineperiodico, comprendeperiodico, farmaco WHERE Indirizzo = '"+indirizzo+"' AND ordineperiodico.ID_O = comprendeperiodico.ID_O AND comprendeperiodico.ID_F = farmaco.ID_F";
+            String query1 = "SELECT DISTINCT (ordineperiodico.ID_O), Periodicita, DataUltimoOrdine, Quantita_O FROM ordineperiodico, comprendeperiodico, farmaco WHERE Indirizzo = '"+indirizzo+"' AND ordineperiodico.ID_O = comprendeperiodico.ID_O AND comprendeperiodico.ID_F = farmaco.ID_F";
             res = st.executeQuery(query1);
             if (!res.next()) {
                 return null;
@@ -573,8 +574,8 @@ public class DBMSInterface {
                 }while(res.next());
 
                 for (int i = 0; i < ordini.size(); i++) {
-                    String query2 = "SELECT farmaco.ID_F, farmaco.Nome_F, farmaco.Principio_Attivo, farmaco.Da_Banco, comprende.Quantita_O, farmaco.Scadenza"+
-                            " FROM ordine, comprende, farmaco WHERE ordine.ID_O = "+ordini.get(i).getID_O()+" AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F";
+                    String query2 = "SELECT farmaco.ID_F, farmaco.Nome_F, farmaco.Principio_Attivo, farmaco.Da_Banco, comprendeperiodico.Quantita_O, farmaco.Scadenza"+
+                            " FROM ordineperiodico, comprendeperiodico, farmaco WHERE ordineperiodico.ID_O = "+ordini.get(i).getID_O()+" AND ordineperiodico.ID_O = comprendeperiodico.ID_O AND comprendeperiodico.ID_F = farmaco.ID_F";
                     ResultSet res2;
                     res2 = st.executeQuery(query2);
                     if (!res2.next()){

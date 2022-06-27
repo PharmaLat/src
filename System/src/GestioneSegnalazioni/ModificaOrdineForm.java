@@ -18,6 +18,7 @@ public class ModificaOrdineForm extends JFrame{
         setContentPane(cont);
         setVisible(true);
         setSize(500, 400);
+        this.setLocationRelativeTo(null);
         initItems();
     }
 

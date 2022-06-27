@@ -45,87 +45,93 @@ public class GestioneSegnalazioniControl {
     private void gestisciSegnalazioni(){
         ArrayList<Segnalazione> segnalazioni = db.getSegnalazioni();
 
-        JPanel segnalazioniPanel =vs.getSegnalazioniPnl();
-        segnalazioniPanel.setLayout(new GridLayout(segnalazioni.size(), 5, 20, 10));
-        JPanel boxPnl = new JPanel();
-        boxPnl.setLayout(new BoxLayout(boxPnl, BoxLayout.Y_AXIS));
+        if (segnalazioni != null){
+            JPanel segnalazioniPanel =vs.getSegnalazioniPnl();
+            segnalazioniPanel.setLayout(new GridLayout(segnalazioni.size(), 5, 20, 10));
+            JPanel boxPnl = new JPanel();
+            boxPnl.setLayout(new BoxLayout(boxPnl, BoxLayout.Y_AXIS));
 
-        JLabel ordine;
-        JButton nuovoOrdine[] = new JButton[segnalazioni.size()];
-        JButton modificaOrdine[] = new JButton[segnalazioni.size()];
-        JButton chiudiSegnalazione[] = new JButton[segnalazioni.size()];
+            JLabel ordine;
+            JButton nuovoOrdine[] = new JButton[segnalazioni.size()];
+            JButton modificaOrdine[] = new JButton[segnalazioni.size()];
+            JButton chiudiSegnalazione[] = new JButton[segnalazioni.size()];
 
-        boolean cliccatoModifica[] = new boolean[segnalazioni.size()];
-        boolean cliccatoNuovoOrdine[] = new boolean[segnalazioni.size()];
+            boolean cliccatoModifica[] = new boolean[segnalazioni.size()];
+            boolean cliccatoNuovoOrdine[] = new boolean[segnalazioni.size()];
 
-        for (int i = 0; i < segnalazioni.size(); i++) {
-            JPanel grid = new JPanel(new GridLayout(1, 4, 20, 10));
-            int idOrdine = segnalazioni.get(i).getID_O();
-            ordine = new JLabel("Ordine N. "+ idOrdine);
-            nuovoOrdine[i] = new JButton("Nuovo Ordine " +i);
-            modificaOrdine[i] = new JButton("Modifica Ordine " +i);
-            chiudiSegnalazione[i] = new JButton("Chiudi Segnalazione " +i);
+            for (int i = 0; i < segnalazioni.size(); i++) {
+                JPanel grid = new JPanel(new GridLayout(1, 4, 20, 10));
+                int idOrdine = segnalazioni.get(i).getID_O();
+                ordine = new JLabel("Ordine N. "+ idOrdine);
+                nuovoOrdine[i] = new JButton("Nuovo Ordine " +i);
+                modificaOrdine[i] = new JButton("Modifica Ordine " +i);
+                chiudiSegnalazione[i] = new JButton("Chiudi Segnalazione " +i);
 
-            nuovoOrdine[i].setActionCommand(idOrdine+"");
-            modificaOrdine[i].setActionCommand(idOrdine+"");
-            chiudiSegnalazione[i].setActionCommand(idOrdine+"");
+                nuovoOrdine[i].setActionCommand(idOrdine+"");
+                modificaOrdine[i].setActionCommand(idOrdine+"");
+                chiudiSegnalazione[i].setActionCommand(idOrdine+"");
 
-            nuovoOrdine[i].addActionListener(e -> {
-                int id = Integer.parseInt(e.getActionCommand());
-                modificaOrdine(e);
-                nuovoOrdine(e);
-                int k=0;
-                for (int j = 0; j < segnalazioni.size(); j++) {
-                    if (id == Integer.parseInt(nuovoOrdine[j].getActionCommand())){
-                        modificaOrdine[j].setEnabled(false);
-                        System.out.println("j: "+j);
-                        k=j;
-                    }
-                }
-
-                nuovoOrdine[k].setEnabled(false);
-                cliccatoNuovoOrdine[k] = true;
-                cliccatoModifica[k] = true;
-            });
-
-            modificaOrdine[i].addActionListener(e -> {
-                int id = Integer.parseInt(e.getActionCommand());
-                modificaOrdine(e);
-                int k=0;
-                for (int j = 0; j < segnalazioni.size(); j++) {
-                    if (id == Integer.parseInt(nuovoOrdine[j].getActionCommand())){
-                        modificaOrdine[j].setEnabled(false);
-                        System.out.println("j: "+j);
-                        k=j;
-                    }
-                }
-                cliccatoModifica[k] = true;
-            });
-            chiudiSegnalazione[i].addActionListener(e -> {
-                int id = Integer.parseInt(e.getActionCommand());
-                for (int j = 0; j < segnalazioni.size(); j++) {
-                    if (id == Integer.parseInt(nuovoOrdine[j].getActionCommand())){
-                        if (!cliccatoModifica[j] && !cliccatoNuovoOrdine[j]){
-                            JOptionPane.showMessageDialog(vs, "Devi prima creare un nuovo ordine o modificare il vecchio");
-                        }else{
-                            chiudisegnalazione(e);
+                nuovoOrdine[i].addActionListener(e -> {
+                    int id = Integer.parseInt(e.getActionCommand());
+                    modificaOrdine(e);
+                    nuovoOrdine(e);
+                    int k=0;
+                    for (int j = 0; j < segnalazioni.size(); j++) {
+                        if (id == Integer.parseInt(nuovoOrdine[j].getActionCommand())){
                             modificaOrdine[j].setEnabled(false);
-                            nuovoOrdine[j].setEnabled(false);
-                            chiudiSegnalazione[j].setEnabled(false);
+                            System.out.println("j: "+j);
+                            k=j;
                         }
                     }
-                }
 
-            });
+                    nuovoOrdine[k].setEnabled(false);
+                    cliccatoNuovoOrdine[k] = true;
+                    cliccatoModifica[k] = true;
+                });
 
-            grid.add(ordine);
-            grid.add(new JLabel(segnalazioni.get(i).getDescrizione()));
-            grid.add(nuovoOrdine[i]);
-            grid.add(modificaOrdine[i]);
-            grid.add(chiudiSegnalazione[i]);
-            boxPnl.add(grid);
+                modificaOrdine[i].addActionListener(e -> {
+                    int id = Integer.parseInt(e.getActionCommand());
+                    modificaOrdine(e);
+                    int k=0;
+                    for (int j = 0; j < segnalazioni.size(); j++) {
+                        if (id == Integer.parseInt(nuovoOrdine[j].getActionCommand())){
+                            modificaOrdine[j].setEnabled(false);
+                            System.out.println("j: "+j);
+                            k=j;
+                        }
+                    }
+                    cliccatoModifica[k] = true;
+                });
+                chiudiSegnalazione[i].addActionListener(e -> {
+                    int id = Integer.parseInt(e.getActionCommand());
+                    for (int j = 0; j < segnalazioni.size(); j++) {
+                        if (id == Integer.parseInt(nuovoOrdine[j].getActionCommand())){
+                            if (!cliccatoModifica[j] && !cliccatoNuovoOrdine[j]){
+                                JOptionPane.showMessageDialog(vs, "Devi prima creare un nuovo ordine o modificare il vecchio");
+                            }else{
+                                chiudisegnalazione(e);
+                                modificaOrdine[j].setEnabled(false);
+                                nuovoOrdine[j].setEnabled(false);
+                                chiudiSegnalazione[j].setEnabled(false);
+                            }
+                        }
+                    }
+
+                });
+
+                grid.add(ordine);
+                grid.add(new JLabel(segnalazioni.get(i).getDescrizione()));
+                grid.add(nuovoOrdine[i]);
+                grid.add(modificaOrdine[i]);
+                grid.add(chiudiSegnalazione[i]);
+                boxPnl.add(grid);
+            }
+            segnalazioniPanel.add(boxPnl);
+        }else{
+            JOptionPane.showMessageDialog(vs, "Non ci sono segnalazioni", "Errore", JOptionPane.ERROR_MESSAGE);
+            vs.dispose();
         }
-        segnalazioniPanel.add(boxPnl);
+
     }
 
     private void  nuovoOrdine(ActionEvent e){

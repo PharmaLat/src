@@ -5,6 +5,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 public class VisualizzaInventario extends JFrame {
+    private int width = 1280;
+    private int heigth = 720;
 
     private JPanel panel1;
     private JTextField campoRicerca;
@@ -14,17 +16,47 @@ public class VisualizzaInventario extends JFrame {
     private JTable tabella;
     private Container cont = this.getContentPane();
     private JLabel errore = new JLabel("Nessun elemento trovato");
+    private JPanel headerPnl;
+    private JPanel farmaciaPnl;
+    private JPanel notifichePnl;
+    private JPanel LogoutPanel;
+    private JLabel farmaciaLbl;
+    private JButton notificheButton;
+    private JButton logoutButton;
 
     public VisualizzaInventario() {
         this.setTitle("Inventario");
         this.setSize(1280, 720);
         this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
         initItems();
     }
 
     private void initItems() {
+
+        headerPnl = new JPanel();
+        headerPnl.setLayout(new GridLayout());
+
+        notifichePnl = new JPanel();
+        notifichePnl.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+        headerPnl.add(notifichePnl);
+        farmaciaPnl = new JPanel();
+        farmaciaPnl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        headerPnl.add(farmaciaPnl);
+        farmaciaLbl = new JLabel();
+        farmaciaLbl.setFont(new Font("Calibri", Font.PLAIN, 23));
+        farmaciaPnl.add(farmaciaLbl);
+        LogoutPanel = new JPanel();
+        LogoutPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
+        headerPnl.add(LogoutPanel);
+        headerPnl.setBounds(0, 0, width-15, 50);
+        logoutButton = new JButton();
+        logoutButton.setText("Indietro");
+        LogoutPanel.add(logoutButton);
+
+        cont.add(headerPnl, BorderLayout.NORTH);
 
         panel1 = new JPanel();
         panel1.setLayout(new BorderLayout(0, 0));
@@ -96,5 +128,11 @@ public class VisualizzaInventario extends JFrame {
 
     public JLabel getErrore(){return errore;}
 
+    public JLabel getFarmaciaLbl() {
+        return farmaciaLbl;
+    }
+    public JButton getLogoutButton() {
+        return logoutButton;
+    }
 }
 

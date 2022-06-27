@@ -22,6 +22,7 @@ public class VisualizzaConsegne extends JFrame {
         this.setSize(width, height);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
         initItems();
     }
 
@@ -35,14 +36,11 @@ public class VisualizzaConsegne extends JFrame {
         notifichePnl = new JPanel();
         notifichePnl.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
         headerPnl.add(notifichePnl);
-        notificheButton = new JButton();
-        notificheButton.setText("Notifiche");
-        notifichePnl.add(notificheButton);
         farmaciaPnl = new JPanel();
         farmaciaPnl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         headerPnl.add(farmaciaPnl);
         farmaciaLbl = new JLabel();
-        farmaciaLbl.setText("Farmacia");
+        farmaciaLbl.setFont(new Font("Calibri", Font.PLAIN, 23));
         farmaciaPnl.add(farmaciaLbl);
         LogoutPanel = new JPanel();
         LogoutPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
@@ -69,5 +67,13 @@ public class VisualizzaConsegne extends JFrame {
 
     public JPanel getConsegnePnl() {
         return consegnePnl;
+    }
+
+    public JLabel getFarmaciaLbl() {
+        return farmaciaLbl;
+    }
+
+    public JButton getLogoutButton() {
+        return logoutButton;
     }
 }

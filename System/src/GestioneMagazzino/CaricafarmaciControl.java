@@ -29,7 +29,6 @@ public class CaricafarmaciControl {
 		this.u = u;
 		this.s = s;
 		this.db = db;
-
 		caricafarmaci();
 	}
 
@@ -40,7 +39,12 @@ public class CaricafarmaciControl {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Cliccato Carica farmaci");
 				cf = new CaricaFarmaci();
+				cf.getFarmaciaLbl().setText(u.getNomeFarmacia());
 				farmaci = db.getFarmaciAcquistabili();
+				JButton indietro = cf.getLogoutButton();
+				indietro.addActionListener(e1 -> {
+					cf.dispose();
+				});
 				gestisciCarico();
 			}
 		};
@@ -117,6 +121,7 @@ public class CaricafarmaciControl {
 
 		return true;
 	}
+
 
 }
 

@@ -12,7 +12,6 @@ public class SchermataPrincipale extends JFrame {
     int heigth = 720;
     Container cont = this.getContentPane();
     private JPanel headerPnl;
-    private JPanel mainPnl;
     private JPanel farmaciaPnl;
     private JPanel notifichePnl;
     private JPanel LogoutPanel;
@@ -24,6 +23,7 @@ public class SchermataPrincipale extends JFrame {
         this.setSize(width, heigth);
         this.setResizable(false);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
         this.initItems();
 
     }
@@ -46,11 +46,6 @@ public class SchermataPrincipale extends JFrame {
     JLabel gestioneSegnalazioni = new JLabel("Gestione Segnalazioni", JLabel.CENTER);
     JButton avviaSegnalazione = new JButton("Avvia Segnalazione");
     JButton visualizzaSegnalazioni = new JButton("Visualizza Segnalazioni");
-
-    JButton logout = new JButton("Logout");
-    JButton notifiche = new JButton("Notifiche");
-    JLabel farmacia = new JLabel("Farmacia");
-
     JPanel farmPanel;
     JPanel addettoPanel;
     JPanel corrierePanel;
@@ -134,9 +129,7 @@ public class SchermataPrincipale extends JFrame {
     }
 
     private void initGstOrdini(JPanel g){
-
         ordinaFarmaci.setActionCommand("ordina");
-
 
         g.add(gestioneOrdini);
         g.add(ordinaFarmaci);
@@ -145,7 +138,6 @@ public class SchermataPrincipale extends JFrame {
     }
 
     private void initGstMagazzino(JPanel g){
-
         g.add(gestioneMagazzino);
         g.add(caricaFarmaci);
         g.add(scaricaFarmaci);
@@ -153,14 +145,11 @@ public class SchermataPrincipale extends JFrame {
     }
 
     private void initGstConsegne(JPanel g){
-
         g.add(gestioneConsegne);
         g.add(visConsegne);
     }
 
     private void initGstSegnalazioni(JPanel g){
-
-
         g.add(gestioneSegnalazioni);
         g.add(avviaSegnalazione);
         g.add(visualizzaSegnalazioni);
@@ -170,52 +159,41 @@ public class SchermataPrincipale extends JFrame {
     public void removeAddettoPanel(){cont.remove(addettoPanel);}
     public void removeCorrierePanel(){cont.remove(corrierePanel);}
     public JButton getLogout(){return logoutButton;}
-
     public Container getContainerPane(){
         return cont;
     }
-
     public JButton getOrdinaFarmaci() {
         return ordinaFarmaci;
     }
-
     public JButton getVisOrdiniPeriodici() {
         return visOrdiniPeriodici;
     }
-
     public JButton getVisOrdini() {
         return visOrdini;
     }
-
     public JButton getCaricaFarmaci() {
         return caricaFarmaci;
     }
-
     public JButton getScaricaFarmaci() {
         return scaricaFarmaci;
     }
-
     public JButton getVisInventario() {
         return visInventario;
     }
-
     public JButton getAvviaSegnalazione() {
         return avviaSegnalazione;
     }
-
     public JButton getVisualizzaSegnalazioni() {
         return visualizzaSegnalazioni;
     }
-
     public JButton getNotifiche() {
         return notificheButton;
     }
-
     public JButton getVisConsegne() {
         return visConsegne;
     }
-
     public JLabel getFarmaciaLbl() {
         return farmaciaLbl;
     }
+
 }

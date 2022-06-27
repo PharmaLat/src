@@ -20,6 +20,7 @@ public class NuovoOrdineAziendaForm extends JDialog {
         setContentPane(cont);
         setVisible(true);
         setSize(500, 400);
+        this.setLocationRelativeTo(null);
         initItems();
     }
 

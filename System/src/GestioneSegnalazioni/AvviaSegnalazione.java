@@ -30,7 +30,8 @@ public class AvviaSegnalazione extends JFrame {
 		this.setSize(width, height);
 		this.setResizable(false);
 		this.setVisible(true);
-		initItems();
+		this.setLocationRelativeTo(null);
+		this.initItems();
 	}
 	private void initItems(){
 		framePnl = new JPanel();
@@ -42,14 +43,11 @@ public class AvviaSegnalazione extends JFrame {
 		notifichePnl = new JPanel();
 		notifichePnl.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 		headerPnl.add(notifichePnl);
-		notificheButton = new JButton();
-		notificheButton.setText("Notifiche");
-		notifichePnl.add(notificheButton);
 		farmaciaPnl = new JPanel();
 		farmaciaPnl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		headerPnl.add(farmaciaPnl);
 		farmaciaLbl = new JLabel();
-		farmaciaLbl.setText("Farmacia");
+		farmaciaLbl.setFont(new Font("Calibri", Font.PLAIN, 23));
 		farmaciaPnl.add(farmaciaLbl);
 		LogoutPanel = new JPanel();
 		LogoutPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
@@ -92,5 +90,13 @@ public class AvviaSegnalazione extends JFrame {
 	}
 	public JButton getInviaSegnalazione() {
 		return inviaSegnalazione;
+	}
+
+	public JLabel getFarmaciaLbl() {
+		return farmaciaLbl;
+	}
+
+	public JButton getLogoutButton() {
+		return logoutButton;
 	}
 }

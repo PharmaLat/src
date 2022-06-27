@@ -79,6 +79,7 @@ public class LoginControl {
 							utente.setIndirizzoFarmacia(db.getIndirizzo(res.getInt("ID_FARM")));
 							s.initFarmacista();
 							String nome = db.getNomeFarmacia(Integer.parseInt(res.getString("ID_FARM")));
+							utente.setNomeFarmacia(nome);
 							s.getFarmaciaLbl().setText(nome);
 						}
 						s.setVisible(true);
