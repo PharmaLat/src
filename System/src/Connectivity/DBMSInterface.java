@@ -418,7 +418,7 @@ public class DBMSInterface {
 
     public void modificaOrdine(ArrayList<Farmaco> farmaci, int idOrdine){
         Statement st;
-        String query = "";
+        String query;
         try {
             st = connAzienda.createStatement();
             for (int i = 0; i < farmaci.size(); i++) {
@@ -619,9 +619,55 @@ public class DBMSInterface {
             res.next();
             nome = res.getString("Nome");
         }catch (SQLException e){
-
+            e.printStackTrace();
         }
         return nome;
+    }
+
+    public void caricaFarmaciAzienda(int qtaprodotta){
+        Statement st;
+        ResultSet res;
+        String query = "UPDATE farmaco SET Quantita = Quantita + "+qtaprodotta;
+        try {
+            st = connAzienda.createStatement();
+            st.executeUpdate(query);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public int getQuantitaAqcuistabile(int ID_F){
+        Statement st;
+        ResultSet res;
+        int qta = 0;
+        int qtaAcqu = 0;
+        String query = "SELECT * FROM farmaco WHERE ID_F = "+ID_F;
+        try {
+            st = connAzienda.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return 0;
+            }else {
+                do {
+                    qta = res.getInt("Quantita");
+                }while(res.next());
+            }
+
+            String query2 = "SELECT SUM(comprende.Quantita_O) FROM farmaco, comprende, ordine WHERE farmaco.ID_F = comprende.ID_F AND comprende.ID_O = ordine.ID_O AND ordine.Stato_O = 'In Lavorazione' AND comprende.ID_F ="+ID_F;
+            ResultSet res2 = st.executeQuery(query2);
+            if (!res2.next()) {
+                return 0;
+            }else {
+                do {
+                    qtaAcqu = res2.getInt("SUM(comprende.Quantita_O)");
+                }while(res2.next());
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        qta = qta - qtaAcqu;
+        return qta;
     }
 
 }
