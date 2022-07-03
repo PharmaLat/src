@@ -111,7 +111,7 @@ public class VisualizzaOrdiniControl {
     public boolean isModificabile(Ordine o){
         System.out.println("check");
         if(o.getStato().equals("In consegna") || o.getStato().equals("Consegnato")){
-            System.out.println("Ordine in consegna");
+            System.out.println("Ordine non modificabile");
             return false;
         }
         return true;

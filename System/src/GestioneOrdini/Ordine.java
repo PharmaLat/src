@@ -68,6 +68,10 @@ public class Ordine {
 		this.periodicita = periodicita;
 	}
 
+	public String getDataUltimoOrdine() {
+		return dataUltimoOrdine;
+	}
+
 	@Override
 	public String toString() {
 		return "Ordine{" +

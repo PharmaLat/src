@@ -25,11 +25,11 @@ public class NotificheControl {
         this.s = s;
         this.db = db;
         this.u = u;
-        notifiche = new ArrayList<>();
-        timer = new Timer();
-        reminderCarico();
-        controlloFarmaci();
-        visualizzaNotifiche();
+        this.notifiche = new ArrayList<>();
+        this.timer = new Timer();
+        this.reminderCarico();
+        this.controlloFarmaci();
+        this.visualizzaNotifiche();
     }
 
     private void reminderCarico(){
@@ -57,18 +57,18 @@ public class NotificheControl {
             public void run() {
                 LocalDate nowtime = LocalDate.now();
                 System.out.println("notifica  "+nowtime);
-                if (nowtime.getDayOfMonth() == 1){
+                if (nowtime.getDayOfMonth() == 30){
                     ArrayList<Farmaco> farmaciScaduti = db.getFarmaciInScadenza();
                     if (!farmaciScaduti.isEmpty()){
-                        String testo = "Ci sono "+farmaciScaduti.size()+" in scadenza questo mese\n ";
+                        String testo = "Ci sono "+farmaciScaduti.size()+" in scadenza questo mese  \n ";
                         for (int i = 0; i < farmaciScaduti.size(); i++) {
-                            testo += farmaciScaduti.get(i)+"\n";
+                            testo += farmaciScaduti.get(i).getNome()+"  \n";
                         }
                         notifiche.add(new Notifica(testo));
                     }
                 }
             }
-        }, 60*60*1000, 60*60*1000);
+        }, 10*1000, 10*1000);
     }
 
     private void visualizzaNotifiche(){
@@ -82,4 +82,7 @@ public class NotificheControl {
         notificheBtn.addActionListener(notificheLstnr);
     }
 
+    public ArrayList<Notifica> getNotifiche() {
+        return notifiche;
+    }
 }

@@ -2,34 +2,22 @@ package Connectivity;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class ConnectionClass {
-    public Connection getConnectionAzienda(){
+    public Connection getConnectionAzienda() throws Exception{
         Connection conn = null;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/dbazienda","root", "");
-            System.out.println("Database Azienda is connected !");
-
-        }
-        catch(Exception e) {
-            System.out.print("Do not connect to DB Azienda - Error:"+e);
-        }
-
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost/dbazienda","root", "");
+        System.out.println("Database Azienda is connected !");
         return conn;
     }
 
-    public Connection getConnectionFarmacia(){
+    public Connection getConnectionFarmacia() throws Exception {
         Connection conn2 = null;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn2 = DriverManager.getConnection("jdbc:mysql://localhost/dbfarmacia","root", "");
-            System.out.println("Database Farmacia is connected !");
-
-        }
-        catch(Exception e) {
-            System.out.print("Do not connect to DB Farmacia - Error:"+e);
-        }
-
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        conn2 = DriverManager.getConnection("jdbc:mysql://localhost/dbfarmacia","root", "");
+        System.out.println("Database Farmacia is connected !");
         return conn2;
     }
 }

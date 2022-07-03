@@ -18,11 +18,11 @@ public class LoginControl {
 	private DBMSInterface db;
 	private ResultSet res;
 	private JButton logout;
-	public LoginControl(SchermataPrincipale sc, Utente u, DBMSInterface dbms){
+	public LoginControl(SchermataPrincipale sc, Utente u, DBMSInterface dbms, LoginForm login){
 		this.s = sc;
 		this.utente = u;
 		this.db = dbms;
-		login = new LoginForm();
+		this.login = login;
 		gestisciAccesso();
 		gestisciLogout();
 	}
@@ -120,4 +120,7 @@ public class LoginControl {
 		logout.addActionListener(logoutLstnr);
 	}
 
+	public LoginForm getLogin() {
+		return login;
+	}
 }

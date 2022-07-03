@@ -1,25 +1,24 @@
 package Main;
 
 import Autenticazione.LoginControl;
+import Autenticazione.LoginForm;
 import Autenticazione.Utente;
 import Connectivity.DBMSInterface;
 import GestioneConsegne.GestioneConsegneControl;
 import GestioneMagazzino.*;
 import GestioneOrdini.OrdFarmaciControl;
-import GestioneOrdini.Ordine;
 import GestioneOrdini.OrdiniPeriodiciControl;
 import GestioneOrdini.VisualizzaOrdiniControl;
 import GestioneSegnalazioni.AvviaSegnalazioneControl;
 import GestioneSegnalazioni.GestioneSegnalazioniControl;
 
-import java.util.ArrayList;
-
 public class Main {
 	public static void main(String[] args) {
-		DBMSInterface db = new DBMSInterface();
+		LoginForm log = new LoginForm();
 		Utente utente = new Utente();
 		SchermataPrincipale s = new SchermataPrincipale();
-		LoginControl lc = new LoginControl(s, utente, db);
+		DBMSInterface db = new DBMSInterface(log, s);
+		LoginControl lc = new LoginControl(s, utente, db, log);
 		VisInventarioControl vic = new VisInventarioControl(s, utente, db);
 		CaricafarmaciControl cfc = new CaricafarmaciControl(utente, s, db);
 		ScaricafarmaciControl sfc = new ScaricafarmaciControl(s, utente, db);

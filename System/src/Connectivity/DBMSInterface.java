@@ -1,25 +1,37 @@
 package Connectivity;
 
+import Autenticazione.LoginForm;
 import GestioneMagazzino.Farmaco;
 import GestioneOrdini.Ordine;
 import GestioneSegnalazioni.Segnalazione;
+import Main.SchermataPrincipale;
 
-import javax.print.DocFlavor;
-import javax.swing.plaf.nimbus.State;
+import javax.swing.*;
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.TimerTask;
+import java.util.Timer;
 
 public class DBMSInterface {
     ConnectionClass connClass = new ConnectionClass();
-    Connection connAzienda = connClass.getConnectionAzienda();
-    Connection connFarmacia = connClass.getConnectionFarmacia();
+    Connection connAzienda;
+    Connection connFarmacia;
+    Timer timer;
+    public DBMSInterface(LoginForm login, SchermataPrincipale s){
+        try {
+            connetti();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(login, "Problema con la connessione al DB, Ritenta", "Errore", JOptionPane.ERROR_MESSAGE);
+            //timer = new Timer();
+        }
+    }
+    private void connetti() throws Exception{
+        connAzienda = connClass.getConnectionAzienda();
+        connFarmacia = connClass.getConnectionFarmacia();
+    }
 
     //Controllo credenziali nel DB Azienda
     public ResultSet checkCredentialsAzienda(String user, String pass){
@@ -122,8 +134,8 @@ public class DBMSInterface {
                 }while(res.next());
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("GETFARMACIAQCUISTABILI");
         }
         return farmaci;
     }
@@ -500,7 +512,8 @@ public class DBMSInterface {
         ResultSet res;
         LocalDate oggi = LocalDate.now();
         String data=oggi.getYear()+"-"+oggi.getMonthValue()+"-01";
-        String query = "SELECT * FROM farmaco WHERE DataDiScadenza ='"+data+"'";
+        String query = "SELECT * FROM farmaco WHERE Scadenza ='"+data+"'";
+        System.out.println(query);
         try {
             st = connFarmacia.createStatement();
             res = st.executeQuery(query);
@@ -508,7 +521,7 @@ public class DBMSInterface {
                 return null;
             }else {
                 do {
-                    Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Pricipio_Attivo"), res.getString("DataDiScadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita_O"));
+                    Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita"));
                     farmaci.add(f);
                 }while(res.next());
             }
@@ -668,6 +681,34 @@ public class DBMSInterface {
         }
         qta = qta - qtaAcqu;
         return qta;
+    }
+
+    public void inviaPreOrdine(ArrayList<Farmaco> farmaci, String indirizzo, String data){
+        Statement st;
+        //System.out.println(dtf.format(consegna));
+        String queryOrdine = "INSERT INTO ordine(DataDiConsegna, Indirizzo, Stato_O) VALUES ('"+data+"', '"+indirizzo+"', 'In pre-ordine')";
+        System.out.println(queryOrdine);
+        //st.executeQuery(queryOrdine);
+        ResultSet res;
+        try {
+            st = connAzienda.createStatement();
+            st.executeUpdate(queryOrdine);
+            String query2 = "SELECT LAST_INSERT_ID()";
+            res = st.executeQuery(query2);
+            res.next();
+
+            int id_ordine = res.getInt("LAST_INSERT_ID()");
+            for (int i = 0; i < farmaci.size(); i++) {
+                String queryComprende = "INSERT INTO comprende (ID_O, ID_F, Quantita_O) VALUES ("+id_ordine+", "+farmaci.get(i).getID()+", "+farmaci.get(i).getQuantita()+")";
+                System.out.println(queryComprende);
+                st.executeUpdate(queryComprende);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
