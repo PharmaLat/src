@@ -28,21 +28,23 @@ public class AvviaSegnalazioneControl {
 
 	private void gestisciAvviaSeg(){
 		JButton avvia = s.getAvviaSegnalazione();
-		ActionListener avviaLstnr = new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("Cliccato avvia Segnalazione");
-				as = new AvviaSegnalazione();
-				as.getFarmaciaLbl().setText(u.getNomeFarmacia());
-				as.getLogoutButton().addActionListener(e1 -> {
-					as.dispose();
-				});
-				JComboBox idOrdine = as.getIdOrdine();
-				ArrayList<Ordine> listaOrdini = db.getOrdini(u.getIndirizzoFarmacia());;
+		ActionListener avviaLstnr = e -> {
+			System.out.println("Cliccato avvia Segnalazione");
+			as = new AvviaSegnalazione();
+			as.getFarmaciaLbl().setText(u.getNomeFarmacia());
+			as.getLogoutButton().addActionListener(e1 -> {
+				as.dispose();
+			});
+			JComboBox idOrdine = as.getIdOrdine();
+			ArrayList<Ordine> listaOrdini = db.getOrdini(u.getIndirizzoFarmacia());
+			if (listaOrdini != null){
 				for (int i = 0; i < listaOrdini.size(); i++) {
 					idOrdine.addItem(listaOrdini.get(i).getID_O());
 				}
 				inviaSegnalazione();
+			}else {
+				JOptionPane.showMessageDialog(as, "Non hai ancora effettuato ordini", "Nessun ordine", JOptionPane.INFORMATION_MESSAGE);
+				as.dispose();
 			}
 		};
 		avvia.addActionListener(avviaLstnr);
@@ -50,15 +52,14 @@ public class AvviaSegnalazioneControl {
 
 	private void inviaSegnalazione(){
 		JButton invia = as.getInviaSegnalazione();
-		ActionListener inviaLstnr = new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JComboBox idOrdine = as.getIdOrdine();
-				JTextArea descrizione = as.getDescrizione();
-				//System.out.println("Id :" + idOrdine.getSelectedItem());
-				//System.out.println("Descrizione: "+descrizione.getText());
-				db.inviaSegnalazione(Integer.parseInt((String)idOrdine.getSelectedItem()), descrizione.getText());
-			}
+		ActionListener inviaLstnr = e -> {
+			JComboBox idOrdine = as.getIdOrdine();
+			JTextArea descrizione = as.getDescrizione();
+			//System.out.println("Id :" + idOrdine.getSelectedItem());
+			//System.out.println("Descrizione: "+descrizione.getText());
+			db.inviaSegnalazione(Integer.parseInt(idOrdine.getSelectedItem()+""), descrizione.getText());
+			JOptionPane.showMessageDialog(as, "Segnalazione Inviata", "Conferma", JOptionPane.INFORMATION_MESSAGE);
+			as.dispose();
 		};
 		invia.addActionListener(inviaLstnr);
 	}

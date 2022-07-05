@@ -66,8 +66,6 @@ public class VisualizzaSegnalazioni extends JFrame {
         segnalazioniPnl = new JPanel();
         JPanel flowPnl2 = new JPanel(new BorderLayout());
         flowPnl2.add(segnalazioniPnl, BorderLayout.CENTER);
-        flowPnl2.add(new JLabel("       "), BorderLayout.EAST);
-        flowPnl2.add(new JLabel("       "), BorderLayout.WEST);
         /*mainPnl.add(flowPnl1);*/
         mainPnl.add(flowPnl2);
         framePnl.add(headerPnl, BorderLayout.NORTH);

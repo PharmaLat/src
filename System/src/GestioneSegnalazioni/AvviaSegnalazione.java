@@ -7,7 +7,6 @@ public class AvviaSegnalazione extends JFrame {
 
 	private int width = 1280;
 	private int height = 720;
-
 	private Container cont = this.getContentPane();
 	private JPanel framePnl;
 	private JPanel headerPnl;
@@ -16,7 +15,6 @@ public class AvviaSegnalazione extends JFrame {
 	private JPanel farmaciaPnl;
 	private JPanel LogoutPanel;
 	private JLabel farmaciaLbl;
-	private JButton notificheButton;
 	private JButton logoutButton;
 	private JComboBox idOrdine;
 	private JLabel idOrdineLbl;

@@ -37,7 +37,7 @@ public class NotificheControl {
             @Override
             public void run() {
                 LocalTime nowtime = LocalTime.now();
-                System.out.println("notifica  "+nowtime);
+                //System.out.println("notifica  "+nowtime);
                 LocalTime inizio = LocalTime.of(20, 0, 0);
                 LocalTime fine = LocalTime.of(21, 0, 0);
                 if (nowtime.isAfter(inizio) && nowtime.isBefore(fine)){
@@ -56,7 +56,7 @@ public class NotificheControl {
             @Override
             public void run() {
                 LocalDate nowtime = LocalDate.now();
-                System.out.println("notifica  "+nowtime);
+                //System.out.println("notifica  "+nowtime);
                 if (nowtime.getDayOfMonth() == 30){
                     ArrayList<Farmaco> farmaciScaduti = db.getFarmaciInScadenza();
                     if (!farmaciScaduti.isEmpty()){
@@ -66,6 +66,8 @@ public class NotificheControl {
                         }
                         notifiche.add(new Notifica(testo));
                     }
+                    timer.cancel();
+                    timer.purge();
                 }
             }
         }, 10*1000, 10*1000);

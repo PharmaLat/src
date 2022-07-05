@@ -36,6 +36,7 @@ public class GestioneSegnalazioniControl {
                 System.out.println("Cliccato visualizza segnalazioni");
                 vs = new VisualizzaSegnalazioni();
                 gestisciSegnalazioni();
+                vs.getLogoutButton().addActionListener(e1 -> vs.dispose());
             }
         };
         visualizza.addActionListener(visualizzaLstnr);
@@ -63,9 +64,12 @@ public class GestioneSegnalazioniControl {
                 JPanel grid = new JPanel(new GridLayout(1, 4, 20, 10));
                 int idOrdine = segnalazioni.get(i).getID_O();
                 ordine = new JLabel("Ordine N. "+ idOrdine);
-                nuovoOrdine[i] = new JButton("Nuovo Ordine " +i);
-                modificaOrdine[i] = new JButton("Modifica Ordine " +i);
-                chiudiSegnalazione[i] = new JButton("Chiudi Segnalazione " +i);
+                nuovoOrdine[i] = new JButton("Nuovo Ordine");
+                nuovoOrdine[i].setSize(new Dimension(150, 30));
+                modificaOrdine[i] = new JButton("Modifica Ordine");
+                modificaOrdine[i].setSize(new Dimension(150, 30));
+                chiudiSegnalazione[i] = new JButton("Chiudi Segnalazione");
+                chiudiSegnalazione[i].setSize(new Dimension(150, 30));
 
                 nuovoOrdine[i].setActionCommand(idOrdine+"");
                 modificaOrdine[i].setActionCommand(idOrdine+"");
@@ -219,6 +223,7 @@ public class GestioneSegnalazioniControl {
 
     private void chiudisegnalazione(ActionEvent e){
         db.chiudiSegnalazione(Integer.parseInt(e.getActionCommand()), u.getID());
+        System.out.println("Action command "+e.getActionCommand());
         JOptionPane.showMessageDialog(vs, "Segnalazione Chiusa");
     }
 

@@ -5,34 +5,29 @@ import GestioneMagazzino.Farmaco;
 import GestioneOrdini.Ordine;
 import GestioneSegnalazioni.Segnalazione;
 import Main.SchermataPrincipale;
-
 import javax.swing.*;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.TimerTask;
-import java.util.Timer;
 
 public class DBMSInterface {
     ConnectionClass connClass = new ConnectionClass();
     Connection connAzienda;
     Connection connFarmacia;
-    Timer timer;
     public DBMSInterface(LoginForm login, SchermataPrincipale s){
+        connetti(login);
+    }
+    private void connetti(LoginForm login){
         try {
-            connetti();
+            connAzienda = connClass.getConnectionAzienda();
+            connFarmacia = connClass.getConnectionFarmacia();
         }catch (Exception e){
             JOptionPane.showMessageDialog(login, "Problema con la connessione al DB, Ritenta", "Errore", JOptionPane.ERROR_MESSAGE);
-            //timer = new Timer();
+            connetti(login);
         }
     }
-    private void connetti() throws Exception{
-        connAzienda = connClass.getConnectionAzienda();
-        connFarmacia = connClass.getConnectionFarmacia();
-    }
-
     //Controllo credenziali nel DB Azienda
     public ResultSet checkCredentialsAzienda(String user, String pass){
         Statement st;
@@ -78,12 +73,10 @@ public class DBMSInterface {
             if (!res.next()) {
                 return null;
             }else {
-
                 do {
                     Farmaco f = new Farmaco(res.getInt("ID_F"), res.getString("Nome_F"), res.getString("Principio_Attivo"), res.getString("Scadenza"), res.getInt("Da_Banco") == 1 ? "Si":"No", res.getInt("Quantita"));
                     farmaci.add(f);
                 }while(res.next());
-
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -116,7 +109,6 @@ public class DBMSInterface {
 
         return farmaci;
     }
-
     public ArrayList<Farmaco> getFarmaciAcquistabili(){
         ArrayList<Farmaco> farmaci = new ArrayList<>();
         Statement st;
@@ -142,7 +134,6 @@ public class DBMSInterface {
 
     public void inserisciFarmacoFarmacia(Farmaco f, int id_farm){
         Statement st;
-        ResultSet res;
         String query = "INSERT INTO farmaco (Nome_F, Principio_Attivo, Scadenza, Da_Banco, Quantita, ID_FARM) VALUES ('"+f.getNome()+"', '"+f.getPrincipioAttivo()+"', '"+f.getData()+"', "+(f.getDaBanco().equals("Si")?1:0)+", "+f.getQuantita()+", "+ id_farm +");";
         System.out.println(query);
         try {
@@ -200,7 +191,7 @@ public class DBMSInterface {
         ResultSet res;
         try {
             st = connAzienda.createStatement();
-            String query1 = "SELECT DISTINCT (ordine.ID_O), DataDiConsegna, Stato_O FROM ordine, comprende, farmaco WHERE Indirizzo = '"+indirizzo+"' AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F";
+            String query1 = "SELECT DISTINCT(ordine.ID_O), DataDiConsegna, Stato_O FROM ordine, comprende, farmaco WHERE Indirizzo = '"+indirizzo+"' AND ordine.ID_O = comprende.ID_O AND comprende.ID_F = farmaco.ID_F";
             res = st.executeQuery(query1);
             if (!res.next()) {
                 return null;
@@ -293,7 +284,7 @@ public class DBMSInterface {
         ArrayList<Segnalazione> segnalazioni = new ArrayList<>();
         Statement st;
         ResultSet res;
-        String query = "Select * FROM ordine, segnalazione WHERE segnalazione.Stato_S != 'Chiusa' AND ordine.ID_S = segnalazione.ID_S";
+        String query = "Select * FROM ordine, segnalazione WHERE segnalazione.Stato_S = 'Aperta' AND ordine.ID_S = segnalazione.ID_S";
         try {
             st = connAzienda.createStatement();
             res = st.executeQuery(query);
@@ -443,26 +434,47 @@ public class DBMSInterface {
         }
     }
     //da sistemare id_segnalazione non è is_segnalazione
-    public void chiudiSegnalazione(int id_segnalazione, int id_addetto){
+    public void chiudiSegnalazione(int id_ordine, int id_addetto){
         Statement st;
-        String query = "UPDATE segnalazione SET Stato_S = 'Chiusa' WHERE ID_S = "+id_segnalazione;
+        int id_Segnalazione = getIdSegnalazioneFromIdOrdine(id_ordine);
+        String query = "UPDATE segnalazione SET Stato_S = 'Chiusa' WHERE ID_S = "+id_Segnalazione;
         System.out.println(query);
         try {
             st = connAzienda.createStatement();
             st.executeUpdate(query);
-            int id_ordine = getIdOrdineFromIdSegnalazione(id_segnalazione);
             String query1 = "UPDATE ordine SET ID_A = "+id_addetto+" WHERE ID_O = "+id_ordine;
+            System.out.println(query1);
             st.executeUpdate(query1);
         }catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+    public int getIdSegnalazioneFromIdOrdine(int idOrdine){
+        int idSegnalazione = 0;
+        Statement st;
+        ResultSet res;
+        String query = "SELECT * FROM ordine WHERE ordine.ID_O = "+idOrdine;
+        try {
+            st = connAzienda.createStatement();
+            res = st.executeQuery(query);
+            if (!res.next()) {
+                return 0;
+            }else {
+                do {
+                    idSegnalazione = res.getInt("ID_S");
+                }while(res.next());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
+        return idSegnalazione;
+    }
     public int getIdOrdineFromIdSegnalazione(int idSegnalazione){
         int idOrdine = 0;
         Statement st;
         ResultSet res;
-        String query = "SELECT * FROM ordine, segnalazione WHERE ordine.ID_S = segnalazione.ID_S";
+        String query = "SELECT * FROM ordine, segnalazione WHERE ordine.ID_S = "+idSegnalazione;
         try {
             st = connAzienda.createStatement();
             res = st.executeQuery(query);
@@ -708,7 +720,38 @@ public class DBMSInterface {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
+    public void setInConsegna(int ID_O){
+        Statement st;
+        String query = "UPDATE ordine SET Stato_O = 'In Consegna' WHERE ID_O = "+ID_O;
+        try{
+            st = connAzienda.createStatement();
+            st.executeUpdate(query);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void aggiornaOrdinePeriodico(String data, int ID_O){
+        Statement st;
+        String query = "UPDATE ordineperiodico SET DataUltimoOrdine = "+data+" WHERE ID_O = "+ID_O;
+        System.out.println(query);
+        try{
+            st = connAzienda.createStatement();
+            st.executeUpdate(query);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void scalaFarmaco(int ID, int qta){
+        Statement st;
+        String query = "UPDATE farmaco SET Quantita = Quantita - "+qta+ " WHERE ID_F = "+ID;
+        try{
+            st = connAzienda.createStatement();
+            st.executeUpdate(query);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

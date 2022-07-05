@@ -30,13 +30,18 @@ public class VisualizzaOrdiniControl {
 
     public void visualizzaOrdini(){
         JButton visualizza = s.getVisOrdini();
-        ActionListener visualizzaListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ordiniList = db.getOrdini(utente.getIndirizzoFarmacia());
-                scOrdini  = new SchermataOrdini();
+        ActionListener visualizzaListener = e -> {
+            ordiniList = db.getOrdini(utente.getIndirizzoFarmacia());
+            scOrdini  = new SchermataOrdini();
+            scOrdini.getFarmaciaLbl().setText(utente.getNomeFarmacia());
+            scOrdini.getLogoutButton().addActionListener(e1 -> scOrdini.dispose());
+            if (ordiniList != null){
                 formVisualizzaOrdini();
+            }else {
+                JOptionPane.showMessageDialog(scOrdini, "Non sono presenti ordini", "Nessun Ordine", JOptionPane.INFORMATION_MESSAGE);
+                scOrdini.dispose();
             }
+
         };
         visualizza.addActionListener(visualizzaListener);
     }
@@ -80,14 +85,16 @@ public class VisualizzaOrdiniControl {
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton btn = (JButton) e.getSource();
-
-            for (int i = 0; i < ordiniList.size(); i++) {
-                    if(btn.getActionCommand().equals(String.valueOf(ordiniList.get(i).getID_O()))) {
-                        if(isModificabile(ordiniList.get(i))) {
+            int conferma = JOptionPane.showConfirmDialog(scOrdini, "Sei sicuro di eliminare l'ordine?");
+            if (conferma == JOptionPane.OK_OPTION) {
+                for (int i = 0; i < ordiniList.size(); i++) {
+                    if (btn.getActionCommand().equals(String.valueOf(ordiniList.get(i).getID_O()))) {
+                        if (isModificabile(ordiniList.get(i))) {
                             new EliminaOrdineControl(db, ordiniList.get(i).getID_O());
                             scOrdini.dispose();
                         }
                         break;
+                    }
                 }
             }
         }

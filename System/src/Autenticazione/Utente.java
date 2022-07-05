@@ -1,7 +1,6 @@
 package Autenticazione;
 
 public class Utente {
-
     private String nome;
     private String cognome;
     private String ruolo;
@@ -34,7 +33,6 @@ public class Utente {
     public void setID_Farmacia(int ID_Farmacia) {
         this.ID_Farmacia = ID_Farmacia;
     }
-
     public String getNomeFarmacia() {
         return nomeFarmacia;
     }

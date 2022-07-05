@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ConfermaConsegna extends JFrame {
-
     private int width = 500;
     private int height = 300;
     private Container cont = this.getContentPane();
