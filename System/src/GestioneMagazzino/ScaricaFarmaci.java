@@ -93,7 +93,7 @@ public class ScaricaFarmaci extends JFrame{
 
 		erroreQta = new JLabel("Quantita inserita maggiore di quella presente in magazzino");
 		erroreQta.setForeground(Color.red);
-		erroreQta.setBounds(400, 230, 250, 20);
+		erroreQta.setBounds(400, 230, 350, 20);
 		erroreQta.setVisible(false);
 		framePnl.add(erroreQta);
 

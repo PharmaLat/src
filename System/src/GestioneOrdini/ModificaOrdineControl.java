@@ -66,7 +66,7 @@ public class ModificaOrdineControl {
 
         //top
         JPanel pnlTop = new JPanel();
-        pnlTop.add(new JLabel("Modifica ordine " + String.valueOf(ordiniList.get(nOrdine).getID_O())) );
+        pnlTop.add(new JLabel("Modifica ordine " + ordiniList.get(nOrdine).getID_O()));
 
         //bot
         JButton btnConferma = new JButton("Conferma");
@@ -95,7 +95,7 @@ public class ModificaOrdineControl {
 
             System.out.println(farmaciMod);
             
-            db.modificaOrdine(nOrdine, farmaciMod);
+            db.modificaOrdine(ordiniList.get(nOrdine).getID_O(), farmaciMod);
             farmaciMod.clear();
             qtaFarm.clear();
             modificaDialog.dispose();

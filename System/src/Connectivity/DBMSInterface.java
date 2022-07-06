@@ -334,7 +334,7 @@ public class DBMSInterface {
         Statement st;
         ResultSet res;
         String query = "SELECT * FROM ordine WHERE DataDiConsegna = '"+data+"' AND Stato_O <> 'In Lavorazione';";
-
+        System.out.println("query consegne "+query);
         try {
             st = connAzienda.createStatement();
             res = st.executeQuery(query);

@@ -70,6 +70,8 @@ public class LoginControl {
 								s.initAddetto();
 								s.getFarmaciaLbl().setText("PharmaLat");
 							}
+							controllaOrdini();
+							controllaOrdiniPeriodici();
 						} else if (ruolo.equals("farmacia")) {
 							utente.setNome(res.getString("Nome"));
 							utente.setCognome(res.getString("Cognome"));
@@ -139,17 +141,19 @@ public class LoginControl {
 	private void controllaOrdiniPeriodici(){
 		System.out.println("Controllo ordini periodici");
 		ArrayList<Ordine> ordini = db.getOrdiniPeriodici(utente.getIndirizzoFarmacia());
-		for (Ordine ordine : ordini) {
-			int periodicita = ordine.getPeriodicita();
-			String ultimoOrdine = ordine.getDataUltimoOrdine();
-			String[] dataSplit = ultimoOrdine.split("-");
-			LocalDate oggi = LocalDate.now();
-			LocalDate ultimaConsegna = LocalDate.of(Integer.parseInt(dataSplit[0]), Integer.parseInt(dataSplit[1]), Integer.parseInt(dataSplit[2]));
-			if (WEEKS.between(oggi, ultimaConsegna) >= periodicita && ultimaConsegna.isBefore(oggi)) {
-				db.inviaOrdine(ordine.getFarmaci(), ordine.getIndirizzo());
-				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-				String newData = df.format(oggi);
-				db.aggiornaOrdinePeriodico(newData, ordine.getID_O());
+		if (ordini != null){
+			for (Ordine ordine : ordini) {
+				int periodicita = ordine.getPeriodicita();
+				String ultimoOrdine = ordine.getDataUltimoOrdine();
+				String[] dataSplit = ultimoOrdine.split("-");
+				LocalDate oggi = LocalDate.now();
+				LocalDate ultimaConsegna = LocalDate.of(Integer.parseInt(dataSplit[0]), Integer.parseInt(dataSplit[1]), Integer.parseInt(dataSplit[2]));
+				if (WEEKS.between(oggi, ultimaConsegna) >= periodicita && ultimaConsegna.isBefore(oggi)) {
+					db.inviaOrdine(ordine.getFarmaci(), ordine.getIndirizzo());
+					DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+					String newData = df.format(oggi);
+					db.aggiornaOrdinePeriodico(newData, ordine.getID_O());
+				}
 			}
 		}
 	}

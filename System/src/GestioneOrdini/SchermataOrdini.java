@@ -4,16 +4,18 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SchermataOrdini extends JFrame {
-
+    private int width = 1280;
+    private int height = 720;
     JPanel gridCenter;
     JPanel lblCenter;
     JPanel btnCenter1;
     JPanel btnCenter2;
     Container cont;
-
+    JLabel farmaciaLbl;
+    private JButton logoutButton;
     public SchermataOrdini() {
         this.setTitle("Schermata ordini");
-        this.setSize(1280, 720);
+        this.setSize(width, height);
         this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -24,11 +26,25 @@ public class SchermataOrdini extends JFrame {
     public void initItems(){
 
         //top
-        JPanel pnlTop = new JPanel();
-        JLabel nomeFarmacia = new JLabel("Nome Farmacia");
-        pnlTop.setBackground(Color.darkGray);
-        pnlTop.setPreferredSize(new Dimension(300, 50));
-        pnlTop.add(nomeFarmacia);
+        JPanel headerPnl = new JPanel();
+        headerPnl.setLayout(new GridLayout());
+
+        JPanel notifichePnl = new JPanel();
+        notifichePnl.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+        headerPnl.add(notifichePnl);
+        JPanel farmaciaPnl = new JPanel();
+        farmaciaPnl.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        headerPnl.add(farmaciaPnl);
+        farmaciaLbl = new JLabel();
+        farmaciaLbl.setFont(new Font("Calibri", Font.PLAIN, 23));
+        farmaciaPnl.add(farmaciaLbl);
+        JPanel LogoutPanel = new JPanel();
+        LogoutPanel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
+        headerPnl.add(LogoutPanel);
+        headerPnl.setBounds(0, 0, width-15, 50);
+        logoutButton = new JButton();
+        logoutButton.setText("Indietro");
+        LogoutPanel.add(logoutButton);
 
         //center
 
@@ -56,7 +72,7 @@ public class SchermataOrdini extends JFrame {
         scroll.add(pnlCenter2);
 
         cont = this.getContentPane();
-        cont.add(pnlTop, BorderLayout.NORTH);
+        cont.add(headerPnl, BorderLayout.NORTH);
         cont.add(scroll, BorderLayout.CENTER);
 
     }
@@ -79,4 +95,12 @@ public class SchermataOrdini extends JFrame {
     }
 
     public Container getCont() { return cont; }
+
+    public JLabel getFarmaciaLbl() {
+        return farmaciaLbl;
+    }
+
+    public JButton getLogoutButton() {
+        return logoutButton;
+    }
 }

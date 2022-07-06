@@ -29,6 +29,9 @@ public class Main {
 		VisualizzaOrdiniControl voc = new VisualizzaOrdiniControl(s, utente, db);
 		NotificheControl nc = new NotificheControl(s, db, utente);
 		OrdiniPeriodiciControl opc = new OrdiniPeriodiciControl(s, utente, db);
+		//ProduzioneFarmaci pf = new ProduzioneFarmaci(100, db, 30);
+		//nc.getNotifiche().add(new Notifica("Ciao"));
+		//nc.getNotifiche().add(new Notifica("Ciao2"));
 
 	}
 }
